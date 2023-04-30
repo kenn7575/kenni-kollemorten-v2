@@ -12,6 +12,8 @@ const config = {
         text: "#111",
         // Default color for dark mode
         "dark-text": "#fff",
+        primary: "#d90452",
+        secondary: "#da684d",
       },
     },
   },

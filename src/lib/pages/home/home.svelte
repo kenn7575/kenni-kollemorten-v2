@@ -1,1 +1,5 @@
-<h1 class="dark:text-dark-text">home</h1>
+<script>
+  import Hero from "./hero.svelte";
+</script>
+
+<Hero />

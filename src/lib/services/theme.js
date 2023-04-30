@@ -10,26 +10,17 @@ const setTheme = () => {
   } else {
     document.documentElement.classList.remove("dark");
   }
-
-  // Whenever the user explicitly chooses light mode
-
-  // Whenever the user explicitly chooses dark mode
-
-  // Whenever the user explicitly chooses to respect the OS preference
-  localStorage.removeItem("theme");
 };
 const changeTheme = (preference) => {
   switch (preference) {
-    case "dark":
+    case "Dark":
       localStorage.setItem("theme", "dark");
       break;
-    case "light":
+    case "Light":
       localStorage.setItem("theme", "light");
       break;
-    case "os":
+    case "System":
       localStorage.removeItem("theme");
-    default:
-      localStorage.setItem("theme", "light");
   }
 };
 export { setTheme, changeTheme };
