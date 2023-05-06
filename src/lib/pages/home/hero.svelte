@@ -23,29 +23,47 @@
 <!-- Foreground -->
 <div class="flex justify-between custom-hight">
   <!-- text -->
-  <div class="flex flex-col justify-around w-1/5">
-    <h1 class="text-5xl font-bold text-slate-600">1</h1>
-    <h1 class="text-5xl font-bold text-slate-600">2</h1>
-    <h1 class="text-5xl font-bold text-slate-600">3</h1>
+  <div class="flex flex-col items-center justify-evenly w-3/12 p-2">
+    <div>
+      <h1 class="text-slate-500 text-5xl">I'm</h1>
+      <h1 class="text-5xl text-slate-50">Kenni Kollemorten</h1>
+    </div>
+    <p class="text-slate-400">
+      I'm a student at Syddansk Erhvervsskole Odense, and i study to be a Data
+      Technician Specialised in Programming. I do web development, database
+      engineering and programming in general.
+    </p>
+    <button
+      class="bg-primary transition-all rounded-lg py-2 px-12 border-2 border-primary hover:bg-transparent"
+    >
+      <i class="fa-solid fa-star pr-2" /> Portfolie</button
+    >
+    <div class="flex gap-4 p-1 text-3xl border-b-2 border-slate-300">
+      <a href="#"><i class="fa-brands fa-github" /></a>
+      <a href="#"><i class="fa-brands fa-linkedin" /></a>
+      <a href=""><i class="fa-brands fa-youtube" /></a>
+      <a href=""><i class="fa-brands fa-square-behance" /></a>
+      <a href=""><i class="fa-solid fa-envelope" /></a>
+    </div>
   </div>
   <!-- content -->
-  <div class="w-3/5 bg-amber-300" />
+  <div class="w-7/12 bg-amber-300" />
   <!-- tabs -->
-  <div class="flex flex-col justify-center w-1/5">
+  <div class="flex gap-2 p-2 flex-col justify-center w-2/12">
     <button
-      class="py-3 px-8 rounded-full bg-slate-700 {one}"
+      class="py-3 px-8 h-20 rounded-2xl bg-slate-700 {one}"
       on:click={() => (selection = "one")}
     >
       1
     </button>
     <button
-      class="py-3 px-8 rounded-full bg-slate-700 {two}"
+      class="py-3 px-8 h-20 rounded-2xl bg-slate-700 {two}"
       on:click={() => (selection = "two")}
     >
       2
     </button>
     <button
-      class="py-3 px-8 rounded-full bg-slate-700 {three}"
+      class="py-3 px-8 h-20 rounded-2xl bg-slate-700 {three}"
       on:click={() => (selection = "three")}
     >
       3
