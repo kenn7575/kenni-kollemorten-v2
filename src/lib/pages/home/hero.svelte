@@ -23,7 +23,7 @@
 <!-- Foreground -->
 <div class="flex justify-between custom-hight">
   <!-- text -->
-  <div class="flex flex-col items-center justify-evenly w-3/12 p-2">
+  <div class="flex flex-col items-start justify-evenly w-3/12 p-4">
     <div>
       <h1 class="text-slate-500 text-5xl">I'm</h1>
       <h1 class="text-5xl text-slate-50">Kenni Kollemorten</h1>
