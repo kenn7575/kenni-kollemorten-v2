@@ -11,6 +11,18 @@ const setTheme = () => {
     document.documentElement.classList.remove("dark");
   }
 };
+const getTheme = () => {
+  let theme = localStorage.getItem("theme");
+  if (
+    theme === "dark" ||
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    return "Dark";
+  } else {
+    return "Light";
+  }
+};
 const changeTheme = (preference) => {
   switch (preference) {
     case "Dark":
@@ -23,4 +35,4 @@ const changeTheme = (preference) => {
       localStorage.removeItem("theme");
   }
 };
-export { setTheme, changeTheme };
+export { setTheme, changeTheme, getTheme };

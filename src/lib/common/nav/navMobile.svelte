@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { Link } from "svelte-routing";
   import logo from "../../../../public/logo.png";
   import Menu from "../menu.svelte";
   $: showMenu = "hide";
@@ -40,7 +39,7 @@
 <style>
   .show {
     width: 20rem !important;
-    height: 40rem !important;
+    height: 20rem !important;
     top: 100%;
     transform: translateY(0.5rem);
   }

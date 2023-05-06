@@ -34,7 +34,7 @@
   </header>
 
   <main
-    class="dark:bg-slate-700 dark:text-dark-text bg-slate-200 min-h-screen relative"
+    class="dark:bg-slate-700 dark:text-slate-50 text-slate-800 bg-slate-200 min-h-screen relative"
   >
     <Route component={error404} />
     <Route path="/" component={home} />
