@@ -10,3 +10,9 @@ h5,
 h6 {
 	font-family: Figtree, Noto Sans JP, Noto Sans, sans-serif;
 }
+[data-theme='synthwave'] > * {
+	--primary: rgba(231, 121, 193, 0.6433167);
+}
+[data-theme='acid'] > * {
+	--primary: rgba(231, 121, 193, 0.6433167);
+}

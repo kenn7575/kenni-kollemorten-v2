@@ -20,9 +20,9 @@
 	<div class="col-start-1 row-start-1 flex items-center justify-center z-10 -rotate-3">
 		<div class="rating gap-1 bg-base-200 px-8 py-4 rounded shadow-lg">
 			<input type="radio" name="rating-3" class="mask mask-heart bg-red-400 border" />
-			<input type="radio" name="rating-3" class="mask mask-heart bg-orange-400" checked />
+			<input type="radio" name="rating-3" class="mask mask-heart bg-orange-400" />
 			<input type="radio" name="rating-3" class="mask mask-heart bg-yellow-400" />
-			<input type="radio" name="rating-3" class="mask mask-heart bg-lime-400" />
+			<input type="radio" name="rating-3" class="mask mask-heart bg-lime-400" checked />
 			<input type="radio" name="rating-3" class="mask mask-heart bg-green-400" />
 		</div>
 	</div>
@@ -71,7 +71,10 @@
 
 	<!-- 2,6 end -->
 	<!-- 4,7 -->
-	<div class="col-start-1 row-start-2 row-span-2 flex items-center justify-center z-10 -rotate-3">
+	<div
+		class="col-start-1 row-start-2 row-span-2 flex items-end justify-center z-10 -rotate-3
+	lg:items-start"
+	>
 		<img class="h-24 lg:h-36" src={tailwindLogo} alt="" />
 	</div>
 	<!-- 4,7 end -->

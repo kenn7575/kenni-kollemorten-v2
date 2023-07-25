@@ -1,10 +1,13 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 	//set data-theme attribute on html element
 
+	$: console.log($page.route.id);
 	let isDoneLoading = false;
 	let darkmode = true;
 	let html: any; //html tag to be targeted
+
 	onMount(() => {
 		html = document.querySelector('html');
 		isDoneLoading = true;
@@ -13,9 +16,9 @@
 	$: {
 		if (isDoneLoading) {
 			if (darkmode) {
-				html.setAttribute('data-theme', 'night');
+				html.setAttribute('data-theme', 'synthwave');
 			} else {
-				html.setAttribute('data-theme', 'light');
+				html.setAttribute('data-theme', 'acid');
 			}
 		}
 	}
@@ -58,11 +61,19 @@
 			</div>
 			<div class="navbar-center hidden sm:flex">
 				<div class="join">
-					<a class="btn btn-ghost px-8" href="/">Hjem</a>
+					<a class:bg-base-100={$page.route.id == '/'} class="btn btn-ghost px-8" href="/">Hjem</a>
 
-					<a class="btn btn-ghost px-8" href="/projekter">projekter</a>
+					<a
+						class:bg-base-100={$page.route.id?.includes('projekter')}
+						class="btn btn-ghost px-8"
+						href="/projekter">projekter</a
+					>
 
-					<a class="btn btn-ghost px-8" href="/cv">CV</a>
+					<a
+						class:bg-base-100={$page.route.id?.includes('cv')}
+						class="btn btn-ghost px-8"
+						href="/cv">CV</a
+					>
 				</div>
 			</div>
 			<div class="navbar-end">

@@ -18,7 +18,7 @@ const config = {
 
 	plugins: [require('daisyui')],
 	daisyui: {
-		themes: ['night', 'light']
+		themes: ['synthwave', 'acid']
 	}
 };
 
