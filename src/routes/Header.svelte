@@ -1,20 +1,27 @@
 <script>
 	import FrontendEffect from '$lib/components/frontendEffect.svelte';
-
+	import BackendEffect from '$lib/components/backendEffect.svelte';
+	import { fly } from 'svelte/transition';
 	let FrontendMode = true;
 </script>
 
-<header class="flex flex-col lg:grid lg:grid-cols-3 xl:grid-cols-7">
+<header class="flex flex-col lg:grid lg:grid-cols-3 xl:grid-cols-7 p-2">
 	<div
-		class="flex flex-col justify-center gap-2
+		class="flex flex-col justify-center gap-2 z-10
     xl:col-span-2"
 	>
 		<div class="w-full flex flex-col justify-center items-start px-8">
-			<p>Hej, jeg er</p>
-			<h1 class="text-5xl w-72 font-semibold text-accent">Kenni Kollemorten</h1>
+			<p class="text-neutral font-bold">Hej, mit navn er</p>
+			<h1 class="text-5xl font-bold text-primary">Kenni Kollemorten</h1>
+
+			<p class=" ">
+				Og jeg er
+				<span class="badge badge-ghost">Datatekniker</span>
+				<span class="badge badge-ghost">Programmør</span>
+				og leder efter en <span class="badge badge-accent">Elevplads</span>
+			</p>
 		</div>
 	</div>
-
 	<!-- Mode start -->
 	<div
 		class="flex flex-col gap-2 justify-center
@@ -31,7 +38,7 @@
 
 			<div class="join xl:join-vertical">
 				<button
-					class="btn join-item hover:bg-primary hover:text-white w-32
+					class="btn join-item hover:bg-neutral-focus w-32
                     lg:w-60
                     xl:h-24 xl:w-44"
 					class:bg-primary={FrontendMode}
@@ -44,7 +51,7 @@
 				>
 
 				<button
-					class="btn join-item hover:bg-primary hover:text-white w-32
+					class="btn join-item hover:bg-neutral-focus w-32
                     lg:w-60
                     xl:h-24 xl:w-44"
 					class:bg-primary={!FrontendMode}
@@ -64,9 +71,24 @@
 			lg:col-start-2 lg:col-end-4 lg:row-start-1
 			xl:col-start-3 xl:col-span-4 xl:row-start-1"
 	>
-		<div class="w-full"><FrontendEffect /></div>
+		{#if FrontendMode}
+			<div in:fly class="effect-bg w-full"><FrontendEffect /></div>
+		{:else}
+			<div in:fly class="effect-bg w-full"><BackendEffect /></div>
+		{/if}
 	</div>
 </header>
 
 <style>
+	.effect-bg {
+		background: var(--primary);
+		background: radial-gradient(
+			circle,
+			rgba(251, 55, 55, 0.6433167016806722) 0%,
+			rgba(255, 255, 255, 0) 63%
+		);
+	}
+	header {
+		min-height: calc(100vh - 4rem);
+	}
 </style>
