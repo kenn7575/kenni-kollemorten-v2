@@ -3,7 +3,6 @@
 	import { onMount } from 'svelte';
 	//set data-theme attribute on html element
 
-	$: console.log($page.route.id);
 	let isDoneLoading = false;
 	let darkmode = true;
 	let html: any; //html tag to be targeted

@@ -13,15 +13,14 @@
 		<div class="w-full flex flex-col justify-center items-start px-8">
 			<p class="text-base-content font-bold">Hej, mit navn er</p>
 			<h1
-				class=" text-5xl font-bold bg-gradient-to-r from-primary via-secondary to-accent my-4
+				class=" text-5xl font-bold bg-gradient-to-r from-primary via-secondary to-accent my-8 leading-10
 			sm:text-6xl lg:text-7xl"
 			>
 				Kenni <br /> Kollemorten
 			</h1>
 			<div class="chat chat-start">
-				<div class="chat-bubble bg-base-300 text-base-content">
-					Jeg er datatekniker med <br /> programmering elev på <br />SDE og jeg mangler en
-					elevplads.
+				<div class="chat-bubble bg-base-300 text-base-content max-w-128">
+					Jeg er datatekniker med speciale i programmering elev på SDE og jeg mangler en elevplads.
 				</div>
 				<div class="chat-footer opacity-50">Leveret</div>
 			</div>

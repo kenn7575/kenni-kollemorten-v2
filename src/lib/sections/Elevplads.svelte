@@ -1,5 +1,5 @@
 <section
-	class="flex items-center justify-center gap-8 bg-gradient-to-r from-primary to-secondary py-16 px-2"
+	class="flex items-center justify-center gap-8 py-16 px-2 bg-gradient-to-r from-primary to-secondary"
 >
 	<div class="grid grid-cols-1 justify-items-center lg:grid-cols-2 gap-8">
 		<div class="card w-11/12 sm:w-96 glass text-base-100 shadow-xl overflow-x-hidden">

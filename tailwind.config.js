@@ -10,6 +10,9 @@ const config = {
 			maxHeight: {
 				192: '48rem'
 			},
+			maxWidth: {
+				128: '32rem'
+			},
 			aspectRatio: {
 				'4/3': '4 / 3'
 			}
