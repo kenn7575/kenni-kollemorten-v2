@@ -68,7 +68,8 @@
 				<i class="fa-solid fa-arrow-right" />
 			</a>
 		</div>
-		<div class="max-w-128 ml-auto faded xl:!delay-300" class:fadein={intersecting3}>
+
+		<div class=" max-w-128 ml-auto faded xl:!delay-300" class:fadein={intersecting3}>
 			<h3 class="text-3xl font-bold mt-8">Programmering 👾</h3>
 			<IntersectionObserver once={true} element={e3} bind:intersecting={intersecting3}>
 				<div bind:this={e3} class="observer" />

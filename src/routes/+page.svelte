@@ -8,5 +8,6 @@
 	<Header />
 	<div class="divider" />
 	<OmMig />
+
 	<Elevplads />
 </main>
