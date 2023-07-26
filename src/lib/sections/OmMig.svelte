@@ -38,10 +38,12 @@
 			<p class=" text-base-content/70 text-lg">
 				Jeg er {age} år og bor i svendborg. Jeg har en kæmpe passion for
 
-				<span class="badge badge-outline badge-primary">programmering</span>
+				<span class="badge badge-outline badge-secondary">programmering</span>
 				og design af
-				<span class="badge badge-outline badge-secondary">UI/UX</span> Jeg har lavet den her hjemmeside,
-				fordi jeg mangler en elevplads i forbindelse med min uddandelse.
+				<span class="badge badge-outline badge-secondary">UI/UX</span> Jeg har lavet den her
+				hjemmeside, fordi jeg mangler en
+				<span class="rotate-3 underline text-base-content">elevplads</span>
+				i forbindelse med min uddandelse.
 			</p>
 			<a href=" https://github.com/kenn7575" target="_blank" class="btn btn-outline mt-4">
 				github
@@ -56,10 +58,10 @@
 			<p class="text-base-content/70 text-lg">
 				Jeg studere data og kommunikation, som datatekniker med speciale i programmering på Syddansk
 				Erhvervsskole og er lige nu på
-				<span class="badge badge-outline badge-primary">{year + 1}. år</span>
+				<span class="badge badge-outline badge-secondary">{year + 1}. år</span>
 				Som datatekniker lære jeg at udvilke store og små software systemer, og hvordan man laver code
 				som er
-				<span class="badge badge-outline badge-primary">DRY</span>
+				<span class="badge badge-outline badge-secondary">DRY</span>
 				<span class="badge badge-outline badge-secondary">SOLID</span>
 				<span class="badge badge-outline badge-secondary">læsbar</span>
 			</p>
@@ -76,15 +78,15 @@
 			</IntersectionObserver>
 			<p class="text-base-content/70 text-lg">
 				Jeg har stor erfaring med at udvikle i
-				<span class="badge badge-outline badge-primary">JavaScript</span>
+				<span class="badge badge-outline badge-secondary">JavaScript</span>
 				og
 				<span class="badge badge-outline badge-secondary">C#</span>
 
 				Jeg arbejder meget med
 				<span class="badge badge-outline badge-secondary">Webudvikling</span>
 				både front- og backend, og med frameworks som bl.a.
-				<span class="badge badge-outline badge-error">Svelte</span>
-				<span class="badge badge-outline badge-error">SvelteKit</span>
+				<span class="badge badge-outline badge-secondary">Svelte</span>
+				<span class="badge badge-outline badge-secondary">SvelteKit</span>
 			</p>
 			<a href="/projekter" class="btn btn-primary mt-4">
 				Gå til projekter

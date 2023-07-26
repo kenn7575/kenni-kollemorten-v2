@@ -32,7 +32,7 @@
 		lg:col-start-1 lg:col-end-4 lg:row-start-2
 		xl:col-start-7 xl:col-span-1 xl:row-start-1"
 	>
-		<div class="divider hidden lg:flex xl:hidden" />
+		<!-- <div class="divider hidden lg:flex xl:hidden" /> -->
 		<div class="divider lg:hidden" />
 
 		<div
