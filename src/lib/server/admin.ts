@@ -5,7 +5,7 @@ import { getFirestore } from 'firebase-admin/firestore';
 import pkg from 'firebase-admin';
 
 try {
-	const privateKey = JSON.parse(process.env.FB_PRIVATE_KEY || '');
+	const privateKey = JSON.stringify(process.env.FB_PRIVATE_KEY || '');
 	console.warn('privateKey', privateKey);
 	pkg.initializeApp({
 		credential: pkg.credential.cert({
