@@ -1,9 +1,10 @@
 <script lang="ts">
-	export let data;
+	import type { IProject } from '$lib/types/interfaces';
+	export let data: IProject[];
 </script>
 
 <div class="flex gap-4">
-	{#each data.projects as project}
+	{#each data as project}
 		<div class="card bg-accent w-96 text-secondary-content shadow-xl">
 			<figure><img src={project.image} alt="Shoes" /></figure>
 			<div class="card-body">

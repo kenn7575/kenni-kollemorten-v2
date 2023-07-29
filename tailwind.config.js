@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config}*/
 const config = {
-	content: ['./src/**/*.{html,js,svelte,ts}', '.src/*.{html,js,svelte,ts}'],
+	content: ['./src/**/*.{html,js,svelte,ts}', '.src/*.{html,js,svelte,ts,svg}'],
 
 	theme: {
 		extend: {
@@ -11,7 +11,8 @@ const config = {
 				192: '48rem'
 			},
 			maxWidth: {
-				128: '32rem'
+				128: '32rem',
+				192: '48rem'
 			},
 			aspectRatio: {
 				'4/3': '4 / 3'
@@ -21,7 +22,7 @@ const config = {
 
 	plugins: [require('daisyui')],
 	daisyui: {
-		themes: ['synthwave', 'acid']
+		themes: ['night', 'light']
 	}
 };
 

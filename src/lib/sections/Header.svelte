@@ -13,7 +13,7 @@
 		<div class="w-full flex flex-col justify-center items-start px-8">
 			<p class="text-base-content font-bold">Hej, mit navn er</p>
 			<h1
-				class=" text-5xl font-bold bg-gradient-to-r from-primary via-secondary to-accent my-8 leading-10
+				class=" text-5xl font-bold bg-gradient-to-r from-primary to-secondary my-8 leading-10
 			sm:text-6xl lg:text-7xl"
 			>
 				Kenni <br /> Kollemorten

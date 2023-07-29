@@ -18,7 +18,7 @@
 </script>
 
 <section
-	class="flex flex-col items-center justify-around gap-8 py-16 px-4 bg-base-100
+	class="flex flex-col items-center justify-around gap-16 py-16 px-4 bg-base-100
     xl:px-16 xl:gap-16 md:flex-row xl:justify-between"
 >
 	<div class="avatar relative">
@@ -30,8 +30,8 @@
 		/>
 	</div>
 	<div class="xl:w-full">
-		<div class="max-w-128 faded" class:fadein={intersecting1}>
-			<h3 class="text-3xl font-bold">Om mig 👋</h3>
+		<div class="max-w-128 faded mb-16" class:fadein={intersecting1}>
+			<h3 class="text-3xl font-bold mb-4">Om mig 👋</h3>
 			<IntersectionObserver once={true} element={e1} bind:intersecting={intersecting1}>
 				<div bind:this={e1} class="observer" />
 			</IntersectionObserver>
@@ -50,15 +50,15 @@
 				<i class="fa-brands fa-github text-3xl" />
 			</a>
 		</div>
-		<div class="mt-8 max-w-128 mx-auto faded xl:!delay-150" class:fadein={intersecting2}>
-			<h3 class="text-3xl font-bold">Uddannelse 📚</h3>
+		<div class="mt-8 max-w-128 mx-auto faded xl:!delay-150 mb-16" class:fadein={intersecting2}>
+			<h3 class="text-3xl font-bold mb-4">Uddannelse 📚</h3>
 			<IntersectionObserver once={true} element={e2} bind:intersecting={intersecting2}>
 				<div bind:this={e2} class="observer" />
 			</IntersectionObserver>
 			<p class="text-base-content/70 text-lg">
 				Jeg studere data og kommunikation, som datatekniker med speciale i programmering på Syddansk
 				Erhvervsskole og er lige nu på
-				<span class="badge badge-outline badge-secondary">{year + 1}. år</span>
+				<span class="badge badge-outline badge-secondary">{year}. år</span>
 				Som datatekniker lære jeg at udvilke store og små software systemer, og hvordan man laver code
 				som er
 				<span class="badge badge-outline badge-secondary">DRY</span>
@@ -72,7 +72,7 @@
 		</div>
 
 		<div class=" max-w-128 ml-auto faded xl:!delay-300" class:fadein={intersecting3}>
-			<h3 class="text-3xl font-bold mt-8">Programmering 👾</h3>
+			<h3 class="text-3xl font-bold mt-8 mb-4">Programmering 👾</h3>
 			<IntersectionObserver once={true} element={e3} bind:intersecting={intersecting3}>
 				<div bind:this={e3} class="observer" />
 			</IntersectionObserver>
@@ -88,6 +88,7 @@
 				<span class="badge badge-outline badge-secondary">Svelte</span>
 				<span class="badge badge-outline badge-secondary">SvelteKit</span>
 			</p>
+
 			<a href="/projekter" class="btn btn-primary mt-4">
 				Gå til projekter
 				<i class="fa-solid fa-arrow-right" />

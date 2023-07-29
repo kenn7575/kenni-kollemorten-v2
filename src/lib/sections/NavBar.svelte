@@ -15,9 +15,9 @@
 	$: {
 		if (isDoneLoading) {
 			if (darkmode) {
-				html.setAttribute('data-theme', 'synthwave');
+				html.setAttribute('data-theme', 'night');
 			} else {
-				html.setAttribute('data-theme', 'acid');
+				html.setAttribute('data-theme', 'light');
 			}
 		}
 	}
@@ -27,7 +27,7 @@
 	<input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
 	<div class="drawer-content flex flex-col">
 		<!-- Navbar -->
-		<div class="w-full navbar bg-base-300">
+		<div class="w-full navbar bg-gradient-to-b from-base-300">
 			<div class="navbar-start">
 				<label class="swap swap-rotate">
 					<!-- this hidden checkbox controls the state -->
@@ -60,19 +60,11 @@
 			</div>
 			<div class="navbar-center hidden sm:flex">
 				<div class="join">
-					<a class:bg-base-100={$page.route.id == '/'} class="btn btn-ghost px-8" href="/">Hjem</a>
+					<a class="btn btn-ghost px-8" href="/">Hjem</a>
 
-					<a
-						class:bg-base-100={$page.route.id?.includes('projekter')}
-						class="btn btn-ghost px-8"
-						href="/projekter">projekter</a
-					>
+					<a class="btn btn-ghost px-8" href="/projekter">projekter</a>
 
-					<a
-						class:bg-base-100={$page.route.id?.includes('cv')}
-						class="btn btn-ghost px-8"
-						href="/cv">CV</a
-					>
+					<a class="btn btn-ghost px-8" href="/cv">CV</a>
 				</div>
 			</div>
 			<div class="navbar-end">
@@ -103,3 +95,6 @@
 		</ul>
 	</div>
 </div>
+
+<style>
+</style>
