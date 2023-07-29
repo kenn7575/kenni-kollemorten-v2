@@ -1,6 +1,20 @@
 <script lang="ts">
+	import { createLoadObserver } from '$lib/functions/createLoadObserver';
 	import { projectsStore } from '$lib/stores/projects';
+
+	const onload = createLoadObserver(() => {
+		console.log('all images loaded');
+		isLoaded.forEach((loaded) => {
+			loaded = true;
+		});
+	});
+
 	let data = $projectsStore;
+	// create a list new of isLoaded booleans for each project
+	let isLoaded: boolean[] = [];
+	for (let i = 0; i < data.length; i++) {
+		isLoaded.push(false);
+	}
 </script>
 
 <h1 class="text-5xl">Projekter</h1>
@@ -8,7 +22,25 @@
 	{#if data}
 		{#each data as project, index}
 			<div class="card bg-base-200 w-96 text-base-content shadow-xl">
-				<figure><img src={project.image} alt="Shoes" /></figure>
+				<div
+					class="blur-img rounded-t-xl bg-center w-full aspect-video bg-no-repeat"
+					style="background-image: url({project.imageSmall}) ;"
+				>
+					<img
+						use:onload
+						on:load={() => {
+							console.log('image ' + (index + 1) + ' of ' + data.length + ' loaded');
+							isLoaded[index] = true;
+						}}
+						on:ended={() => {
+							console.log('ended');
+						}}
+						src={project.image}
+						alt="Shoes"
+						class="aspect-video rounded-t-xl object-cover object-center w-full transition-all duration-200 ease-in opacity-0"
+						class:opacity-100={isLoaded[index]}
+					/>
+				</div>
 				<div class="card-body">
 					<h2 class="card-title">
 						{project.title}
@@ -32,3 +64,11 @@
 		{/each}
 	{/if}
 </div>
+
+<style>
+	.blur-img {
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+</style>

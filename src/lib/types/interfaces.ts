@@ -3,6 +3,7 @@ export interface IProject {
 	title: string;
 	description: string;
 	image: string;
+	imageSmall: string;
 	label: string;
 	dateCreated: string;
 	subtitle: string;
@@ -14,6 +15,7 @@ export interface IProject {
 	text: {
 		title: string;
 		image: string;
+		imageSmall: string;
 		description: string;
 		code: string[];
 	};
