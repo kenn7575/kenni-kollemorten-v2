@@ -18,5 +18,5 @@ export interface IProject {
 		imageSmall: string;
 		description: string;
 		code: string[];
-	};
+	}[];
 }

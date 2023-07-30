@@ -25,9 +25,9 @@
 		<div class="flex mb-16 items-center gap-2 font-semibold text-sm">
 			<p class=" text-primary-content/80">{data.label}</p>
 			<div class="divider w-4 after:bg-primary-content/80 before:bg-primary-content/80" />
-			<p class="text">{month} {year}</p>
+			<p>{month} {year}</p>
 		</div>
-		<h1 class="text-7xl font-bold text-primary-content mb-16">{data.title}</h1>
+		<h1 class="text-5xl sm:text-7xl font-bold text-primary-content mb-16">{data.title}</h1>
 		<h2 class="font-semibold mb-8">{data.subtitle}</h2>
 		<p class="max-w-192 text-primary-content/80 mb-16">
 			{data.description}
@@ -83,5 +83,94 @@
 			</svg>
 		</div>
 	</header>
-	<img src={data.image} alt="projekt" class="aspect-video" />
+	<main>
+		<div
+			class="blur-img bg-center w-full aspect-video bg-no-repeat"
+			style="background-image: url({data.imageSmall}) ;"
+		>
+			<img
+				loading="lazy"
+				src={data.image}
+				alt="projekt"
+				class="aspect-video object-cover object-center w-full transition-all duration-200 ease-in"
+			/>
+		</div>
+		{#each data.text as section, index}
+			{#if index % 2 == 1}
+				<div class="clip h-28 bg-primary w-full translate-y-1" />
+			{/if}
+			<section
+				class="bg-base-100 px-2 sm:px-16 py-16 sm:py-32 flex flex-col xl:flex-row justify-between"
+				class:bg-primary={index % 2 == 1}
+				class:text-primary-content={index % 2 == 1}
+				class:text-base-content={index % 2 == 0}
+			>
+				<div>
+					<p
+						class="font-semibold text-sm mb-16"
+						class:text-primary-content={index % 2 == 1}
+						class:text-primary={index % 2 == 0}
+					>
+						{index < 10 ? '0' + (index + 1) : index + 1}
+					</p>
+					<h1 class="text-5xl sm:text-7xl font-bold mb-16">{section.title}</h1>
+					<div class="ml-8">
+						<p
+							class="max-w-192 mb-8 text-opacity-80"
+							class:text-primary-content={index % 2 == 1}
+							class:text-base-content={index % 2 == 0}
+						>
+							{section.description}
+						</p>
+						{#if section.code}
+							<div class="mockup-code w-fit">
+								{#each section.code as code}
+									<pre data-prefix="$"><code>{code}</code></pre>
+								{/each}
+							</div>
+						{/if}
+					</div>
+				</div>
+				<div
+					class="blur-img bg-center w-full aspect-video bg-no-repeat mt-16 xl:m-0 xl:w-1/2"
+					style="background-image: url({section.imageSmall}) ;"
+				>
+					<img
+						loading="lazy"
+						class=" aspect-video object-cover object-center w-full transition-all duration-200 ease-in"
+						src={section.image}
+						alt={section.title}
+					/>
+				</div>
+			</section>
+			{#if index % 2 == 1}
+				<div class="clip h-28 bg-primary w-full rotate-180 -translate-y-1" />
+			{/if}
+		{/each}
+		{#if data.links}
+			<div class=" w-full flex justify-center flex-col items-center">
+				<p class="font-semibold mb-4">Links</p>
+				<div class="flex px-4 flex-wrap max-w-192 join mb-16">
+					{#each data.links as link, index}
+						<a
+							class="join-item btn btn-secondary btn-outline btn-sm sm:btn-md sm:w-44 capitalize"
+							target="_blank"
+							href={link.url}>{link.name}</a
+						>
+					{/each}
+				</div>
+			</div>
+		{/if}
+	</main>
 {/if}
+
+<style>
+	.clip {
+		clip-path: polygon(0 21%, 100% 91%, 100% 100%, 0 100%);
+	}
+	.blur-img {
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+</style>

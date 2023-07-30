@@ -37,7 +37,7 @@
 						}}
 						src={project.image}
 						alt="Shoes"
-						class="aspect-video rounded-t-xl object-cover object-center w-full transition-all duration-200 ease-in opacity-0"
+						class="aspect-video rounded-t-xl object-cover object-center w-full transition-all duration-200 ease-in"
 						class:opacity-100={isLoaded[index]}
 					/>
 				</div>
