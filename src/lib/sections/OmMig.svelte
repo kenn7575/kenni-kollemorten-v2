@@ -1,9 +1,12 @@
 <script lang="ts">
 	import IntersectionObserver from 'svelte-intersection-observer';
-	import { fly } from 'svelte/transition';
+
 	import Me from '$lib/img/Me.jpeg';
+	import MeSmall from '$lib/img/MeSmall.jpeg';
+
 	import getYear from '$lib/functions/hovedforløbUdregner';
 	import calcAge from '$lib/functions/aldersUdregner';
+	import LazyImg from '$lib/components/LazyImg.svelte';
 
 	let e1: HTMLElement;
 	let e2: HTMLElement;
@@ -22,8 +25,8 @@
     xl:px-16 xl:gap-16 md:flex-row xl:justify-between"
 >
 	<div class="avatar relative">
-		<div class="w-56 md:w-64 mask mask-hexagon-2 z-10">
-			<img src={Me} alt="Me" class="w-1/3 relative" />
+		<div class="w-56 md:w-64 mask mask-hexagon-2 z-10 flex items-center">
+			<LazyImg alt="Me" image={Me} imageSmall={MeSmall} aspectRatio="aspect-squre" />
 		</div>
 		<div
 			class="mask mask-hexagon-2 absolute w-full h-full bg-primary/20 scale-110 -translate-x-10 -translate-y-10 z-0"

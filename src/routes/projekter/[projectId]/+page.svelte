@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { projectsStore } from '$lib/stores/projects';
 	import { page } from '$app/stores';
+	import LazyImg from '$lib/components/LazyImg.svelte';
+	import IntersectionObserver from 'svelte-intersection-observer';
 
 	//get the project id from the url
 	let id = $page.params.projectId;
@@ -9,10 +11,23 @@
 	let data = $projectsStore.find((project) => project.id === id);
 
 	import Arrow from '$lib/img/Arrow.svg';
+
 	import { getMonthName } from '$lib/functions/monthCalulator';
 	let date = new Date(data?.dateCreated ?? '');
 	let month = getMonthName(date.getMonth()) ?? '';
 	let year = date.getFullYear() ?? '';
+
+	let elementsStart: any[] = [];
+	let elementsEnd: any[] = [];
+	let observersStart: boolean[] = [];
+	let observersEnd: boolean[] = [];
+
+	data?.text.forEach((_, index) => {
+		elementsStart.push('ref');
+		elementsEnd.push('ref');
+		observersStart.push(false);
+		observersEnd.push(false);
+	});
 </script>
 
 <svelte:head>
@@ -84,30 +99,31 @@
 		</div>
 	</header>
 	<main>
-		<div
-			class="blur-img bg-center w-full aspect-video bg-no-repeat"
-			style="background-image: url({data.imageSmall}) ;"
-		>
-			<img
-				loading="lazy"
-				src={data.image}
-				alt="projekt"
-				class="aspect-video object-cover object-center w-full transition-all duration-200 ease-in"
-			/>
-		</div>
+		<LazyImg image={data.image} imageSmall={data.imageSmall} alt={data.title} />
+
 		{#each data.text as section, index}
 			{#if index % 2 == 1}
-				<div class="clip h-28 bg-primary w-full translate-y-1" />
+				<div
+					class:rotate-0={observersStart[index]}
+					class="clip-path h-28 bg-primary w-full translate-y-2 duration-500 -rotate-3 origin-bottom-right"
+				/>
+				<IntersectionObserver
+					once={true}
+					element={elementsStart[index]}
+					bind:intersecting={observersStart[index]}
+				>
+					<div bind:this={elementsStart[index]} class="observer" />
+				</IntersectionObserver>
 			{/if}
 			<section
-				class="bg-base-100 px-2 sm:px-16 py-16 sm:py-32 flex flex-col xl:flex-row justify-between"
+				class="bg-base-100 px-2 sm:px-16 py-16 sm:py-32 flex flex-col xl:grid grid-cols-2 justify-between"
 				class:bg-primary={index % 2 == 1}
 				class:text-primary-content={index % 2 == 1}
 				class:text-base-content={index % 2 == 0}
 			>
 				<div>
 					<p
-						class="font-semibold text-sm mb-16"
+						class="font-semibold text-md mb-16"
 						class:text-primary-content={index % 2 == 1}
 						class:text-primary={index % 2 == 0}
 					>
@@ -131,20 +147,22 @@
 						{/if}
 					</div>
 				</div>
-				<div
-					class="blur-img bg-center w-full aspect-video bg-no-repeat mt-16 xl:m-0 xl:w-1/2"
-					style="background-image: url({section.imageSmall}) ;"
-				>
-					<img
-						loading="lazy"
-						class=" aspect-video object-cover object-center w-full transition-all duration-200 ease-in"
-						src={section.image}
-						alt={section.title}
-					/>
+				<div class="mt-16">
+					<LazyImg image={section.image} imageSmall={section.imageSmall} alt={section.title} />
 				</div>
 			</section>
 			{#if index % 2 == 1}
-				<div class="clip h-28 bg-primary w-full rotate-180 -translate-y-1" />
+				<div
+					class:rotate-0={observersEnd[index]}
+					class="clip-path-reverse h-28 bg-primary w-full -translate-y-2 origin-top-left duration-500 -rotate-3"
+				/>
+				<IntersectionObserver
+					once={true}
+					element={elementsEnd[index]}
+					bind:intersecting={observersEnd[index]}
+				>
+					<div bind:this={elementsEnd[index]} class="observer" />
+				</IntersectionObserver>
 			{/if}
 		{/each}
 		{#if data.links}
@@ -165,12 +183,10 @@
 {/if}
 
 <style>
-	.clip {
+	.clip-path {
 		clip-path: polygon(0 21%, 100% 91%, 100% 100%, 0 100%);
 	}
-	.blur-img {
-		background-size: cover;
-		background-position: center;
-		background-repeat: no-repeat;
+	.clip-path-reverse {
+		clip-path: polygon(0 0, 100% 0, 100% 91%, 0 21%);
 	}
 </style>

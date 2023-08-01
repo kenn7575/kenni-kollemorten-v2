@@ -1,46 +1,21 @@
 <script lang="ts">
+	import LazyImg from '$lib/components/LazyImg.svelte';
 	import { createLoadObserver } from '$lib/functions/createLoadObserver';
 	import { projectsStore } from '$lib/stores/projects';
 
-	const onload = createLoadObserver(() => {
-		console.log('all images loaded');
-		isLoaded.forEach((loaded) => {
-			loaded = true;
-		});
-	});
-
 	let data = $projectsStore;
 	// create a list new of isLoaded booleans for each project
-	let isLoaded: boolean[] = [];
-	for (let i = 0; i < data.length; i++) {
-		isLoaded.push(false);
-	}
 </script>
 
-<h1 class="text-5xl">Projekter</h1>
-<div class="flex gap-4 p-4">
+<h1 class="text-3xl font-semibold">Projekter</h1>
+<div class="flex gap-16 p-4">
 	{#if data}
-		{#each data as project, index}
-			<div class="card bg-base-200 w-96 text-base-content shadow-xl">
-				<div
-					class="blur-img rounded-t-xl bg-center w-full aspect-video bg-no-repeat"
-					style="background-image: url({project.imageSmall}) ;"
-				>
-					<img
-						use:onload
-						on:load={() => {
-							console.log('image ' + (index + 1) + ' of ' + data.length + ' loaded');
-							isLoaded[index] = true;
-						}}
-						on:ended={() => {
-							console.log('ended');
-						}}
-						src={project.image}
-						alt="Shoes"
-						class="aspect-video rounded-t-xl object-cover object-center w-full transition-all duration-200 ease-in"
-						class:opacity-100={isLoaded[index]}
-					/>
+		{#each data.reverse() as project, index}
+			<div class="card bg-neutral w-96 text-neutral-content shadow-xl">
+				<div class="rounded-t-xl overflow-hidden">
+					<LazyImg alt={project.title} image={project.image} imageSmall={project.imageSmall} />
 				</div>
+
 				<div class="card-body">
 					<h2 class="card-title">
 						{project.title}
@@ -49,11 +24,11 @@
 						{/if}
 					</h2>
 					<p>{project.description}</p>
-					<div class="card-actions items-end flex-col">
+					<div class="card-actions w-full items-end justify-between pt-8">
 						{#if project.clips}
-							<div class="flex justify-end w-1/2 flex-wrap gap-1">
+							<div class="flex justify-start w-1/2 flex-wrap gap-1">
 								{#each project.clips as clip}
-									<div class="badge badge-secondary badge-outline">{clip}</div>
+									<div class="badge badge-ghost badge-outline">{clip}</div>
 								{/each}
 							</div>
 						{/if}
@@ -64,11 +39,3 @@
 		{/each}
 	{/if}
 </div>
-
-<style>
-	.blur-img {
-		background-size: cover;
-		background-position: center;
-		background-repeat: no-repeat;
-	}
-</style>

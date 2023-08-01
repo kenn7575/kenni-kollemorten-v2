@@ -3,6 +3,7 @@
 	import BackendEffect from '$lib/components/backendEffect.svelte';
 	import { fly } from 'svelte/transition';
 	let FrontendMode = true;
+	import img from '$lib/img/onesandzeros.svg';
 </script>
 
 <header class="flex flex-col lg:grid lg:grid-cols-3 xl:grid-cols-7 p-2">
