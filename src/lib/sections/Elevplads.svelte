@@ -22,8 +22,8 @@
 					Hvad vil det sige at have en programmør elev og hvordan fungere det?
 				</p>
 				<div class="card-actions">
-					<button class="btn btn-info border-2 shadow text-base mt-2"
-						>Læs om det her <span class="text-2xl">📖</span></button
+					<a href="/hjaelp-til-en-aftale" class="btn btn-info border-2 shadow text-base mt-2"
+						>Læs om det her <span class="text-2xl">📖</span></a
 					>
 				</div>
 			</div>
