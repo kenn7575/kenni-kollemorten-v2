@@ -2,7 +2,7 @@
 	import agreement from '$lib/img/Agreement.svg';
 	import coworking from '$lib/img/Co-working.svg';
 	import customersurvey from '$lib/img/Customer-survey.svg';
-	import mysteriousman from '$lib/img/Mysterious-man.svg';
+	import coding from '$lib/img/coding.svg';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
@@ -76,7 +76,7 @@
 	</div>
 </section>
 <div class="divider" />
-<section class="py-16 flex items-center flex-col">
+<section class="pt-16 pb-32 flex items-center flex-col">
 	<h1 class="font-bold text-4xl">Men først</h1>
 	<p class="text-base-content font-thin my-2">Lidt infomation om uddandelsesforløbet</p>
 	<button
@@ -86,10 +86,102 @@
 		class="btn btn-ghost btn-sm text-base-content/60 font-medium normal-case">Spring over</button
 	>
 </section>
-<section class="h-screen" id="intro">
-	<h1 class="">Læringsgrundlag</h1>
+<section class="px-4 md:px-8 flex flex-col items-center w-full" id="intro">
+	<h1 class="font-normal text-3xl text-center">Læringsgrundlag</h1>
+
+	<article class="flex mt-16 w-full items-center flex-col-reverse md:flex-row">
+		<div class="w-1/2">
+			<h2 class="text-xl font-semibold">Jeg lære om disse emner</h2>
+			<ul class="text-base-content/60 mt-4">
+				<li>
+					<p class="leading-normal">
+						<span class="text-base-content font-bold">1. </span>Grundlaggende- og
+						objektorienteret-programmering i teori og praksis.
+					</p>
+				</li>
+				<li class="mt-2">
+					<p class="leading-normal">
+						<span class="text-base-content font-bold">2. </span>At udvikle software under temaer
+						som; Backend, Businesslogic og Frontend ud fra princippet om Separation of Concerns.
+					</p>
+				</li>
+				<li class="mt-2">
+					<p class="leading-normal">
+						<span class="text-base-content font-bold">3. </span>At arbejde Agilt og teamorienteret
+						med Scrum, Kanban og Extreme programming.
+					</p>
+				</li>
+				<li class="mt-2">
+					<p class="leading-normal">
+						<span class="text-base-content font-bold">4. </span>Software arkitekturer og design
+						patterns fx Singleton, Factory og MVC
+					</p>
+				</li>
+				<li class="mt-2">
+					<p class="leading-normal">
+						<span class="text-base-content font-bold">5. </span>Normalisering, design og
+						implementering af databaser med SQL
+					</p>
+				</li>
+				<li class="mt-2">
+					<p class="leading-normal">
+						<span class="text-base-content font-bold">6. </span>Teori og afprovning af Big Data og
+						Machine Learning.
+					</p>
+				</li>
+				<li class="mt-2">
+					<p class="leading-normal">
+						<span class="text-base-content font-bold">7. </span>Software udviklingsprojekter fra
+						design og styring til produktion.
+					</p>
+				</li>
+				<li class="mt-2">
+					<p class="leading-normal">
+						<span class="text-base-content font-bold">8. </span>Debugging og test med UnitTesting,
+						TDD og integration tests.
+					</p>
+				</li>
+				<li class="mt-2">
+					<p class="leading-normal">
+						<span class="text-base-content font-bold">9. </span>Udvikling af services og APl'er
+						herunder REST baseret web-services.
+					</p>
+				</li>
+				<li class="mt-2">
+					<p class="leading-normal">
+						<span class="text-base-content font-bold">10. </span>UX-design og udvikling af
+						brugergranseflader.
+					</p>
+				</li>
+				<li class="mt-2">
+					<p class="leading-normal">
+						<span class="text-base-content font-bold">11. </span>Cross-platform App udvikling.
+					</p>
+				</li>
+				<li class="mt-2">
+					<p class="leading-normal">
+						<span class="text-base-content font-bold">12. </span>Udvikling til embedded systemer
+						herunder: IOT.
+					</p>
+				</li>
+				<li class="mt-2">
+					<p class="leading-normal">
+						<span class="text-base-content font-bold">13. </span>Dokumentation og udvikling med UML
+						og versionsstyring med GIT.
+					</p>
+				</li>
+			</ul>
+			<a href="https://itd.sde.dk/?edu=programming&s_type=EUD" class="btn btn-primary mt-4"
+				>Se hovedforløb</a
+			>
+		</div>
+		<figure class="w-full md:w-1/2">
+			<img src={coding} alt="CodingWorkshop" />
+		</figure>
+	</article>
 	<h1 class="">Opbygning</h1>
 	<h1 class="">Løn og økonomi</h1>
+	<h1>Lærepladsen.dk</h1>
 </section>
 <section id="bliv-godkendt">
 	<h1 class="h-screen">Bliv godkendt</h1>
