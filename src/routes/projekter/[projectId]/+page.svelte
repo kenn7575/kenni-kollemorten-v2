@@ -132,13 +132,13 @@
 					<h1 class="text-5xl sm:text-7xl font-bold mb-16">{section.title}</h1>
 					<div class="ml-8">
 						<p
-							class="max-w-192 mb-8 text-opacity-80"
+							class="max-w-192 mb-8 text-opacity-80 xl:pr-16"
 							class:text-primary-content={index % 2 == 1}
 							class:text-base-content={index % 2 == 0}
 						>
 							{section.description}
 						</p>
-						{#if section.code}
+						{#if section.code && section.code.length > 0}
 							<div class="mockup-code w-fit">
 								{#each section.code as code}
 									<pre data-prefix="$"><code>{code}</code></pre>

@@ -27,7 +27,7 @@
 	}
 </script>
 
-<section class="flex items-center flex-col pt-16 pb-32">
+<section class="flex px-4 lg:px-8 items-center flex-col my-16">
 	<p class="text-base-content/60 font-thin">At ansætte en elev er simpelt</p>
 	<h1 class="font-bold text-4xl mt-2">Bare følg disse 3 trin</h1>
 
@@ -76,7 +76,7 @@
 	</div>
 </section>
 <div class="divider" />
-<section class="pt-16 pb-32 flex items-center flex-col">
+<section class="my-16 px-8 flex items-center flex-col">
 	<h1 class="font-bold text-4xl">Men først</h1>
 	<p class="text-base-content font-thin my-2">Lidt infomation om uddandelsesforløbet</p>
 	<button
@@ -86,11 +86,11 @@
 		class="btn btn-ghost btn-sm text-base-content/60 font-medium normal-case">Spring over</button
 	>
 </section>
-<section class="px-4 md:px-8 flex flex-col items-center w-full" id="intro">
+<section class="my-16 px-8 flex flex-col items-center w-full" id="intro">
 	<h1 class="font-normal text-3xl text-center">Læringsgrundlag</h1>
 
-	<article class="flex mt-16 w-full items-center flex-col-reverse md:flex-row">
-		<div class="w-1/2">
+	<article class="flex my-16 w-full items-center flex-col-reverse md:flex-row">
+		<div class="w-full md:w-1/2">
 			<h2 class="text-xl font-semibold">Jeg lære om disse emner</h2>
 			<ul class="text-base-content/60 mt-4">
 				<li>
@@ -171,24 +171,133 @@
 					</p>
 				</li>
 			</ul>
-			<a href="https://itd.sde.dk/?edu=programming&s_type=EUD" class="btn btn-primary mt-4"
-				>Se hovedforløb</a
+			<a
+				target="_blank"
+				href="https://itd.sde.dk/?edu=programming&s_type=EUD"
+				class="btn btn-primary mt-4">Se hovedforløb</a
 			>
 		</div>
 		<figure class="w-full md:w-1/2">
 			<img src={coding} alt="CodingWorkshop" />
 		</figure>
 	</article>
-	<h1 class="">Opbygning</h1>
-	<h1 class="">Løn og økonomi</h1>
-	<h1>Lærepladsen.dk</h1>
+	<div class="flex flex-col xl:flex-row gap-4">
+		<article class="my-16 flex flex-col items-center">
+			<h1 class="font-normal mt-16 text-3xl text-center">Opbygning</h1>
+			<p class="mt-8 max-w-128 text-center">
+				Uddannelsen til datatekniker veksler mellem skoleophold og tid pá larepladsen, hvor
+				størstedelen af uddannelsen foregar ude hos jer i virksomheden.
+			</p>
+			<a
+				target="_blank"
+				href="https://firebasestorage.googleapis.com/v0/b/kenni-kollemorten.appspot.com/o/project_images%2Fresources%2FAns%C3%A6t%20en%20l%C3%A6rling.pdf?alt=media&token=69b21e75-a404-4101-ae74-8c26ba01d04f"
+				class="btn btn-primary mt-8">Se pdf</a
+			>
+		</article>
+		<div class="divider divider-horizontal hidden xl:flex" />
+
+		<article class="my-16 flex flex-col items-center">
+			<h1 class="font-normal mt-16 text-3xl text-center">Løn og økonomi</h1>
+			<p class="mt-8 max-w-128 text-center">
+				Som virksomhed betaler I lærlingeløn efter gældende overenskomst. I modtager refusion til
+				løn og kørsel, når lærlingen er på skoleophold.
+			</p>
+			<a target="_blank" href="https://www.sde.dk/tilskud" class="btn btn-primary mt-8">Læs mere</a>
+		</article>
+		<div class="divider divider-horizontal hidden xl:flex" />
+		<article class="my-16 flex flex-col items-center">
+			<h1 class="font-normal mt-16 text-3xl text-center">Lærepladsen.dk</h1>
+			<p class="mt-8 max-w-128 text-center">
+				Lærepladsen.dk er et mødested for elever og virksomheder. Medarbejdere på erhvervsskoler kan
+				anvende Lærepladsen.dk som værktøj til formidling af lærepladser og støtte for både elever
+				og virksomheder.
+			</p>
+			<a target="_blank" href="https://www.laerepladsen.dk/" class="btn btn-primary mt-8">Besøg</a>
+		</article>
+	</div>
 </section>
-<section id="bliv-godkendt">
-	<h1 class="h-screen">Bliv godkendt</h1>
+<div class="divider" />
+
+<section class="flex px-4 lg:px-8 items-center flex-col my-16" id="bliv-godkendt">
+	<h1 class="font-bold text-4xl mt-2">
+		<span class="text-primary">#1</span>
+		Bliv godkendt
+	</h1>
+	<div class="stats stats-vertical lg:stats-horizontal shadow mt-16">
+		<div class="stat">
+			<div class="stat-figure text-secondary">
+				<i class="fa-solid fa-circle-check text-3xl" />
+			</div>
+			<div class="stat-title text-base-content text-md xl:text-2xl">Godkendte læresteder</div>
+			<div class="stat-value text-secondary text-4xl xl:text-5xl xl:my-2">56,000+</div>
+			<div class="stat-desc text-base-content text-xs xl:text-sm">Hop med på bøjlen!</div>
+		</div>
+		<div class="stat border">
+			<div class="stat-figure text-primary">
+				<i class="fa-solid fa-bolt text-3xl" />
+			</div>
+			<div class="stat-title text-base-content text-md xl:text-2xl">Ledige lærepladser</div>
+			<div class="stat-value text-primary text-4xl xl:text-5xl xl:my-2">2,800+</div>
+			<div class="stat-desc text-base-content text-xs xl:text-sm">
+				På tværs af alle uddannelser.
+			</div>
+		</div>
+		<div class="stat border">
+			<div class="stat-figure text-error">
+				<i class="fa-solid fa-triangle-exclamation text-3xl" />
+			</div>
+			<div class="stat-title text-base-content text-md xl:text-2xl">Ledige lærepladser</div>
+			<div class="stat-value text-error text-4xl xl:text-5xl xl:my-2">1 ></div>
+			<div class="stat-desc text-base-content text-xs xl:text-sm">
+				Datatekniker med programmering
+			</div>
+		</div>
+	</div>
+	<p class="mt-16 max-w-192 text-center">
+		Som du kan se, er altalet af ledige lærepladser inde for mit fag meget lavt. Det er en skam,
+		fordi der er hundredvis af datatekniker elever som mangler en læreplads. Men i kan stadig nå at
+		gøre en forskel, og blive godkendt til at tage elever/lærlinge.
+	</p>
+	<a
+		target="_blank"
+		href="https://pms.laerepladsen.dk/laerested-ansoeg-godkendelse"
+		class="btn btn-primary mt-8">Se hvordan i bliver godkendt</a
+	>
 </section>
-<section id="Vaelg-uddannelsesaftale">
-	<h1 class="h-screen">Vlæg uddannelsesaftale</h1>
+<section class="flex px-4 lg:px-8 items-center flex-col mt-32 mb-16" id="Vaelg-uddannelsesaftale">
+	<h1 class="font-bold text-4xl mt-2">
+		<span class="text-primary">#2</span>
+		Vlæg uddannelsesaftale
+	</h1>
+	<p class="mt-16 max-w-192 text-center">
+		uddannelsesaftaler er 100% digitale, og de findes inde på lærepladsen.dk. Lærepladsen.dk hjælper
+		jer også med at holde styr på, hvem der skal tage næste skridt mod indgåelse af aftalen og giver
+		automatisk besked til virksomhed, lærling og erhvervsskole.
+	</p>
+	<div class="flex gap-4 mt-8">
+		<a
+			target="_blank"
+			href="https://www.stil.dk/-/media/filer/stil/pdf22/maj/220524-indgaa-uddannelsesaftaler-digitalt-paa-laerepladsen-dk.pdf"
+			class="btn btn-secondary">Læs mere</a
+		>
+		<a target="_blank" href="https://ua.laerepladsen.dk/aftaleoversigt" class="btn btn-primary"
+			>Se uddannelsesaftaler</a
+		>
+	</div>
 </section>
-<section id="underskriv">
-	<h1 class="h-screen">Skriv under</h1>
+<section class="flex px-4 lg:px-8 items-center flex-col my-32" id="underskriv">
+	<h1 class="font-bold text-4xl mt-2">
+		<span class="text-primary">#3</span>
+		Skriv under
+	</h1>
+	<p class="mt-16 max-w-192 text-center">
+		Når vi er blevet enige om en god uddannelsesaftale, så er der ikke andet tilbage en at
+		underskrive den, og så har i en datatekniker elev klar til at arbejde.
+	</p>
+	<h2 class="font-bold text-2 mt-16">
+		Hvis det lyder som noget for jer, så kantakt mig via email.
+	</h2>
+	<a href="mailto:info@kenni-kollemorten.dk" class="btn btn-primary btn-lg mt-8"
+		>Kontakt mig <span class="text-3xl">😃</span></a
+	>
 </section>
