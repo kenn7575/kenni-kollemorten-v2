@@ -9,8 +9,8 @@
 					Magler i en engageret datatakniker elev inde for programmering?
 				</p>
 				<div class="card-actions">
-					<button class="btn btn-success shadow text-base mt-2"
-						>Kontakt mig <span class="text-2xl">🤙</span></button
+					<a href="mailto:info@kenni-kollemorten.dk" class="btn btn-success shadow text-base mt-2"
+						>Kontakt mig <span class="text-2xl">🤙</span></a
 					>
 				</div>
 			</div>

@@ -3,7 +3,7 @@
 	export let data;
 	import { projectsStore } from '$lib/stores/projects';
 	projectsStore.set(data.projects);
-	import NavBar from '$lib/sections/NavBar.svelte';
+	import NavBar from '$lib/components/NavBar.svelte';
 	import Footer from '$lib/sections/Footer.svelte';
 </script>
 
@@ -18,3 +18,6 @@
 <footer class="footer p-10 bg-base-300 text-base-content">
 	<Footer />
 </footer>
+<p class="text-base-content/60 font-light text-center text-sm mb-8">
+	Kenni-kollemorten.dk © All rights reaerved
+</p>

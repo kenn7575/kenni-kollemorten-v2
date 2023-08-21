@@ -27,12 +27,16 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Hlælp til en aftale</title>
+	<meta name="description" content="personal portfolio website" />
+</svelte:head>
 <section class="flex px-4 lg:px-8 items-center flex-col my-16">
 	<p class="text-base-content/60 font-thin">At ansætte en elev er simpelt</p>
 	<h1 class="font-bold text-4xl mt-2">Bare følg disse 3 trin</h1>
 
 	<div class="flex mt-16 flex-col gap-8 md:gap-4 md:flex-row px-2 md:px-4">
-		<div class="card w-96 md:w-1/3 bg-base-100 border-base-content/500 border">
+		<div class="card w-full max-w-128 md:w-1/3 bg-base-100 border-base-content/500 border">
 			<div class="card-body">
 				<h2 class="card-title text-3xl text-base-content/60">1</h2>
 				<p>Bliv godkendt</p>
@@ -45,7 +49,7 @@
 				class="btn btn-ghost btn-sm text-base-content/60 font-medium normal-case">Læs mere</button
 			>
 		</div>
-		<div class="card w-96 md:w-1/3 bg-base-100 border-base-content/500 border">
+		<div class="card w-full max-w-128 md:w-1/3 bg-base-100 border-base-content/500 border">
 			<div class="card-body">
 				<h2 class="card-title text-3xl text-base-content/60">2</h2>
 				<p>Vælg uddannelsesaftale</p>
@@ -59,7 +63,7 @@
 			>
 		</div>
 
-		<div class="card w-96 md:w-1/3 bg-base-100 border-base-content/500 border">
+		<div class="card w-full max-w-128 md:w-1/3 bg-base-100 border-base-content/500 border">
 			<div class="card-body">
 				<h2 class="card-title text-3xl text-base-content/60">3</h2>
 				<p>Underskriv</p>

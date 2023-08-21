@@ -5,6 +5,11 @@
 	let node: HTMLElement;
 </script>
 
+<svelte:head>
+	<title>CV</title>
+	<meta name="description" content="personal portfolio website" />
+</svelte:head>
+
 <h1>cv</h1>
 
 <header class="h-screen" />

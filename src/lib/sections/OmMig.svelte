@@ -1,7 +1,7 @@
 <script lang="ts">
 	import IntersectionObserver from 'svelte-intersection-observer';
 
-	import Me from '$lib/img/Me.jpeg';
+	import Me from '$lib/img/Me.webp';
 	import MeSmall from '$lib/img/MeSmall.jpeg';
 
 	import getYear from '$lib/functions/hovedforløbUdregner';

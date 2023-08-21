@@ -1,17 +1,19 @@
 <script lang="ts">
 	import LazyImg from '$lib/components/LazyImg.svelte';
-	import { createLoadObserver } from '$lib/functions/createLoadObserver';
+	import masking from '$lib/img/mask.png';
 	import { projectsStore } from '$lib/stores/projects';
 
 	let data = $projectsStore;
-	// create a list new of isLoaded booleans for each project
 </script>
 
-<h1 class="text-3xl font-semibold">Projekter</h1>
-<div class="flex gap-16 p-4">
+<svelte:head>
+	<title>Projekter</title>
+	<meta name="description" content="personal portfolio website" />
+</svelte:head>
+<div>
 	{#if data}
 		{#each data.reverse() as project, index}
-			<div class="card bg-neutral w-96 text-neutral-content shadow-xl">
+			<div class="card snap-center bg-neutral w-96 text-neutral-content shadow-xl">
 				<div class="rounded-t-xl overflow-hidden">
 					<LazyImg alt={project.title} image={project.image} imageSmall={project.imageSmall} />
 				</div>
@@ -34,6 +36,22 @@
 						{/if}
 						<a href="/projekter/{project.id}" class="btn btn-primary">Se mere</a>
 					</div>
+				</div>
+			</div>
+
+			<div class="flex min-h-screen w-full">
+				<div class="flex flex-col flex-grow">
+					<h1>hello</h1>
+					<p>world</p>
+				</div>
+
+				<div class=" overflow-hidden w-1/2">
+					<LazyImg
+						alt={project.title}
+						image={project.image}
+						imageSmall={project.imageSmall}
+						aspectRatio="aspect-square"
+					/>
 				</div>
 			</div>
 		{/each}

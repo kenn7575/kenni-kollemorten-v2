@@ -44,9 +44,9 @@
 		<!-- Navbar -->
 		<div class="w-full navbar bg-base-100">
 			<div class="navbar-start">
-				<label class="swap swap-rotate">
+				<label for="theme-toggle" class="swap swap-rotate">
 					<!-- this hidden checkbox controls the state -->
-					<input type="checkbox" bind:checked={darkmode} />
+					<input id="theme-toggle" type="checkbox" bind:checked={darkmode} />
 
 					<!-- sun icon -->
 					<div class="swap-on">
