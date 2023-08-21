@@ -12,6 +12,12 @@ const config = {
 			},
 			maxWidth: {
 				128: '32rem',
+				192: '48rem',
+				250: '62.5rem',
+				300: '75rem'
+			},
+			minWidth: {
+				128: '32rem',
 				192: '48rem'
 			},
 			aspectRatio: {

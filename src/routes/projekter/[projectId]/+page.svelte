@@ -108,7 +108,6 @@
 					class="clip-path h-28 bg-primary w-full translate-y-2 duration-500 -rotate-3 origin-bottom-right"
 				/>
 				<IntersectionObserver
-					once={true}
 					element={elementsStart[index]}
 					bind:intersecting={observersStart[index]}
 				>
@@ -156,11 +155,7 @@
 					class:rotate-0={observersEnd[index]}
 					class="clip-path-reverse h-28 bg-primary w-full -translate-y-2 origin-top-left duration-500 -rotate-3"
 				/>
-				<IntersectionObserver
-					once={true}
-					element={elementsEnd[index]}
-					bind:intersecting={observersEnd[index]}
-				>
+				<IntersectionObserver element={elementsEnd[index]} bind:intersecting={observersEnd[index]}>
 					<div bind:this={elementsEnd[index]} class="observer" />
 				</IntersectionObserver>
 			{/if}
