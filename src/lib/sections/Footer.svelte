@@ -32,29 +32,34 @@
 	<span class="footer-title text-primary opacity-100">Social</span>
 	<div class="grid grid-flow-col gap-4">
 		<div class="tooltip tooltip-info" data-tip="LinkedIn">
-			<a target="_blank" href="https://www.linkedin.com/in/kenni-kollemorten/"
-				><i class="fa-brands fa-linkedin-in text-2xl" /></a
-			>
+			<a aria-label="LinkedIn" target="_blank" href="https://www.linkedin.com/in/kenni-kollemorten/"
+				><i class="fa-brands fa-linkedin-in text-2xl" />
+			</a>
 		</div>
 
 		<div class="tooltip tooltip-info" data-tip="Mail">
-			<a target="_blank" href="mailto:info@kenni-kollemorten.dk"
-				><i class="fa-regular fa-envelope text-2xl" /></a
-			>
+			<a aria-label="Mail" target="_blank" href="mailto:info@kenni-kollemorten.dk"
+				><i class="fa-regular fa-envelope text-2xl" />
+			</a>
 		</div>
 		<div class="tooltip tooltip-info" data-tip="Github">
-			<a target="_blank" href="https://github.com/kenn7575"
-				><i class="fa-brands fa-github text-2xl" /></a
-			>
+			<a aria-label="GitHub" target="_blank" href="https://github.com/kenn7575">
+				<i class="fa-brands fa-github text-2xl" />
+			</a>
 		</div>
 		<div class="tooltip tooltip-info" data-tip="Behance">
-			<a target="_blank" href="https://www.behance.net/kennikollemo/"
-				><i class="fa-brands fa-behance text-2xl text-base-content" /></a
-			>
+			<a aria-label="Behance" target="_blank" href="https://www.behance.net/kennikollemo/">
+				<i class="fa-brands fa-behance text-2xl text-base-content" />
+			</a>
 		</div>
 		<div class="tooltip tooltip-info" data-tip="Youtube">
-			<a target="_blank" href="https://www.youtube.com/channel/UC0JJWQth3i4VM2MUSESbh9Q" class=""
-				><i class="fa-brands fa-youtube text-2xl flex text-base-content" />
+			<a
+				aria-label="Youtube"
+				target="_blank"
+				href="https://www.youtube.com/channel/UC0JJWQth3i4VM2MUSESbh9Q"
+				class=""
+			>
+				<i class="fa-brands fa-youtube text-2xl flex text-base-content" />
 			</a>
 		</div>
 	</div>

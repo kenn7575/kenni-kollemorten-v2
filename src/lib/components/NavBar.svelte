@@ -38,7 +38,8 @@
 </script>
 
 <div class="drawer drawer-end">
-	<input id="draw" type="checkbox" class="drawer-toggle" />
+	<input id="draw" name="testname" type="checkbox" class="drawer-toggle" />
+	<label for="testname" class="hidden">Side navigation</label>
 
 	<div class="drawer-content flex flex-col">
 		<!-- Navbar -->
@@ -47,6 +48,7 @@
 				<label for="theme-toggle" class="swap swap-rotate">
 					<!-- this hidden checkbox controls the state -->
 					<input id="theme-toggle" type="checkbox" bind:checked={darkmode} />
+					<label class="hidden" for="theme-toggle">theme-toggle</label>
 
 					<!-- sun icon -->
 					<div class="swap-on">

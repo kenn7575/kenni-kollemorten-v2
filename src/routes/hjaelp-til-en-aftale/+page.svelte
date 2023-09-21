@@ -251,7 +251,7 @@
 				<i class="fa-solid fa-triangle-exclamation text-3xl" />
 			</div>
 			<div class="stat-title text-base-content text-md xl:text-2xl">Ledige lærepladser</div>
-			<div class="stat-value text-error text-4xl xl:text-5xl xl:my-2">1 ></div>
+			<div class="stat-value text-error text-4xl xl:text-5xl xl:my-2">1 {'<'}</div>
 			<div class="stat-desc text-base-content text-xs xl:text-sm">
 				Datatekniker med programmering
 			</div>
@@ -304,4 +304,16 @@
 	<a href="mailto:info@kenni-kollemorten.dk" class="btn btn-primary btn-lg mt-8"
 		>Kontakt mig <span class="text-3xl">😃</span></a
 	>
+</section>
+<section class="flex px-4 lg:px-8 items-center flex-col my-32" id="underskriv">
+	<h1 class="font-bold text-4xl mt-2">Hør mere</h1>
+	<p class="mt-16 max-w-192 text-center">
+		Tag en snak med skolen, og hør mere om hvordan i kan hjælpe mig og andre elever med at få en
+		læreplads.
+	</p>
+	<h2 class="font-bold text-2 mt-16">Kontakt Virksomhedskonsulent Per</h2>
+	<div class="flex gap-2 flex-wrap">
+		<a href="mailto:phr@sde.dk" class="btn normal-case btn-primary mt-8">phr@sde.dk</a>
+		<a href="tel:4073 6562" class="btn normal-case btn-primary mt-8">4073 6562</a>
+	</div>
 </section>

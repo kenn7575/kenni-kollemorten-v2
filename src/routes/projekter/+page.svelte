@@ -2,6 +2,13 @@
 	import LazyImg from '$lib/components/LazyImg.svelte';
 	import { projectsStore } from '$lib/stores/projects';
 	let data = $projectsStore;
+
+	//sort projects by dateCreated
+	data = data.sort((a, b) => {
+		const dateA = new Date(a.dateCreated);
+		const dateB = new Date(b.dateCreated);
+		return dateB.getTime() - dateA.getTime();
+	});
 </script>
 
 <svelte:head>
@@ -10,7 +17,7 @@
 </svelte:head>
 <div class="flex flex-col items-center">
 	{#if data}
-		{#each data.reverse() as project, index}
+		{#each data as project, index}
 			<article class="flex flex-col w-full px-4 sm:px-8 max-w-300 mt-16 mb-32">
 				<p class="text-2xl font-bold">#{index + 1}</p>
 				<h1 class="text-primary text-6xl lg:text-8xl font-bold">{project.title}</h1>
@@ -32,7 +39,9 @@
 								<div class="badge badge-ghost badge-outline">{clip}</div>
 							{/each}
 						</div>
-						<a href="/projekter/{project.id}" class="btn btn-wide btn-outline mt-16">Se mere →</a>
+						<a href="/projekter/{project.id}" class="btn btn-wide btn-outline btn-secondary mt-16"
+							>Se mere →</a
+						>
 					</div>
 					<div class="w-full max-w-128 overflow-hidden">
 						<LazyImg

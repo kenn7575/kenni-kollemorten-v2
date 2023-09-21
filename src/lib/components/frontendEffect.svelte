@@ -19,11 +19,20 @@
 	<!-- 1 -->
 	<div class="col-start-1 row-start-1 flex items-center justify-center z-10 -rotate-3">
 		<div class="rating gap-1 bg-base-200 px-8 py-4 rounded shadow-lg">
-			<input type="radio" name="rating-3" class="mask mask-heart bg-red-400 border" />
-			<input type="radio" name="rating-3" class="mask mask-heart bg-orange-400" />
-			<input type="radio" name="rating-3" class="mask mask-heart bg-yellow-400" />
-			<input type="radio" name="rating-3" class="mask mask-heart bg-lime-400" checked />
-			<input type="radio" name="rating-3" class="mask mask-heart bg-green-400" />
+			<label for="rate-1" class="hidden">rate 1</label>
+			<input type="radio" id="rate-1" name="rating-3" class="mask mask-heart bg-red-400 border" />
+			<label for="rate-2" class="hidden">rate 2</label>
+
+			<input type="radio" id="rate-2" name="rating-3" class="mask mask-heart bg-orange-400" />
+			<label for="rate-3" class="hidden">rate 3</label>
+
+			<input type="radio" id="rate-3" name="rating-3" class="mask mask-heart bg-yellow-400" />
+			<label for="rate-4" class="hidden">rate 4</label>
+
+			<input type="radio" id="rate-4" name="rating-3" class="mask mask-heart bg-lime-400" checked />
+			<label for="rate-5" class="hidden">rate 5</label>
+
+			<input type="radio" id="rate-5" name="rating-3" class="mask mask-heart bg-green-400" />
 		</div>
 	</div>
 	<!-- 1 end -->
@@ -38,34 +47,42 @@
 	<!-- 2,6 -->
 	<div class="col-start-3 row-start-1 row-span-2 flex items-center justify-center z-10 rotate-6">
 		<ul class="steps steps-vertical">
-			<button
-				on:click={() => {
-					steps = 1;
-				}}
-				class:step-primary={steps > 0}
-				class="step">Register</button
-			>
-			<button
-				on:click={() => {
-					steps = 2;
-				}}
-				class:step-primary={steps > 1}
-				class="step">Choose plan</button
-			>
-			<button
-				on:click={() => {
-					steps = 3;
-				}}
-				class:step-primary={steps > 2}
-				class="step">Purchase</button
-			>
-			<button
-				on:click={() => {
-					steps = 4;
-				}}
-				class:step-primary={steps > 3}
-				class="step">Receive Product</button
-			>
+			<li class:step-primary={steps > 0} class="step">
+				<button
+					on:click={() => {
+						steps = 1;
+					}}
+				>
+					Register
+				</button>
+			</li>
+			<li class:step-primary={steps > 1} class="step">
+				<button
+					on:click={() => {
+						steps = 2;
+					}}
+				>
+					Choose plan
+				</button>
+			</li>
+			<li class:step-primary={steps > 2} class="step">
+				<button
+					on:click={() => {
+						steps = 3;
+					}}
+				>
+					Purchase
+				</button>
+			</li>
+			<li class:step-primary={steps > 3} class="step">
+				<button
+					on:click={() => {
+						steps = 4;
+					}}
+				>
+					Receive Product
+				</button>
+			</li>
 		</ul>
 	</div>
 
