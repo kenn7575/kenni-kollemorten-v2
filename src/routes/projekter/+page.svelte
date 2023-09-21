@@ -2,6 +2,7 @@
 	import LazyImg from '$lib/components/LazyImg.svelte';
 	import { projectsStore } from '$lib/stores/projects';
 	let data = $projectsStore;
+	import { user } from '$lib/firebase';
 
 	//sort projects by dateCreated
 	data = data.sort((a, b) => {
@@ -16,6 +17,9 @@
 	<meta name="description" content="personal portfolio website" />
 </svelte:head>
 <div class="flex flex-col items-center">
+	{#if $user}
+		<a href="/projekter/ny" class="btn btn-warning mt-16">Tilføj nyt projekt</a>
+	{/if}
 	{#if data}
 		{#each data as project, index}
 			<article class="flex flex-col w-full px-4 sm:px-8 max-w-300 mt-16 mb-32">

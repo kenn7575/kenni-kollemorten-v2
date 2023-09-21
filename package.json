@@ -32,6 +32,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"firebase": "^10.4.0",
 		"firebase-admin": "^11.10.1",
 		"svelte-media-queries": "^1.5.4"
 	}
