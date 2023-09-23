@@ -3,17 +3,18 @@
 	import { page } from '$app/stores';
 	import LazyImg from '$lib/components/LazyImg.svelte';
 	import IntersectionObserver from 'svelte-intersection-observer';
-	import { goto } from '$app/navigation';
 
 	//get the project id from the url
 	let id = $page.params.projectId;
 
 	//get the project data from the store
-	let data = $projectsStore.find((project) => project.id === id);
+	// let data = $projectsStore.find((project) => project.id === id);
+	export let data: IProject;
 
 	import Arrow from '$lib/img/Arrow.svg';
 
 	import { getMonthName } from '$lib/functions/monthCalulator';
+	import type { IProject } from '$lib/types/interfaces';
 
 	let date = new Date(data?.dateCreated ?? '');
 	let month = getMonthName(date.getMonth()) ?? '';

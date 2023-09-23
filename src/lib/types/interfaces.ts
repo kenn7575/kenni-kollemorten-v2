@@ -13,14 +13,16 @@ export interface IProject {
 		url: string;
 	}[];
 	clips: string[];
-	text: {
-		title: string;
-		image: string;
-		imageSmall: string;
-		description: string;
-		code: string[];
-	}[];
+	text: TextContent[];
 }
+export interface IProjectToUpload extends IProject {
+	mainImageFile: imageFile | null;
+	textImageFiles: imageFile[];
+}
+interface imageFile {
+	file: File;
+}
+
 interface Link {
 	name: string;
 	url: string;

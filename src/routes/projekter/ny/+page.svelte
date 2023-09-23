@@ -1,42 +1,45 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import LazyImg from '$lib/components/LazyImg.svelte';
-	import type { IProject } from '$lib/types/interfaces';
+	import type { IProjectToUpload } from '$lib/types/interfaces';
 
-	let project: IProject = {
+	let project: IProjectToUpload = {
 		id: null,
 		visits: 0,
-		title: 'test',
-		subtitle: 'test',
-		label: 'test',
-		description: 'test',
-		dateCreated: 'test',
-		image: 'test',
-		imageSmall: 'test',
-		clips: [],
+		title: '',
+		subtitle: '',
+		label: '',
+		description: '',
+		dateCreated: '',
+		image: 'https://placehold.co/600x400/555/aaa',
+		imageSmall: 'https://placehold.co/45x30/555/aaa',
+		mainImageFile: null,
+		clips: [''],
 		links: [
 			{
-				name: 'test',
-				url: 'test'
+				name: '',
+				url: ''
 			}
 		],
 		text: [
 			{
 				title: '',
 				description: '',
-				image: '',
-				imageSmall: '',
-				code: []
+				image: 'https://placehold.co/600x400/555/aaa',
+				imageSmall: 'https://placehold.co/45x30/555/aaa',
+				code: ['']
 			}
-		]
+		],
+
+		textImageFiles: []
 	};
 	$: console.clear(), console.log(project);
 	function addText() {
 		project.text.push({
 			title: '',
 			description: '',
-			image: '',
-			imageSmall: '',
+			image: 'https://placehold.co/600x400/555/aaa',
+			imageSmall: 'https://placehold.co/45x30/555/aaa',
 			code: []
 		});
 		project = project;
@@ -88,6 +91,16 @@
 			goto('/projekter/' + data.id);
 		}
 	}
+	async function uploadMainImage(e: any) {
+		const file = e.target.files[0];
+		project.image = URL.createObjectURL(file);
+		project.mainImageFile = file;
+	}
+	async function uploadImage(e: any, index: number) {
+		const file = e.target.files[0];
+		project.text[index].image = URL.createObjectURL(file);
+		project.textImageFiles[index] = file;
+	}
 </script>
 
 <header class=" bg-primary px-2 sm:px-16 pt-8 sm:pt-16 text-primary-content">
@@ -116,13 +129,14 @@
 			/>
 		</div>
 	</div>
-	<h2>Clips {project.clips?.length}</h2>
+
+	<h2 class="font-bold">Clips {project.clips?.length}</h2>
 
 	<div class="flex flex-wrap max-w-192 gap-x-6 gap-y-2">
 		{#each project.clips as clip, index}
 			<div class="form-control">
 				<label class="label" for="link-url">
-					<span class="label-text text-primary-content/60">Clip name</span>
+					<span class="label-text text-primary-content/60">Clip {index + 1}</span>
 				</label>
 
 				<div class="flex items-center relative">
@@ -136,7 +150,7 @@
 						on:click={() => {
 							removeClip(index);
 						}}
-						class="btn btn-circle btn-error btn-sm absolute -right-4"
+						class="btn btn-circle btn-error btn-sm absolute -right-4 outline outline-base-100"
 						><i class="fa-solid fa-trash" /></button
 					>
 				</div>
@@ -158,8 +172,8 @@
 			name="title"
 			bind:value={project.title}
 			type="text"
-			placeholder="Type here"
-			class="input input-bordered border-base-100 bg-transparent w-full max-w-md placeholder:text-primary-content/60"
+			placeholder="Title"
+			class="input input-bordered w-full max-w-md border-base-100 bg-transparent placeholder:text-primary-content/60"
 		/>
 	</div>
 	<div class="form-control">
@@ -170,7 +184,7 @@
 			bind:value={project.subtitle}
 			type="text"
 			name="subtitle"
-			placeholder="Type here"
+			placeholder="Subtitle"
 			class="input input-bordered border-base-100 bg-transparent w-full max-w-md placeholder:text-primary-content/60"
 		/>
 	</div>
@@ -181,14 +195,14 @@
 		<textarea
 			name="description"
 			bind:value={project.description}
-			class="textarea textarea-bordered w-full h-fit text-primary-content bg-transparent border-base-100 xl:max-w-192 placeholder:text-primary-content/60"
-			placeholder="Bio"
+			class="textarea textarea-bordered w-full h-fit text-primary-content bg-transparent border-base-100 xl:max-w-192 text-base placeholder:text-primary-content/60"
+			placeholder="Description"
 		/>
 	</div>
 	<div class="flex flex-col sm:flex-row sm:items-start mt-16">
 		{#if project.links}
 			<div class=" w-fit">
-				<h2>Links {project.links?.length}</h2>
+				<h2 class="font-bold">Links {project.links?.length}</h2>
 				<div class="flex flex-wrap gap-4 mb-4">
 					{#each project.links as link, index}
 						<div class="border border-base-100 rounded-lg px-6 p-4 relative flex items-center">
@@ -222,7 +236,7 @@
 								on:click={() => {
 									removeLink(index);
 								}}
-								class="btn btn-circle btn-error btn-sm absolute -right-4"
+								class="btn btn-circle btn-error btn-sm absolute -right-4 outline outline-base-100"
 								><i class="fa-solid fa-trash" /></button
 							>
 						</div>
@@ -239,10 +253,25 @@
 	</div>
 </header>
 <main>
-	<LazyImg image={project.image} imageSmall={project.imageSmall} alt={project.title} />
+	<div class="relative w-full flex justify-center items-center">
+		<LazyImg image={project.image} imageSmall={project.imageSmall} alt={project.title} />
 
-	{#each project.text as section, index}
-		{#if index % 2 == 1}
+		<div class="form-control w-full max-w-xs absolute p-8 bg-base-100/50 rounded-2xl backdrop-blur">
+			<label class="label" for="main-image">
+				<span class="label-text font-semibold">Pick the main image</span>
+			</label>
+			<input
+				on:change={uploadMainImage}
+				name="main-image"
+				bind:value={project.mainImageFile}
+				type="file"
+				class="file-input file-input-bordered w-full max-w-xs"
+			/>
+		</div>
+	</div>
+
+	{#each project.text as section, sectionIndex}
+		{#if sectionIndex % 2 == 1}
 			<div
 				class="clip-path h-28 bg-primary w-full translate-y-2 duration-500 -rotate-3 origin-bottom-right"
 			/>
@@ -250,66 +279,172 @@
 		<section
 			class="bg-base-100 px-2 py-16 flex gap-4 flex-col xl:grid grid-cols-2 justify-between
 			sm:px-16 sm:py-32"
-			class:bg-primary={index % 2 == 1}
-			class:text-primary-content={index % 2 == 1}
-			class:text-base-content={index % 2 == 0}
+			class:bg-primary={sectionIndex % 2 == 1}
+			class:text-primary-content={sectionIndex % 2 == 1}
+			class:text-base-content={sectionIndex % 2 == 0}
 		>
 			<div>
 				<p
 					class="font-semibold text-md mb-16"
-					class:text-primary-content={index % 2 == 1}
-					class:text-primary={index % 2 == 0}
+					class:text-primary-content={sectionIndex % 2 == 1}
+					class:text-primary={sectionIndex % 2 == 0}
 				>
-					{index < 10 ? '0' + (index + 1) : index + 1}
+					{sectionIndex < 10 ? '0' + (sectionIndex + 1) : sectionIndex + 1}
 				</p>
-				<h1
-					class="text-5xl font-bold mb-16
-				sm:text-7xl"
-				>
-					{section.title}
-				</h1>
-				<div class="ml-8 max-w-full">
-					<p
-						class="max-w-192 mb-8 text-opacity-80
-						xl:pr-16"
-						class:text-primary-content={index % 2 == 1}
-						class:text-base-content={index % 2 == 0}
-					>
-						{section.description}
-					</p>
-					{#if section.code && section.code.length > 0}
-						<div class="mockup-code w-fit overflow-scroll max-w-full">
-							{#each section.code as code}
-								<pre data-prefix="$"><code>{code}</code></pre>
-							{/each}
-						</div>
+
+				<div class="form-control">
+					{#if sectionIndex % 2 == 0}
+						<label class="label" for="section-title-{sectionIndex}">
+							<span class="label-text text-base-content/60">Title</span>
+						</label>
+						<input
+							name="section-title-{sectionIndex}"
+							bind:value={project.text[sectionIndex].title}
+							type="text"
+							placeholder="Title"
+							class="input input-bordered w-full max-w-md"
+						/>
+					{:else}
+						<label class="label" for="section-title-{sectionIndex}">
+							<span class="label-text text-primary-content/60">Title</span>
+						</label>
+						<input
+							name="section-title-{sectionIndex}"
+							bind:value={project.text[sectionIndex].title}
+							type="text"
+							placeholder="Title"
+							class="input input-bordered w-full max-w-md border-base-100 bg-transparent placeholder:text-primary-content/60"
+						/>
 					{/if}
 				</div>
+				<div class="ml-8 max-w-full">
+					<div class="form-control">
+						{#if sectionIndex % 2 == 0}
+							<label class="label" for="section-description-{sectionIndex}">
+								<span class="label-text text-base-content/60">Description</span>
+							</label>
+							<textarea
+								name="section-description-{sectionIndex}"
+								bind:value={project.text[sectionIndex].description}
+								placeholder="Description"
+								class="input input-bordered w-full max-w-md"
+							/>
+						{:else}
+							<label class="label" for="section-description-{sectionIndex}">
+								<span class="label-text text-primary-content/60">Description</span>
+							</label>
+							<textarea
+								name="section-description-{sectionIndex}"
+								bind:value={project.text[sectionIndex].description}
+								placeholder="Description"
+								class="input input-bordered w-full max-w-md border-base-100 bg-transparent placeholder:text-primary-content/60"
+							/>
+						{/if}
+					</div>
+
+					<h2 class="font-bold mt-8">Code {project.text[sectionIndex].code.length}</h2>
+
+					<div class="flex flex-wrap max-w-192 gap-x-6 gap-y-2">
+						{#each project.text[sectionIndex].code as code, codeIndex}
+							<div class="form-control">
+								{#if sectionIndex % 2 == 0}
+									<label class="label" for="section-{sectionIndex}-code-{codeIndex}">
+										<span class="label-text text-base-content/60">line {codeIndex + 1}</span>
+									</label>
+
+									<div class="flex items-center relative">
+										<input
+											name="section-{sectionIndex}-code-{codeIndex}"
+											bind:value={project.text[sectionIndex].code[codeIndex]}
+											type="text"
+											placeholder="Line"
+											class="input input-bordered w-full max-w-md"
+										/>
+										<button
+											on:click={() => {
+												removeCode(sectionIndex, codeIndex);
+											}}
+											class="btn btn-circle btn-error btn-sm absolute -right-4 outline outline-base-100"
+											><i class="fa-solid fa-trash" /></button
+										>
+									</div>
+								{:else}
+									<label class="label" for="section-{sectionIndex}-code-{codeIndex}">
+										<span class="label-text text-primary-content/60">line {codeIndex + 1}</span>
+									</label>
+
+									<div class="flex items-center relative">
+										<input
+											name="section-{sectionIndex}-code-{codeIndex}"
+											bind:value={project.text[sectionIndex].code[codeIndex]}
+											type="text"
+											placeholder="Line"
+											class="input input-bordered w-full max-w-md border-base-100 bg-transparent placeholder:text-primary-content/60"
+										/>
+										<button
+											on:click={() => {
+												removeCode(sectionIndex, codeIndex);
+											}}
+											class="btn btn-circle btn-error btn-sm absolute -right-4 outline outline-base-100"
+											><i class="fa-solid fa-trash" /></button
+										>
+									</div>
+								{/if}
+							</div>
+						{/each}
+					</div>
+
+					<button
+						on:click={() => {
+							addCode(sectionIndex);
+						}}
+						class="btn btn-circle btn-neutral btn-sm my-4"><i class="fa-solid fa-plus" /></button
+					>
+				</div>
 			</div>
-			<div class="mt-16">
-				<LazyImg image={section.image} imageSmall={section.imageSmall} alt={section.title} />
+			<div class="relative w-full flex justify-center items-center mb-16">
+				<LazyImg
+					image={project.text[sectionIndex].image}
+					imageSmall={project.text[sectionIndex].imageSmall}
+					alt={project.text[sectionIndex].title}
+				/>
+
+				<div
+					class="form-control w-full max-w-xs absolute p-8 bg-base-100/50 rounded-2xl backdrop-blur"
+				>
+					<label class="label" for="main-image">
+						<span class="label-text font-semibold">Pick the main image</span>
+					</label>
+					<input
+						on:change={(e) => {
+							uploadImage(e, sectionIndex);
+						}}
+						name="main-image"
+						bind:value={project.textImageFiles[sectionIndex]}
+						type="file"
+						class="file-input file-input-bordered w-full max-w-xs"
+					/>
+				</div>
 			</div>
 		</section>
-		{#if index % 2 == 1}
+		{#if sectionIndex % 2 == 1}
 			<div
 				class="clip-path-reverse h-28 bg-primary w-full -translate-y-2 origin-top-left duration-500 -rotate-3"
 			/>
 		{/if}
 	{/each}
-	{#if project.links}
-		<div class=" w-full flex justify-center flex-col items-center">
-			<p class="font-semibold mb-4">Links</p>
-			<div class="flex px-4 flex-wrap max-w-192 join mb-16">
-				{#each project.links as link, index}
-					<a
-						class="join-item btn btn-secondary btn-outline btn-sm capitalize
-						sm:btn-md sm:w-44"
-						target="_blank"
-						href={link.url}>{link.name}</a
-					>
-				{/each}
-			</div>
-		</div>
-	{/if}
 </main>
-<button on:click={uploadProject}>Test</button>
+<button class="btn btn-neutral btn-outline w-fit self-center mb-16" on:click={addText}
+	>Add text section</button
+>
+<div class="flex flex-wrap gap-4 justify-center">
+	<button class="btn btn-wide btn-info btn-lg mb-8" on:click={uploadProject}> save draft </button>
+	<button
+		class="btn btn-wide btn-warning btn-lg mb-8"
+		on:click={() => {
+			confirm('Are you sure you want to publish this project?');
+
+			uploadProject();
+		}}>Upload and publish</button
+	>
+</div>
