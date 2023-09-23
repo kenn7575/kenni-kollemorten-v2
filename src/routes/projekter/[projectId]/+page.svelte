@@ -3,6 +3,7 @@
 	import { page } from '$app/stores';
 	import LazyImg from '$lib/components/LazyImg.svelte';
 	import IntersectionObserver from 'svelte-intersection-observer';
+	import { goto } from '$app/navigation';
 
 	//get the project id from the url
 	let id = $page.params.projectId;
@@ -13,7 +14,7 @@
 	import Arrow from '$lib/img/Arrow.svg';
 
 	import { getMonthName } from '$lib/functions/monthCalulator';
-	import { onMount } from 'svelte';
+
 	let date = new Date(data?.dateCreated ?? '');
 	let month = getMonthName(date.getMonth()) ?? '';
 	let year = date.getFullYear() ?? '';
@@ -153,6 +154,28 @@
 				</div>
 			</div>
 		{/if}
+	</main>
+{:else}
+	<main class="min-h-screen flex justify-center items-center backdrop-brightness-50">
+		<div class="alert alert-error w-max flex">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				class="stroke-current shrink-0 h-6 w-6"
+				fill="none"
+				viewBox="0 0 24 24"
+				><path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"
+					d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+				/></svg
+			>
+
+			<div class="flex gap-2 flex-col items-center">
+				<span>Projektet blev ikke fundet!</span>
+				<a class="btn btn-sm w-fit" href="/projekter">Tilbage</a>
+			</div>
+		</div>
 	</main>
 {/if}
 

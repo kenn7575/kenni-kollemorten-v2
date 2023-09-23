@@ -10,7 +10,6 @@
 </script>
 
 <nav class="sticky top-0 z-40">
-	<NavBar />
 	{#if $user}
 		<div class="alert alert-warning py-0 rounded-none">
 			<svg
@@ -38,6 +37,7 @@
 			</div>
 		</div>
 	{/if}
+	<NavBar />
 </nav>
 
 <main class="flex flex-col overflow-x-hidden bg-base-100 relative">

@@ -1,5 +1,5 @@
 export interface IProject {
-	id: string;
+	id: string | null;
 	visits: number;
 	title: string;
 	description: string;
@@ -24,42 +24,40 @@ export interface IProject {
 interface Link {
 	name: string;
 	url: string;
-  }
-  
-  interface TextContent {
+}
+
+interface TextContent {
 	image: string;
 	code: string[];
 	imageSmall: string;
 	description: string;
 	title: string;
-  }
-  
- 
-  
-  interface AdvancementContent {
+}
+
+interface AdvancementContent {
 	view?: string;
 	subject: string;
 	grade: string;
 	other?: string;
-  }
-  
-  interface Advancement {
+}
+
+interface Advancement {
 	education?: string;
 	time: string;
 	place: string;
 	title: string;
 	content: AdvancementContent[];
-  }
-  
-  interface Apprenticeship {
+}
+
+interface Apprenticeship {
 	image_small: string;
 	image: string;
 	description: string;
 	time: string;
 	title: string;
-  }
-  
-  export interface ICV {
+}
+
+export interface ICV {
 	advancements: Advancement[];
 	apprenticeships: Apprenticeship[];
-  }
+}

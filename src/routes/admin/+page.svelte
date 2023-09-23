@@ -4,17 +4,27 @@
 	import { signInWithEmailAndPassword } from 'firebase/auth';
 	import { fade, fly } from 'svelte/transition';
 	import { goto } from '$app/navigation';
-	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
 	import { user } from '$lib/firebase';
-
-	$: if ($user) {
-		goto('/');
-	}
 
 	let email = '';
 	let password = '';
 	let error = '';
-	let userCredential: any;
+
+	$: if ($user) {
+		redirect();
+	}
+
+	function redirect() {
+		const redirectTo = $page.url.searchParams.get('redirect');
+		if (redirectTo) {
+			console.log('redirecting to', '/' + redirectTo.slice(1));
+			goto('/' + redirectTo.slice(1));
+		} else {
+			console.log('redirecting to', '/');
+			goto('/');
+		}
+	}
 
 	async function signIn(e: any) {
 		e.preventDefault();
@@ -23,24 +33,25 @@
 			error = 'Udfyld venligst alle felter.';
 			return;
 		}
-		await signInWithEmailAndPassword(firebaseAuth, email, password)
-			.then((_userCredential) => {
-				error = '';
-				userCredential = _userCredential;
-			})
-			.catch((_error) => {
-				error = 'Felj! ' + _error.code;
-				return;
+		try {
+			const userCredential = await signInWithEmailAndPassword(firebaseAuth, email, password);
+			if (!userCredential) return;
+			console.log('userCredential', userCredential);
+			const idToken = await userCredential.user.getIdToken();
+			const res = await fetch('/api/signin', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({ idToken })
 			});
-		if (!userCredential) return;
-		const idToken = await userCredential.user.getIdToken();
-		const res = fetch('/api/signin', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify({ idToken })
-		});
+			if (res.ok) {
+				redirect();
+			}
+		} catch (_error: any) {
+			console.log('error', _error);
+			error = _error.message;
+		}
 	}
 
 	export let data: PageData;
