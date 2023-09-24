@@ -15,14 +15,11 @@ export interface IProject {
 	clips: string[];
 	text: TextContent[];
 }
-export interface IProjectToUpload extends IProject {
-	mainImageFile: imageFile | null;
-	textImageFiles: imageFile[];
-}
-interface imageFile {
-	file: File;
-}
 
+export interface IProjectToUpload extends IProject {
+	imageFile?: File | null;
+	text: TextContentToUpload[];
+}
 interface Link {
 	name: string;
 	url: string;
@@ -34,6 +31,9 @@ interface TextContent {
 	imageSmall: string;
 	description: string;
 	title: string;
+}
+interface TextContentToUpload extends TextContent {
+	imageFile?: File | null;
 }
 
 interface AdvancementContent {

@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
+import { getStorage } from 'firebase/storage';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { writable } from 'svelte/store';
 import type { User } from 'firebase/auth';
@@ -15,6 +16,7 @@ const firebaseConfig = {
 };
 export const firebaseApp = initializeApp(firebaseConfig);
 export const firebaseAuth = getAuth(firebaseApp);
+export const firebaseStorage = getStorage(firebaseApp);
 
 export async function signOutUser() {
 	await signOut(firebaseAuth);

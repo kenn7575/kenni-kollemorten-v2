@@ -2,6 +2,11 @@
 	import { goto } from '$app/navigation';
 	import LazyImg from '$lib/components/LazyImg.svelte';
 	import type { IProjectToUpload } from '$lib/types/interfaces';
+	import { firebaseStorage } from '$lib/firebase';
+	import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+	import { compressImage } from '$lib/functions/compressImage';
+	import { convertToWebp } from '$lib/functions/convertToWebp';
+	import { loadImage } from '$lib/functions/loadImage';
 
 	let project: IProjectToUpload = {
 		id: null,
@@ -13,7 +18,7 @@
 		dateCreated: '',
 		image: 'https://placehold.co/600x400/555/aaa',
 		imageSmall: 'https://placehold.co/45x30/555/aaa',
-		mainImageFile: null,
+		imageFile: null,
 		clips: [''],
 		links: [
 			{
@@ -27,13 +32,13 @@
 				description: '',
 				image: 'https://placehold.co/600x400/555/aaa',
 				imageSmall: 'https://placehold.co/45x30/555/aaa',
-				code: ['']
+				code: [''],
+				imageFile: null
 			}
-		],
-
-		textImageFiles: []
+		]
 	};
-	$: console.clear(), console.log(project);
+
+	$: console.log(project);
 	function addText() {
 		project.text.push({
 			title: '',
@@ -78,7 +83,8 @@
 
 	async function uploadProject() {
 		console.log('uploading project');
-
+		await uploadImageToFirebase();
+		delete project.imageFile;
 		const res = await fetch('/api/projekter', {
 			method: 'POST',
 			headers: {
@@ -91,15 +97,40 @@
 			goto('/projekter/' + data.id);
 		}
 	}
-	async function uploadMainImage(e: any) {
-		const file = e.target.files[0];
-		project.image = URL.createObjectURL(file);
-		project.mainImageFile = file;
+
+	async function uploadImageToFirebase() {
+		try {
+			const file = project.imageFile;
+			if (!file) return;
+			const storageRef = ref(firebaseStorage, file.name);
+			const snapshot = await uploadBytes(storageRef, file);
+			//get download url
+			const downloadURL = await getDownloadURL(snapshot.ref);
+			project.image = downloadURL;
+		} catch (err) {
+			console.log(err);
+		}
 	}
-	async function uploadImage(e: any, index: number) {
-		const file = e.target.files[0];
-		project.text[index].image = URL.createObjectURL(file);
-		project.textImageFiles[index] = file;
+
+	async function uploadImage(e: any): Promise<{ image: string; imageSmall: string } | void> {
+		const file: File | undefined = e.target.files[0];
+
+		if (file) {
+			const imageUrl = URL.createObjectURL(file);
+			try {
+				const img = await loadImage(imageUrl);
+				const _convertedImage = convertToWebp(img);
+				if (!_convertedImage) return;
+				const compressedImage = await compressImage(_convertedImage, 30);
+				if (!compressedImage) return;
+				return {
+					image: _convertedImage,
+					imageSmall: compressedImage
+				};
+			} catch (error) {
+				// Handle errors, e.g., when loading the image fails.
+			}
+		}
 	}
 </script>
 
@@ -255,15 +286,19 @@
 <main>
 	<div class="relative w-full flex justify-center items-center">
 		<LazyImg image={project.image} imageSmall={project.imageSmall} alt={project.title} />
-
 		<div class="form-control w-full max-w-xs absolute p-8 bg-base-100/50 rounded-2xl backdrop-blur">
 			<label class="label" for="main-image">
 				<span class="label-text font-semibold">Pick the main image</span>
 			</label>
 			<input
-				on:change={uploadMainImage}
+				on:change={async (e) => {
+					const images = await uploadImage(e);
+					if (!images) return;
+					project.image = images.image;
+					project.imageSmall = images.imageSmall;
+				}}
 				name="main-image"
-				bind:value={project.mainImageFile}
+				bind:value={project.imageFile}
 				type="file"
 				class="file-input file-input-bordered w-full max-w-xs"
 			/>
@@ -416,11 +451,14 @@
 						<span class="label-text font-semibold">Pick the main image</span>
 					</label>
 					<input
-						on:change={(e) => {
-							uploadImage(e, sectionIndex);
+						on:change={async (e) => {
+							const images = await uploadImage(e);
+							if (!images) return;
+							project.text[sectionIndex].image = images.image;
+							project.text[sectionIndex].imageSmall = images.imageSmall;
 						}}
 						name="main-image"
-						bind:value={project.textImageFiles[sectionIndex]}
+						bind:value={project.text[sectionIndex].imageFile}
 						type="file"
 						class="file-input file-input-bordered w-full max-w-xs"
 					/>
