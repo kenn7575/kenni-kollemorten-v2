@@ -8,6 +8,7 @@
 	import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 	import { firebaseStorage } from '$lib/firebase';
 	import { fade, fly } from 'svelte/transition';
+	import { generateRandomBase64Code } from '$lib/functions/generateRandomBase64Code';
 
 	let messages: { message: string; type: string }[] = [];
 	$: console.log(messages);
@@ -188,7 +189,7 @@
 		//validate images
 		progressText = 'Uploading main images';
 		if (!project.imageFile || !project.imageSmallFile) {
-			messages.push({ message: 'Missing main image', type: 'error' });
+			messages.push({ message: 'Missing main image', type: 'warning' });
 			messages = messages;
 			loading = false;
 			return;
@@ -198,7 +199,7 @@
 		const images = await uploadImageToFirebase(
 			project.imageFile,
 			project.imageSmallFile,
-			project.title
+			project.title + '_' + generateRandomBase64Code()
 		);
 		if (!images) {
 			messages.push({ message: 'Error uploading main image', type: 'error' });
@@ -218,13 +219,7 @@
 			progressText = 'Uploading section images' + i;
 
 			if (!project.text[i].imageFile || !project.text[i].imageSmallFile) {
-				messages.push({ message: 'Missing section image at index ' + i, type: 'error' });
-				messages = messages;
-				loading = false;
-				return;
-			}
-			if (!project.text[i].title) {
-				messages.push({ message: 'Missing section title at index ' + i, type: 'error' });
+				messages.push({ message: 'Missing section image at index ' + i, type: 'warning' });
 				messages = messages;
 				loading = false;
 				return;
@@ -232,7 +227,7 @@
 			const images = await uploadImageToFirebase(
 				project.text[i].imageFile!,
 				project.text[i].imageSmallFile!,
-				project.text[i].title
+				project.text[i].title + '_' + generateRandomBase64Code()
 			);
 			if (!images) {
 				messages.push({ message: 'Error uploading text image', type: 'error' });
