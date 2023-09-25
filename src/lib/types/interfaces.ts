@@ -17,7 +17,8 @@ export interface IProject {
 }
 
 export interface IProjectToUpload extends IProject {
-	imageFile?: File | null;
+	imageFile?: string | null;
+	imageSmallFile?: string | null;
 	text: TextContentToUpload[];
 }
 interface Link {
@@ -33,7 +34,8 @@ interface TextContent {
 	title: string;
 }
 interface TextContentToUpload extends TextContent {
-	imageFile?: File | null;
+	imageFile?: string | null;
+	imageSmallFile?: string | null;
 }
 
 interface AdvancementContent {

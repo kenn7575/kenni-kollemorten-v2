@@ -57,6 +57,10 @@
 	export let data: PageData;
 </script>
 
+<svelte:head>
+	<title>Admin Login</title>
+	<meta name="description" content="Admin login page." />
+</svelte:head>
 <main class="h-screen flex flex-col justify-center items-center relative">
 	<h1 class="text-4xl font-bold">Admin login</h1>
 	{#if error !== ''}

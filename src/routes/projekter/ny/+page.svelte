@@ -1,12 +1,29 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
 	import LazyImg from '$lib/components/LazyImg.svelte';
 	import type { IProjectToUpload } from '$lib/types/interfaces';
-	import { firebaseStorage } from '$lib/firebase';
-	import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 	import { compressImage } from '$lib/functions/compressImage';
 	import { convertToWebp } from '$lib/functions/convertToWebp';
 	import { loadImage } from '$lib/functions/loadImage';
+	import { goto } from '$app/navigation';
+	import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+	import { firebaseStorage } from '$lib/firebase';
+	import { fade, fly } from 'svelte/transition';
+
+	let messages: { message: string; type: string }[] = [];
+	$: console.log(messages);
+
+	let loading = false;
+	let progress = 0;
+	let progressText = '';
+
+	//function to remove messages at first index after 5 seconds
+	function clearMessage(message: string) {
+		let index = messages.findIndex((m) => m.message === message);
+		setTimeout(() => {
+			messages.splice(index, 1);
+			messages = messages;
+		}, 5000);
+	}
 
 	let project: IProjectToUpload = {
 		id: null,
@@ -83,8 +100,154 @@
 
 	async function uploadProject() {
 		console.log('uploading project');
-		await uploadImageToFirebase();
+		loading = true;
+		progress = 0;
+		const progressPart = 100 / (project.text.length + 2);
+
+		//validate links
+		let linksFailed = false;
+		project.links.forEach((link, index) => {
+			if (!link.name) {
+				messages.push({ message: 'Missing name in link ' + index, type: 'warning' });
+				messages = messages;
+				loading = false;
+				linksFailed = true;
+			}
+			if (!link.url) {
+				messages.push({ message: 'Missing url in link ' + index, type: 'warning' });
+				messages = messages;
+				loading = false;
+				linksFailed = true;
+			}
+		});
+		if (linksFailed) return;
+		//validate clips
+		let clipsFailed = false;
+		project.clips.forEach((clip, index) => {
+			if (!clip) {
+				messages.push({ message: 'Missing clip ' + index, type: 'warning' });
+				messages = messages;
+				loading = false;
+				clipsFailed = true;
+			}
+		});
+		if (clipsFailed) return;
+
+		//validate title
+		if (!project.title) {
+			messages.push({ message: 'Missing title', type: 'warning' });
+			messages = messages;
+			loading = false;
+			return;
+		}
+		//validate subtitle
+		if (!project.subtitle) {
+			messages.push({ message: 'Missing subtitle', type: 'warning' });
+			messages = messages;
+			loading = false;
+			return;
+		}
+		//validate label
+		if (!project.label) {
+			messages.push({ message: 'Missing label', type: 'warning' });
+			messages = messages;
+			loading = false;
+			return;
+		}
+		//validate description
+		if (!project.description) {
+			messages.push({ message: 'Missing description', type: 'warning' });
+			messages = messages;
+			loading = false;
+			return;
+		}
+		//validate dateCreated
+		if (!project.dateCreated) {
+			messages.push({ message: 'Missing dateCreated', type: 'warning' });
+			messages = messages;
+			loading = false;
+			return;
+		}
+
+		//validate text
+		project.text.forEach((section, index) => {
+			if (!section.title) {
+				messages.push({ message: 'Missing title in section ' + index, type: 'warning' });
+				messages = messages;
+				loading = false;
+				return;
+			}
+			if (!section.description) {
+				messages.push({ message: 'Missing description in section ' + index, type: 'warning' });
+				messages = messages;
+				loading = false;
+				return;
+			}
+		});
+
+		//validate images
+		progressText = 'Uploading main images';
+		if (!project.imageFile || !project.imageSmallFile) {
+			messages.push({ message: 'Missing main image', type: 'error' });
+			messages = messages;
+			loading = false;
+			return;
+		}
+
+		//upload images
+		const images = await uploadImageToFirebase(
+			project.imageFile,
+			project.imageSmallFile,
+			project.title
+		);
+		if (!images) {
+			messages.push({ message: 'Error uploading main image', type: 'error' });
+			messages = messages;
+			loading = false;
+			return;
+		}
+		progress += progressPart;
+		project.image = images.image;
+		project.imageSmall = images.imageSmall;
+		//delete image files
 		delete project.imageFile;
+		delete project.imageSmallFile;
+
+		//upload text images
+		for (let i = 0; i < project.text.length; i++) {
+			progressText = 'Uploading section images' + i;
+
+			if (!project.text[i].imageFile || !project.text[i].imageSmallFile) {
+				messages.push({ message: 'Missing section image at index ' + i, type: 'error' });
+				messages = messages;
+				loading = false;
+				return;
+			}
+			if (!project.text[i].title) {
+				messages.push({ message: 'Missing section title at index ' + i, type: 'error' });
+				messages = messages;
+				loading = false;
+				return;
+			}
+			const images = await uploadImageToFirebase(
+				project.text[i].imageFile!,
+				project.text[i].imageSmallFile!,
+				project.text[i].title
+			);
+			if (!images) {
+				messages.push({ message: 'Error uploading text image', type: 'error' });
+				messages = messages;
+				loading = false;
+				return;
+			}
+			progress += progressPart;
+
+			project.text[i].image = images.image;
+			project.text[i].imageSmall = images.imageSmall;
+			delete project.text[i].imageFile;
+			delete project.text[i].imageSmallFile;
+		}
+		progressText = 'Uploading project data';
 		const res = await fetch('/api/projekter', {
 			method: 'POST',
 			headers: {
@@ -92,21 +255,41 @@
 			},
 			body: JSON.stringify(project)
 		});
+		progress += progressPart;
+		loading = false;
 		if (res.ok) {
+			progressText = 'Done!';
 			const data = await res.json();
 			goto('/projekter/' + data.id);
+		} else {
+			messages.push({ message: 'Error uploading project data', type: 'error' });
+			messages = messages;
+			loading = false;
+			return;
 		}
 	}
 
-	async function uploadImageToFirebase() {
+	async function uploadImageToFirebase(
+		image: string,
+		imageSmall: string,
+		imageName: string
+	): Promise<{ imageSmall: string; image: string } | void> {
 		try {
-			const file = project.imageFile;
-			if (!file) return;
-			const storageRef = ref(firebaseStorage, file.name);
-			const snapshot = await uploadBytes(storageRef, file);
+			if (!image || !imageSmall) return;
+			//bucket project_images
+			const storageRef = ref(firebaseStorage, 'project_images/' + imageName);
+			const storageRefSmall = ref(firebaseStorage, 'project_images/' + imageName + '_small');
+			//upload image
+			const imgBlob = await fetch(image).then((r) => r.blob());
+			const imgSmallBlob = await fetch(imageSmall).then((r) => r.blob());
+
+			const snapshot = await uploadBytes(storageRef, imgBlob);
+			const snapshotSmall = await uploadBytes(storageRefSmall, imgSmallBlob);
 			//get download url
-			const downloadURL = await getDownloadURL(snapshot.ref);
-			project.image = downloadURL;
+			const imageURL = await getDownloadURL(snapshot.ref);
+			const imageSmallURL = await getDownloadURL(snapshotSmall.ref);
+
+			return { imageSmall: imageSmallURL, image: imageURL };
 		} catch (err) {
 			console.log(err);
 		}
@@ -120,9 +303,21 @@
 			try {
 				const img = await loadImage(imageUrl);
 				const _convertedImage = convertToWebp(img);
-				if (!_convertedImage) return;
+				if (!_convertedImage) {
+					messages.push({ message: 'Error converting image', type: 'error' });
+					messages = messages;
+					return;
+				}
 				const compressedImage = await compressImage(_convertedImage, 30);
-				if (!compressedImage) return;
+				if (!compressedImage) {
+					messages.push({ message: 'Error compressing image', type: 'error' });
+					messages = messages;
+					return;
+				}
+				const message = 'Image uploaded, converted and compressing seccessfully';
+				messages.push({ message, type: 'success' });
+				messages = messages;
+				clearMessage(message);
 				return {
 					image: _convertedImage,
 					imageSmall: compressedImage
@@ -133,6 +328,40 @@
 		}
 	}
 </script>
+
+<svelte:head>
+	<title>ADMIN</title>
+	<meta name="description" content="Admin page for adding new projects" />
+</svelte:head>
+<div class="fixed left-0 right-0 p-4 flex flex-col gap-2 z-50">
+	{#each messages as message, index}
+		<div class="alert alert-{message.type} f-full" in:fly={{ duration: 500, y: -25 }} out:fade>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				class="stroke-current shrink-0 h-6 w-6"
+				fill="none"
+				viewBox="0 0 24 24"
+				><path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"
+					d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+				/></svg
+			>
+			<span>{message.message}</span>
+			<div>
+				<button
+					on:click={() => {
+						messages.splice(index, 1);
+						messages = messages;
+					}}
+					name="delete-message"
+					class="btn btn-sm btn-ghost"><i class="fa-solid fa-minus" /></button
+				>
+			</div>
+		</div>
+	{/each}
+</div>
 
 <header class=" bg-primary px-2 sm:px-16 pt-8 sm:pt-16 text-primary-content">
 	<div class="join mb-16 join-vertical sm:join-horizontal !rounded-none">
@@ -285,7 +514,11 @@
 </header>
 <main>
 	<div class="relative w-full flex justify-center items-center">
-		<LazyImg image={project.image} imageSmall={project.imageSmall} alt={project.title} />
+		<LazyImg
+			image={project.imageFile ?? 'https://placehold.co/600x400/555/aaa'}
+			imageSmall={project.imageSmallFile ?? 'https://placehold.co/45x30/555/aaa'}
+			alt={project.title}
+		/>
 		<div class="form-control w-full max-w-xs absolute p-8 bg-base-100/50 rounded-2xl backdrop-blur">
 			<label class="label" for="main-image">
 				<span class="label-text font-semibold">Pick the main image</span>
@@ -294,12 +527,13 @@
 				on:change={async (e) => {
 					const images = await uploadImage(e);
 					if (!images) return;
-					project.image = images.image;
-					project.imageSmall = images.imageSmall;
+					project.imageFile = images.image;
+					project.imageSmallFile = images.imageSmall;
 				}}
 				name="main-image"
 				bind:value={project.imageFile}
 				type="file"
+				aria-label="main-image"
 				class="file-input file-input-bordered w-full max-w-xs"
 			/>
 		</div>
@@ -439,8 +673,9 @@
 			</div>
 			<div class="relative w-full flex justify-center items-center mb-16">
 				<LazyImg
-					image={project.text[sectionIndex].image}
-					imageSmall={project.text[sectionIndex].imageSmall}
+					image={project.text[sectionIndex].imageFile ?? 'https://placehold.co/600x400/555/aaa'}
+					imageSmall={project.text[sectionIndex].imageSmallFile ??
+						'https://placehold.co/45x30/555/aaa'}
 					alt={project.text[sectionIndex].title}
 				/>
 
@@ -454,12 +689,13 @@
 						on:change={async (e) => {
 							const images = await uploadImage(e);
 							if (!images) return;
-							project.text[sectionIndex].image = images.image;
-							project.text[sectionIndex].imageSmall = images.imageSmall;
+							project.text[sectionIndex].imageFile = images.image;
+							project.text[sectionIndex].imageSmallFile = images.imageSmall;
 						}}
 						name="main-image"
 						bind:value={project.text[sectionIndex].imageFile}
 						type="file"
+						aria-label="main-image"
 						class="file-input file-input-bordered w-full max-w-xs"
 					/>
 				</div>
@@ -476,7 +712,8 @@
 	>Add text section</button
 >
 <div class="flex flex-wrap gap-4 justify-center">
-	<button class="btn btn-wide btn-info btn-lg mb-8" on:click={uploadProject}> save draft </button>
+	<button class="btn btn-wide btn-info btn-lg mb-8"> save draft </button>
+
 	<button
 		class="btn btn-wide btn-warning btn-lg mb-8"
 		on:click={() => {
@@ -486,3 +723,16 @@
 		}}>Upload and publish</button
 	>
 </div>
+{#if loading}
+	<div
+		class="fixed top-0 left-0 w-screen h-screen bg-base-100 bg-opacity-75 flex justify-center items-center"
+	>
+		<div class="flex flex-col gap-16 items-center w-full p-16">
+			<span class="loading loading-spinner loading-lg bg-warning" />
+			<div class="flex flex-col w-full gap-2 items-center">
+				<p class="text-lg">{progressText}</p>
+				<progress class="progress w-full" value={progress} max="100" />
+			</div>
+		</div>
+	</div>
+{/if}

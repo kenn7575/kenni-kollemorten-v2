@@ -40,4 +40,7 @@
 	.blur-img {
 		background-size: cover;
 	}
+	#hide-background {
+		background-image: none;
+	}
 </style>

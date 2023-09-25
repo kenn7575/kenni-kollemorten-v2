@@ -12,8 +12,6 @@ export const POST: RequestHandler = async ({ request, locals }) => {
 
 	const data = (await request.json()) as IProjectToUpload; //get data
 
-	//get main image
-
 	//add project to firebase
 	const ref = adminDB.collection('projects');
 	const doc = await ref.add(data);
