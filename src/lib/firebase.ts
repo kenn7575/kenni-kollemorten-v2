@@ -20,7 +20,7 @@ export const firebaseStorage = getStorage(firebaseApp);
 
 export async function signOutUser() {
 	await signOut(firebaseAuth);
-	const res = fetch('/api/signin', {
+	const res = fetch('/api/admin/signin', {
 		method: 'Delete'
 	});
 }

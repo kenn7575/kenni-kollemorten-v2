@@ -4,14 +4,13 @@ export interface IProject {
 	title: string;
 	description: string;
 	image: string;
+	imageSmallName: string;
+	imageName: string;
 	imageSmall: string;
 	label: string;
 	dateCreated: string;
 	subtitle: string;
-	links: {
-		name: string;
-		url: string;
-	}[];
+	links: Link[];
 	clips: string[];
 	text: TextContent[];
 }
@@ -32,6 +31,8 @@ interface TextContent {
 	imageSmall: string;
 	description: string;
 	title: string;
+	imageSmallName: string;
+	imageName: string;
 }
 interface TextContentToUpload extends TextContent {
 	imageFile?: string | null;

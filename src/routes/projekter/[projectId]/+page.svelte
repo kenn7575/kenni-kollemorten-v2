@@ -1,15 +1,10 @@
 <script lang="ts">
-	import { projectsStore } from '$lib/stores/projects';
-	import { page } from '$app/stores';
 	import LazyImg from '$lib/components/LazyImg.svelte';
 	import IntersectionObserver from 'svelte-intersection-observer';
+	import { user } from '$lib/firebase';
 
-	//get the project id from the url
-	let id = $page.params.projectId;
-
-	//get the project data from the store
-	// let data = $projectsStore.find((project) => project.id === id);
 	export let data: IProject;
+	console.log('data', data);
 
 	import Arrow from '$lib/img/Arrow.svg';
 
@@ -39,6 +34,11 @@
 </svelte:head>
 
 {#if data}
+	<div class="bg-primary flex justify-center items-center pt-8">
+		{#if $user}
+			<a href="/projekter/{data.id}/rediger" class="btn btn-warning self-center">Rediger</a>
+		{/if}
+	</div>
 	<header class=" bg-primary px-2 sm:px-16 pt-8 sm:pt-16 text-primary-content">
 		<div class="flex mb-16 items-center gap-2 font-semibold text-sm">
 			<p class=" text-primary-content/80">{data.label}</p>

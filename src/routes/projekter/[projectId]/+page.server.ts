@@ -17,6 +17,7 @@ export const load = (async ({ params }) => {
 		if (!data) {
 			throw error(404, 'Project not found :(');
 		}
+		data.id = projectId;
 		// Update the visits count
 		const visits = data.visits + 1;
 		await docRef.update({ visits });

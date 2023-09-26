@@ -38,7 +38,7 @@
 			if (!userCredential) return;
 			console.log('userCredential', userCredential);
 			const idToken = await userCredential.user.getIdToken();
-			const res = await fetch('/api/signin', {
+			const res = await fetch('/api/admin/signin', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
