@@ -22,7 +22,7 @@
 				<div class="chat-bubble bg-base-300 text-base-content max-w-128">
 					Jeg er datatekniker med speciale i programmering elev på SDE og jeg mangler en elevplads.
 				</div>
-				<div class="chat-footer opacity-50">Leveret</div>
+				<div class="chat-footer opacity-80">Leveret</div>
 			</div>
 		</div>
 	</div>
@@ -47,7 +47,7 @@
                     lg:w-60
                     xl:h-24 xl:w-44"
 					class:bg-primary={FrontendMode}
-					class:text-white={FrontendMode}
+					class:text-primary-content={FrontendMode}
 					class:hover:bg-primary={FrontendMode}
 					on:click={() => {
 						FrontendMode = true;
@@ -87,8 +87,8 @@
 
 <style>
 	.effect-bg {
-		background: var(--primary);
-		background: radial-gradient(circle, var(--primary) 0%, rgba(255, 255, 255, 0) 63%);
+		background: var(--primary-transparent);
+		background: radial-gradient(circle, var(--primary-transparent) 0%, rgba(255, 255, 255, 0) 63%);
 	}
 
 	header {

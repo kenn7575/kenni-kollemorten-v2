@@ -11,8 +11,14 @@ h6 {
 	font-family: Figtree, Noto Sans JP, Noto Sans, sans-serif;
 }
 [data-theme='night'] > * {
-	--primary: rgba(231, 121, 193, 0.6433167);
+	--primary: #3abff8;
+	--secondary: #828df8;
+	--base-100: #0f1729;
+	--primary-transparent: rgba(58, 191, 248, 0.6433167);
 }
 [data-theme='light'] > * {
-	--primary: rgba(255, 0, 242, 0.6433167);
+	--primary-transparent: rgba(87, 13, 248, 0.6433167);
+	--primary: #570df8;
+	--secondary: #f000b8;
+	--base-100: #ffffff;
 }

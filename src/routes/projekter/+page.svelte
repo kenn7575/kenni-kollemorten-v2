@@ -1,74 +1,62 @@
 <script lang="ts">
-	import { createLoadObserver } from '$lib/functions/createLoadObserver';
+	import LazyImg from '$lib/components/LazyImg.svelte';
 	import { projectsStore } from '$lib/stores/projects';
-
-	const onload = createLoadObserver(() => {
-		console.log('all images loaded');
-		isLoaded.forEach((loaded) => {
-			loaded = true;
-		});
-	});
-
 	let data = $projectsStore;
-	// create a list new of isLoaded booleans for each project
-	let isLoaded: boolean[] = [];
-	for (let i = 0; i < data.length; i++) {
-		isLoaded.push(false);
-	}
+	import { user } from '$lib/firebase';
+
+	//sort projects by dateCreated
+	data = data.sort((a, b) => {
+		const dateA = new Date(a.dateCreated);
+		const dateB = new Date(b.dateCreated);
+		return dateB.getTime() - dateA.getTime();
+	});
 </script>
 
-<h1 class="text-5xl">Projekter</h1>
-<div class="flex gap-4 p-4">
+<svelte:head>
+	<title>Projekter</title>
+	<meta name="description" content="personal portfolio website" />
+</svelte:head>
+<div class="flex flex-col items-center">
+	{#if $user}
+		<a href="/projekter/ny" class="btn btn-warning mt-16">Tilføj nyt projekt</a>
+	{/if}
 	{#if data}
 		{#each data as project, index}
-			<div class="card bg-base-200 w-96 text-base-content shadow-xl">
-				<div
-					class="blur-img rounded-t-xl bg-center w-full aspect-video bg-no-repeat"
-					style="background-image: url({project.imageSmall}) ;"
-				>
-					<img
-						use:onload
-						on:load={() => {
-							console.log('image ' + (index + 1) + ' of ' + data.length + ' loaded');
-							isLoaded[index] = true;
-						}}
-						on:ended={() => {
-							console.log('ended');
-						}}
-						src={project.image}
-						alt="Shoes"
-						class="aspect-video rounded-t-xl object-cover object-center w-full transition-all duration-200 ease-in opacity-0"
-						class:opacity-100={isLoaded[index]}
-					/>
+			<article class="flex flex-col w-full px-4 sm:px-8 max-w-300 mt-16 mb-32">
+				<p class="text-2xl font-bold">#{index + 1}</p>
+				<h1 class="text-primary text-6xl lg:text-8xl font-bold">{project.title}</h1>
+				<div class="divider text-base font-medium mb-0 mt-8">
+					<span class="font-light">{project.label}</span>-
+					<span>{project.dateCreated}</span>
 				</div>
-				<div class="card-body">
-					<h2 class="card-title">
-						{project.title}
-						{#if index === 0}
-							<div class="badge badge-secondary">New</div>
-						{/if}
-					</h2>
-					<p>{project.description}</p>
-					<div class="card-actions items-end flex-col">
-						{#if project.clips}
-							<div class="flex justify-end w-1/2 flex-wrap gap-1">
-								{#each project.clips as clip}
-									<div class="badge badge-secondary badge-outline">{clip}</div>
-								{/each}
-							</div>
-						{/if}
-						<a href="/projekter/{project.id}" class="btn btn-primary">Se mere</a>
+				<div
+					class="flex flex-col-reverse mt-16 gap-y-16 gap-x-8
+				lg:flex-row"
+				>
+					<div class="flex flex-col flex-grow">
+						<h2 class="text-3xl font-medium">{project.subtitle}</h2>
+						<p class="max-w-128 mt-8 leading-loose text-base-content/80 font-light">
+							{project.description}
+						</p>
+						<div class="flex flex-wrap gap-1 mt-4">
+							{#each project.clips as clip}
+								<div class="badge badge-ghost badge-outline">{clip}</div>
+							{/each}
+						</div>
+						<a href="/projekter/{project.id}" class="btn btn-wide btn-outline btn-secondary mt-16"
+							>Se mere →</a
+						>
+					</div>
+					<div class="w-full max-w-128 overflow-hidden">
+						<LazyImg
+							alt={project.title}
+							image={project.image}
+							aspectRatio="aspect-square"
+							imageSmall={project.imageSmall}
+						/>
 					</div>
 				</div>
-			</div>
+			</article>
 		{/each}
 	{/if}
 </div>
-
-<style>
-	.blur-img {
-		background-size: cover;
-		background-position: center;
-		background-repeat: no-repeat;
-	}
-</style>

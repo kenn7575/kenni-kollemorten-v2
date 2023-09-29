@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { projectsStore } from '$lib/stores/projects';
-	console.log($projectsStore);
 
 	import Header from '../lib/sections/Header.svelte';
 	import Elevplads from '$lib/sections/Elevplads.svelte';

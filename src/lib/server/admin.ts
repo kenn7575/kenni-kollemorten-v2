@@ -1,17 +1,23 @@
 import { getAuth } from 'firebase-admin/auth';
 import { getFirestore } from 'firebase-admin/firestore';
+import { getStorage } from 'firebase-admin/storage';
 
 // import { FB_PROJECT_ID, FB_PRIVATE_KEY, FB_CLIENT_EMAIL } from '$env/static/private';
 import pkg from 'firebase-admin';
 
 try {
+	//Vercel
+	const raw = process.env.FB_PRIVATE_KEY;
+	const key = raw?.replaceAll('[REPLACE]', '\n');
 	pkg.initializeApp({
 		credential: pkg.credential.cert({
 			projectId: process.env.FB_PROJECT_ID,
-			privateKey: process.env.FB_PRIVATE_KEY,
+			privateKey: key,
 			clientEmail: process.env.FB_CLIENT_EMAIL
 		})
 	});
+
+	//Local
 	// pkg.initializeApp({
 	// 	credential: pkg.credential.cert({
 	// 		projectId: FB_PROJECT_ID,
@@ -27,3 +33,4 @@ try {
 
 export const adminDB = getFirestore();
 export const adminAuth = getAuth();
+export const adminStorage = getStorage();
