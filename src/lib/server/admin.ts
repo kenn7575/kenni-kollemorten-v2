@@ -6,6 +6,7 @@ import { getStorage } from 'firebase-admin/storage';
 import pkg from 'firebase-admin';
 
 try {
+	//Vercel
 	const raw = process.env.FB_PRIVATE_KEY;
 	const key = raw?.replaceAll('[REPLACE]', '\n');
 	pkg.initializeApp({
@@ -16,6 +17,7 @@ try {
 		})
 	});
 
+	//Local
 	// pkg.initializeApp({
 	// 	credential: pkg.credential.cert({
 	// 		projectId: FB_PROJECT_ID,

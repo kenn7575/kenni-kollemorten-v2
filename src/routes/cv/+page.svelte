@@ -87,7 +87,7 @@
 		{/if}
 	</div>
 </section>
-<section class="w-full flex flex-col justify-center px-2 mt-32 sm:px-8">
+<section class="w-full flex flex-col justify-center px-2 mt-32 sm:px-8 mb-16">
 	<h1 class="text-4xl font-bold my-8 text-center">Praktikker</h1>
 	<div class="w-full flex justify-center">
 		<div class="carousel carousel-center space-x-8 xl:space-x-16">
@@ -112,70 +112,6 @@
 					</div>
 				</div>
 			{/each}
-		</div>
-	</div>
-</section>
-<section class="w-full">
-	<div class="grid small-grid w-full">
-		<div class="card aspect-square col-span-1 bg-primary text-primary-content">
-			<div class="card-body">
-				<p>Hello</p>
-			</div>
-		</div>
-		<div class="card col-span-1 bg-primary text-primary-content">
-			<div class="card-body">
-				<p>Hello</p>
-			</div>
-		</div>
-		<div class="card col-span-1 bg-primary text-primary-content">
-			<div class="card-body">
-				<p>Hello</p>
-			</div>
-		</div>
-		<div class="card col-span-1 bg-primary text-primary-content">
-			<div class="card-body">
-				<p>Hello</p>
-			</div>
-		</div>
-		<div class="card col-span-1 bg-primary text-primary-content">
-			<div class="card-body">
-				<p>Hello</p>
-			</div>
-		</div>
-	</div>
-</section>
-<section class="mt-32 min-h-screen flex flex-col items-center">
-	<div
-		class="kurse-card relative card w-72 h-96 bg-base-100 shadow-xl image-full group hover:scale-95 duration-200 transition-all"
-	>
-		<figure class="relative">
-			<div class="h-full group-hover:scale-125 duration-200">
-				<LazyImg
-					alt={'test'}
-					image={'https://c.files.bbci.co.uk/0347/production/_92593800_gettyimages-482923234.jpg'}
-					aspectRatio="4/3"
-					imageSmall={'https://c.files.bbci.co.uk/0347/production/_92593800_gettyimages-482923234.jpg'}
-				/>
-			</div>
-		</figure>
-		<div class="card-body relative p-0 gap-0 flex flex-col">
-			<div
-				class="bg-gradient-to-b from-primary w-full h-full px-4 py-8 rounded-2xl group-hover:bg-primary/50 duration-200 transition-all"
-			>
-				<h2
-					class="text-primary-content group-hover:translate-y-4 transition-all duration-200 card-title"
-				>
-					Shoes!
-				</h2>
-				<p
-					class=" text-primary-content group-hover:translate-y-4 transition-all duration-200 pt-2 group-hover:pt-4"
-				>
-					If a dog chews shoes whose shoes does he choose?
-				</p>
-			</div>
-			<div class="card-actions justify-end absolute bottom-4 right-4">
-				<button class="btn btn-primary">Buy Now</button>
-			</div>
 		</div>
 	</div>
 </section>
