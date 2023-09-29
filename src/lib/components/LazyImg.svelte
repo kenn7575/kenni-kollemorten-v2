@@ -25,7 +25,7 @@
 </script>
 
 <div
-	class="blur-img bg-center w-full {aspectRatio} bg-no-repeat"
+	class="blur-img bg-center h-full w-full {aspectRatio} bg-no-repeat"
 	style="background-image: url({imageSmall}) ;"
 >
 	<img

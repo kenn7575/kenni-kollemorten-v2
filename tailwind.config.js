@@ -27,7 +27,11 @@ const config = {
 			},
 			backgroundSize: {
 				'50%': '50%'
+			},
+			scale: {
+				125: '1.25'
 			}
+			
 		}
 	},
 
