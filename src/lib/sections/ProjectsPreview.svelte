@@ -11,9 +11,7 @@
 </script>
 
 <div class="py-16 px-2 sm:px-8">
-	<h1 class="text-3xl font-semibold text-center">
-		Seneste
-		<span class="decoration-primary underline decoration-4 underline-offset-8">projekter</span>
-	</h1>
+	<h2 class="text-4xl font-semibold text-center mb-2">Top 10</h2>
+	<h3 class="text-xl font-light text-center mb-16">mest populære projekter</h3>
 	<TopPicks projects={data} />
 </div>

@@ -68,7 +68,7 @@
 					</div>
 				</div>
 			{/if}
-			<img src={Arrow} alt="" />
+			<img class="max-h-32 self-start" src={Arrow} alt="arrow" />
 		</div>
 	</header>
 	<main>

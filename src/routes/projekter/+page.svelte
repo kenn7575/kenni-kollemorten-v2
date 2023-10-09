@@ -24,7 +24,9 @@
 		{#each data as project, index}
 			<article class="flex flex-col w-full px-4 sm:px-8 max-w-300 mt-16 mb-32">
 				<p class="text-2xl font-bold">#{index + 1}</p>
-				<h1 class="text-primary text-6xl lg:text-8xl font-bold">{project.title}</h1>
+				<h1 class="text-primary text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold">
+					{project.title}
+				</h1>
 				<div class="divider text-base font-medium mb-0 mt-8">
 					<span class="font-light">{project.label}</span>-
 					<span>{project.dateCreated}</span>
