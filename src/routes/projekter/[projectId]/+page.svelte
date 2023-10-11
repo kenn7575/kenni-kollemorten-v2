@@ -4,7 +4,6 @@
 	import { user } from '$lib/firebase';
 
 	export let data: IProject;
-	console.log('data', data);
 
 	import Arrow from '$lib/img/Arrow.svg';
 

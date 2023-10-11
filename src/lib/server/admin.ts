@@ -40,29 +40,26 @@ import { getStorage } from 'firebase-admin/storage';
 
 import pkg from 'firebase-admin';
 
-const isVercel: boolean = process.env.VERCEL_ENV === 'production';
-
 import { FB_PROJECT_ID, FB_PRIVATE_KEY, FB_CLIENT_EMAIL } from '$env/static/private';
 
 try {
-	if (isVercel) {
-		pkg.initializeApp({
-			credential: pkg.credential.cert({
-				projectId: process.env.FB_PROJECT_ID!,
-				privateKey: process.env.FB_PRIVATE_KEY!.replace('[REPLACE]', '\n'),
-				clientEmail: process.env.FB_CLIENT_EMAIL!
-			})
-		});
-	} else {
-		// Local
-		pkg.initializeApp({
-			credential: pkg.credential.cert({
-				projectId: FB_PROJECT_ID!,
-				privateKey: FB_PRIVATE_KEY!,
-				clientEmail: FB_CLIENT_EMAIL!
-			})
-		});
-	}
+	//vercel
+	pkg.initializeApp({
+		credential: pkg.credential.cert({
+			projectId: process.env.FB_PROJECT_ID!,
+			privateKey: process.env.FB_PRIVATE_KEY!.replace('[REPLACE]', '\n'),
+			clientEmail: process.env.FB_CLIENT_EMAIL!
+		})
+	});
+
+	// Local
+	// pkg.initializeApp({
+	// 	credential: pkg.credential.cert({
+	// 		projectId: FB_PROJECT_ID!,
+	// 		privateKey: FB_PRIVATE_KEY!,
+	// 		clientEmail: FB_CLIENT_EMAIL!
+	// 	})
+	// });
 } catch (error: any) {
 	if (!/already exists/u.test(error.message)) {
 		console.error('Firebase admin initialization error', error.stack);

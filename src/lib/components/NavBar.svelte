@@ -38,8 +38,8 @@
 </script>
 
 <div class="drawer drawer-end">
-	<input id="draw" name="testname" type="checkbox" class="drawer-toggle" />
-	<label for="testname" class="hidden">Side navigation</label>
+	<input id="draw" type="checkbox" class="drawer-toggle" />
+	<label for="draw" class="hidden">Side navigation</label>
 
 	<div class="drawer-content flex flex-col">
 		<!-- Navbar -->

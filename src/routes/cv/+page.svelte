@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Countdown from '$lib/components/countdown.svelte';
 	import type { ICV } from '../../lib/types/interfaces';
 	import designImg from '$lib/img/Design-process.svg';
 	export let data;
@@ -32,7 +33,7 @@
 	<meta name="description" content="personal portfolio website" />
 </svelte:head>
 <svelte:window bind:scrollY={yPos} />
-
+<Countdown />
 <section class="w-full flex flex-col items-center mt-16">
 	<p class="text-base-content/60 font-thin">Velkommen til mit</p>
 	<h1 class="text-4xl font-bold">CV</h1>

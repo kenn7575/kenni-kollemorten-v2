@@ -8,6 +8,22 @@ const config = {
 				192: '48rem', // Adds a new height value h-100 with 25rem (400px) height
 				0.32: '0.08rem'
 			},
+			keyframes: {
+				riseup: {
+				  '0%': { 
+							transform: 'translateY(20px)',
+							opacity: '0' 
+						},
+						'20%': {
+							transform: 'translateY(20px)',
+							opacity: '0' 
+						},
+				  '100%': { transform: 'translateY(0px)', opacity: '100' },
+				}
+			},
+			animation: {
+				'rise': 'riseup 500ms ease-in-out',
+			},
 			maxHeight: {
 				192: '48rem'
 			},

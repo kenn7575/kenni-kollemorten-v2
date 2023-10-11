@@ -14,4 +14,7 @@
 	<h2 class="text-4xl font-semibold text-center mb-2">Top 10</h2>
 	<h3 class="text-xl font-light text-center mb-16">mest populære projekter</h3>
 	<TopPicks projects={data} />
+	<div class="flex justify-center m-16">
+		<a href="/projekter" class="btn btn-primary">Se alle projekter</a>
+	</div>
 </div>
