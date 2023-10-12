@@ -40,7 +40,7 @@ import { getStorage } from 'firebase-admin/storage';
 
 import pkg from 'firebase-admin';
 
-import { FB_PROJECT_ID, FB_PRIVATE_KEY, FB_CLIENT_EMAIL } from '$env/static/private';
+// import { FB_PROJECT_ID, FB_PRIVATE_KEY, FB_CLIENT_EMAIL } from '$env/static/private';
 
 try {
 	//vercel

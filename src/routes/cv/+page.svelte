@@ -1,17 +1,15 @@
 <script lang="ts">
 	import Countdown from '$lib/components/countdown.svelte';
 	import type { ICV } from '../../lib/types/interfaces';
-	import designImg from '$lib/img/Design-process.svg';
 	export let data;
 
 	import LazyImg from '$lib/components/LazyImg.svelte';
 	const cvData = data.cv[0] as ICV;
 
-	let images = [
-		'https://www.thesprucepets.com/thmb/17UY4UpiMekV7WpeXDziXsnt7q4=/1646x0/filters:no_upscale():strip_icc()/GettyImages-145577979-d97e955b5d8043fd96747447451f78b7.jpg',
-		'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/RedCat_8727.jpg/1200px-RedCat_8727.jpg'
-	];
 	let selectedImage = 0;
+
+	import CCNAITN from '$lib/img/CCNAITN.png';
+	import introductionToCybersecurity from '$lib/img/introduction-to-cybersecurity.png';
 
 	let spinDeg = 0;
 	let lastYPos = 0;
@@ -33,13 +31,72 @@
 	<meta name="description" content="personal portfolio website" />
 </svelte:head>
 <svelte:window bind:scrollY={yPos} />
-<Countdown />
-<section class="w-full flex flex-col items-center mt-16">
-	<p class="text-base-content/60 font-thin">Velkommen til mit</p>
-	<h1 class="text-4xl font-bold">CV</h1>
-	<img src={designImg} alt="cv" class="" />
+
+<!-- intro -->
+<section id="ddd" class="w-full flex flex-col items-center justify-center">
+	<div
+		class="bg-base-100 aspect-square p-16 rounded-full flex justify-center flex-col text-primary items-center"
+	>
+		<p class=" font-light text-2xl">Velkommen til mit</p>
+		<h1 class="text-8xl font-bold">CV</h1>
+	</div>
 </section>
 
+<section class="mt-16">
+	<h2 class="text-center text-4xl font-semibold md:text-7xl text-primary">Certificeringer</h2>
+	<div
+		class="flex flex-col-reverse justify-around px-8 gap-8 mt-16 items-start lg:items-center
+	 lg:flex-row lg:mx-16"
+	>
+		<a
+			class="w-full lg:w-1/2 flex justify-start"
+			target="_blank"
+			href="https://www.credly.com/badges/29150412-3701-4e4c-965d-5dc73959554a/public_url"
+			aria-label="Se badge"
+		>
+			<img class="w-96 object-contain" src={CCNAITN} alt="Badge" />
+		</a>
+		<div class="">
+			<p class="uppercase text-primary">Cisco</p>
+			<h3 class="text-4xl mt-4 sm:text-6xl">Certified Network Associate</h3>
+			<div class="flex mt-8 gap-4">
+				<i class="fa-solid fa-user-graduate text-3xl text-primary" />
+				<p class=" text-base-content/80 max-w-128 tracking-wide">
+					Jeg har taget Cisco CCNA introduction to networks, som er et 70 timers
+					undervisningsforløb. Jeg har lært alt det grundlæggende omkring Networking, og har fået en
+					forståelse for hvordan internetet hænger sammen.
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div
+		class="flex flex-col-reverse justify-around px-8 gap-8 mt-32 mb-16 items-start lg:items-center
+	 lg:flex-row-reverse lg:mx-16"
+	>
+		<a
+			class="w-full lg:w-1/2 flex justify-start lg:justify-end"
+			target="_blank"
+			href="https://www.credly.com/badges/ab0dc599-2084-42ef-a7c4-c20bd5911fcf/public_url"
+			aria-label="Se badge"
+		>
+			<img class="w-96 object-contain" src={introductionToCybersecurity} alt="Badge" />
+		</a>
+		<div class="">
+			<p class="uppercase text-primary">Cisco</p>
+			<h3 class="text-4xl mt-4 sm:text-6xl">Certified Cybersecurity Associate</h3>
+			<div class="flex mt-8 gap-4">
+				<i class="fa-solid fa-user-graduate text-3xl text-primary" />
+				<p class=" text-base-content/80 max-w-128 tracking-wide">
+					Jeg har taget Cisco CCNA introduction to networks, som er et 70 timers
+					undervisningsforløb. Jeg har lært alt det grundlæggende omkring Networking, og har fået en
+					forståelse for hvordan internetet hænger sammen.
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+<div class="divider" />
 <section class="w-full flex justify-center px-2 mt-16 sm:px-8" id="advancements">
 	<div class="flex flex-col items-center w-full max-w-192">
 		<h1 class="text-4xl font-bold">Uddannelse</h1>
@@ -116,10 +173,25 @@
 		</div>
 	</div>
 </section>
+<Countdown />
 
 <style>
-	.small-grid {
-		grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr));
-		gap: 1rem;
+	#ddd {
+		height: calc(100vh - 4rem);
+		background-color: #e5e5f7;
+		opacity: 0.8;
+		background-image: radial-gradient(circle at center center, var(--primary), #e5e5f7),
+			repeating-radial-gradient(
+				circle at center center,
+				var(--primary),
+				var(--primary),
+				10px,
+				transparent 40px,
+				transparent 20px
+			);
+		background-blend-mode: multiply;
+	}
+	* {
+		/* border: red 1px solid; */
 	}
 </style>
