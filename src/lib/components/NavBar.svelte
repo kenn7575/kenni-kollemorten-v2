@@ -8,10 +8,15 @@
 	let darkmode = true;
 	let html: any;
 
+	let drawIsOpen = false;
+	function closeDraw() {
+		drawIsOpen = false;
+	}
+
 	onMount(() => {
 		html = document.querySelector('html');
 		if (browser) {
-			window.localStorage.getItem('theme') == 'night' ? (darkmode = true) : (darkmode = false);
+			window.localStorage.getItem('theme') == 'light' ? (darkmode = false) : (darkmode = true);
 		}
 		isDoneLoading = true;
 	});
@@ -34,7 +39,7 @@
 </script>
 
 <div class="drawer drawer-end">
-	<input id="draw" type="checkbox" class="drawer-toggle" />
+	<input id="draw" type="checkbox" class="drawer-toggle" bind:checked={drawIsOpen} />
 	<label for="draw" class="hidden">Side navigation</label>
 
 	<div class="drawer-content flex flex-col">
@@ -105,9 +110,11 @@
 		<label for="draw" class="drawer-overlay" />
 		<ul class="menu p-4 w-80 h-full bg-base-200">
 			<!-- Sidebar content here -->
-			<li><a href="/">Hjem</a></li>
-			<li><a href="/projekter">Projekter</a></li>
-			<li><a href="/cv">CV</a></li>
+			<li>
+				<a href="/" on:click={closeDraw}>Hjem</a>
+			</li>
+			<li><a href="/projekter" on:click={closeDraw}>Projekter</a></li>
+			<li><a href="/cv" on:click={closeDraw}>CV</a></li>
 		</ul>
 	</div>
 </div>
