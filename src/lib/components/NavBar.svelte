@@ -1,37 +1,33 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
+	import { browser } from '$app/environment';
 	//set data-theme attribute on html element
 
 	let isDoneLoading = false;
 	let darkmode = true;
-	let html: any; //html tag to be targeted
-	let checkboxElement: HTMLInputElement;
+	let html: any;
 
 	onMount(() => {
 		html = document.querySelector('html');
-		checkboxElement = document.getElementById('draw') as HTMLInputElement;
+		if (browser) {
+			window.localStorage.getItem('theme') == 'night' ? (darkmode = true) : (darkmode = false);
+		}
 		isDoneLoading = true;
 	});
-
-	try {
-		page.subscribe((value) => {
-			if (isDoneLoading) {
-				if (checkboxElement) {
-					checkboxElement.checked = false;
-				}
-			}
-		});
-	} catch (error) {
-		console.log(error);
-	}
 
 	$: {
 		if (isDoneLoading) {
 			if (darkmode) {
 				html.setAttribute('data-theme', 'night');
+				if (browser) {
+					window.localStorage.setItem('theme', 'night');
+				}
 			} else {
 				html.setAttribute('data-theme', 'light');
+				if (browser) {
+					window.localStorage.setItem('theme', 'light');
+				}
 			}
 		}
 	}
