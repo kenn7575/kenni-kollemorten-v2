@@ -7,6 +7,7 @@ export const load = (async ({ params }) => {
 		// Get the project id from the URL
 		const { projectId } = params;
 		// Get a reference to the project in Firebase when the page is loaded
+
 		const docRef = adminDB.collection('projects').doc(projectId);
 		// Get the project data, including the "visits" count
 

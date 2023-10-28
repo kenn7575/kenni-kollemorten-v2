@@ -2,29 +2,43 @@
 	import type { IProject } from '$lib/types/interfaces';
 	export let projects: IProject[];
 	import LazyImg from '$lib/components/LazyImg.svelte';
+	import Typewriter from './typewriter.svelte';
+	import StackedAnimation from './StackedAnimation.svelte';
 </script>
 
 {#if projects}
 	<div class="top-picks max-w-full">
-		<ul class="top-picks__track">
-			{#each projects as project}
-				<li class="item top-picks__item">
-					<a class="item__card" href="/projekter/{project.id}">
-						<LazyImg
-							alt={project.title}
-							image={project.image}
-							imageSmall={project.imageSmall}
-							aspectRatio="aspect-3/4"
-						/>
+		<StackedAnimation>
+			<ul class="top-picks__track">
+				{#each projects as project}
+					<li class="item top-picks__item">
+						<a class="item__card group" href="/projekter/{project.id}">
+							<div
+								class="absolute top-0 left-0 w-full h-full bg-transparent backdrop-blur-none group-hover:backdrop-blur-md group-hover:bg-base-100/60 transition-all duration-300"
+							/>
+							<LazyImg
+								alt={project.title}
+								image={project.image}
+								imageSmall={project.imageSmall}
+								aspectRatio="aspect-3/4"
+							/>
 
-						<span
-							class="backdrop-blur-sm w-fit p-1 rounded-xl absolute top-1 right-1 no-underline text-white text-right font-bold"
-							>{project.title}</span
-						>
-					</a>
-				</li>
-			{/each}
-		</ul>
+							<span
+								class="backdrop-blur-sm w-fit p-1 rounded-xl absolute top-1 right-1 no-underline text-white text-right font-bold"
+								>{project.title}</span
+							>
+							<div
+								class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden group-hover:block"
+							>
+								<p class="text-base-content text-base group-hover:animate-rise">
+									{project.subtitle}
+								</p>
+							</div>
+						</a>
+					</li>
+				{/each}
+			</ul>
+		</StackedAnimation>
 	</div>
 {/if}
 

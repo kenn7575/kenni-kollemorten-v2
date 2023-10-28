@@ -4,7 +4,6 @@
 	import { user } from '$lib/firebase';
 
 	export let data: IProject;
-	console.log('data', data);
 
 	import Arrow from '$lib/img/Arrow.svg';
 
@@ -68,7 +67,7 @@
 					</div>
 				</div>
 			{/if}
-			<img src={Arrow} alt="" />
+			<img class="max-h-32 self-start" src={Arrow} alt="arrow" />
 		</div>
 	</header>
 	<main>

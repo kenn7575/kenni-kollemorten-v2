@@ -22,3 +22,71 @@ h6 {
 	--secondary: #f000b8;
 	--base-100: #ffffff;
 }
+
+.scroll-animation {
+	
+	transform: translateY(0px) !important;
+	opacity: 1 !important;
+}
+
+.intersection-stacked-animation ul > *,
+.intersection-stacked-animation div > * {
+	transform: translateX(-50px);
+	opacity: 0;
+	transition: all 0.5s ease-out;
+}
+.scroll-stacked-animation ul >*,
+.scroll-stacked-animation div >* {
+	transform: translateX(0);
+	opacity: 1;
+}
+
+
+
+.intersection-stacked-animation ul :nth-child(2) {
+	transition-delay: 200ms;
+}
+.intersection-stacked-animation ul :nth-child(3) {
+	transition-delay: 400ms;
+}
+.intersection-stacked-animation ul :nth-child(4) {
+	transition-delay: 600ms;
+}
+.intersection-stacked-animation ul :nth-child(5) {
+	transition-delay: 800ms;
+}
+.intersection-stacked-animation ul :nth-child(6) {
+	transition-delay: 1000ms;
+}
+.intersection-stacked-animation ul :nth-child(7) {
+	transition-delay: 1200ms;
+}
+.intersection-stacked-animation ul :nth-child(8) {
+	transition-delay: 1400ms;
+}
+.intersection-stacked-animation ul :nth-child(9) {
+	transition-delay: 1600ms;
+}
+.intersection-stacked-animation ul :nth-child(10) {
+	transition-delay: 1800ms;
+}
+@keyframes your-animation {
+	0% {
+	opacity: 0;
+	transform: translateX(-50px); /* You can adjust the initial state as needed */
+	}
+	100% {
+	opacity: 1;
+	transform: translateX(0); /* You can adjust the final state as needed */
+	}
+}
+@keyframes fade-up {
+	0% {
+		transform: translateY(50px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
