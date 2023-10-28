@@ -13,8 +13,6 @@
 				entries.forEach((entry) => {
 					const intersecting = entry.isIntersecting;
 					if (intersecting) {
-						console.log('Intersection');
-
 						entry.target.classList.add('scroll-stacked-animation');
 						//unovserve
 						observer.unobserve(entry.target);

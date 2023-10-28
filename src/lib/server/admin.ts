@@ -9,6 +9,7 @@ try {
 	// Vercel
 	const raw = process.env.FB_PRIVATE_KEY;
 	const key = raw?.replaceAll('[REPLACE]', '\n');
+	console.log('key', key);
 	pkg.initializeApp({
 		credential: pkg.credential.cert({
 			projectId: process.env.FB_PROJECT_ID,
