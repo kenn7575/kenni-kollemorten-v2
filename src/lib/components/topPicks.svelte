@@ -14,7 +14,7 @@
 					<li class="item top-picks__item">
 						<a class="item__card group" href="/projekter/{project.id}">
 							<div
-								class="absolute top-0 left-0 w-full h-full bg-transparent backdrop-blur-none group-hover:backdrop-blur-md group-hover:bg-base-100/60 transition-all duration-300"
+								class="z-10 absolute top-0 left-0 w-full h-full bg-base-100/50 opacity-0 backdrop-blur-lg group-hover:opacity-100 transition-all duration-300"
 							/>
 							<LazyImg
 								alt={project.title}
@@ -28,7 +28,7 @@
 								>{project.title}</span
 							>
 							<div
-								class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden group-hover:block"
+								class="z-20 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 hidden group-hover:block"
 							>
 								<p class="text-base-content text-base group-hover:animate-rise">
 									{project.subtitle}
@@ -98,6 +98,7 @@
 	}
 
 	.top-picks__item:after {
+		z-index: 30;
 		content: counter(index);
 		position: absolute;
 		color: var(--base-100);
