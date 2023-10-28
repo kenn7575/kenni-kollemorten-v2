@@ -1,8 +1,6 @@
 <script lang="ts">
 	import Countdown from '$lib/components/countdown.svelte';
 	import type { ICV } from '../../lib/types/interfaces';
-	import { dev } from '$app/environment';
-	import { inject } from '@vercel/analytics';
 	import LazyImg from '$lib/components/LazyImg.svelte';
 	import LazyImgVertical from '$lib/components/LazyImgVertical.svelte';
 	import CCNAITN from '$lib/img/CCNAITN.png';
@@ -11,7 +9,6 @@
 	import StackedAnimation from '$lib/components/StackedAnimation.svelte';
 	import IntersectionAnimation from '$lib/components/IntersectionAnimation.svelte';
 	export let data;
-	inject({ mode: dev ? 'development' : 'production' });
 
 	const cvData = data.cv[0] as ICV;
 	let spinDeg = 0;

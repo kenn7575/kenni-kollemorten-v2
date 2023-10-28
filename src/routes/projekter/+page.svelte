@@ -4,9 +4,6 @@
 	let dataInput = $projectsStore;
 	import { user } from '$lib/firebase';
 	import IntersectionAnimation from '$lib/components/IntersectionAnimation.svelte';
-	import { dev } from '$app/environment';
-	import { inject } from '@vercel/analytics';
-	inject({ mode: dev ? 'development' : 'production' });
 
 	//sort projects by dateCreated
 	dataInput = dataInput.sort((a, b) => {
