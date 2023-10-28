@@ -44,12 +44,13 @@
 	</div>
 </section>
 
-<section class="mt-32">
+<!-- aprentice -->
+<section class="mt-32 px-2 sm:px-6">
 	<h2 class="text-center text-4xl font-semibold md:text-7xl text-primary mb-16">Praktikker</h2>
 	<div class="divider" />
 	<StackedAnimation>
 		<div
-			class="grid-container grid p-4 gap-4
+			class="grid-container grid gap-4
 			grid-cols-2
 			md:grid-cols-3
 			xl:grid-cols-6
@@ -158,13 +159,15 @@
 		</div>
 	</StackedAnimation>
 </section>
-<section class="mt-32">
+
+<!-- Cercificates -->
+<section class="mt-32 px-2 sm:px-6">
 	<h2 class="text-center text-4xl font-semibold md:text-7xl text-primary">Certificeringer</h2>
 	<div class="divider" />
 
 	<IntersectionAnimationfrom>
 		<div
-			class="flex flex-col-reverse justify-around px-8 gap-8 mt-16 items-start lg:items-center
+			class="flex flex-col-reverse justify-around gap-8 mt-16 items-start lg:items-center
 		 lg:flex-row lg:mx-16"
 		>
 			<a
@@ -191,7 +194,7 @@
 	</IntersectionAnimationfrom>
 	<IntersectionAnimationfrom>
 		<div
-			class="flex flex-col-reverse justify-around px-8 gap-8 mt-16 mb-16 items-start lg:items-center
+			class="flex flex-col-reverse justify-around gap-8 mt-16 mb-16 items-start lg:items-center
 		 lg:flex-row-reverse lg:mx-16"
 		>
 			<a
@@ -218,7 +221,8 @@
 	</IntersectionAnimationfrom>
 </section>
 
-<section class="w-full flex flex-col justify-center px-2 mt-32 sm:px-8">
+<!-- Erfaring -->
+<section class="w-full flex flex-col justify-center mt-32 px-2 sm:px-6">
 	<h2 class="text-center text-4xl font-semibold md:text-7xl text-primary mb-16">
 		Erhvervserfaring
 	</h2>
@@ -324,7 +328,7 @@
 
 <!-- uddannelse -->
 <section
-	class="w-full flex flex-col justify-center items-center px-2 mb-16 mt-32 sm:px-8"
+	class="w-full flex flex-col justify-center items-center mb-16 mt-32 px-2 sm:px-6"
 	id="advancements"
 >
 	<h2 class="text-center text-4xl font-semibold md:text-7xl text-primary mb-16">Uddannelse</h2>
