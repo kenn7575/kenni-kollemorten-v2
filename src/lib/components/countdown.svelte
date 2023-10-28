@@ -26,38 +26,38 @@
 	$: seconds = Math.floor((distance % (1000 * 60)) / 1000);
 </script>
 
-<div class="grid grid-flow-col gap-5 text-center auto-cols-max self-center">
-	<div class="flex flex-col p-2 bg-warning rounded-box text-warning-content">
+<div class="flex flex-wrap gap-4 justify-center">
+	<div class="flex flex-col w-24 items-center bg-warning rounded-box text-warning-content">
 		<span class="countdown font-mono text-5xl">
 			<span style="--value:{years};" />
 		</span>
 		years
 	</div>
-	<div class="flex flex-col p-2 bg-warning rounded-box text-warning-content">
+	<div class="flex flex-col items-center w-24 bg-warning rounded-box text-warning-content">
 		<span class="countdown font-mono text-5xl">
 			<span style="--value:{months};" />
 		</span>
 		Months
 	</div>
-	<div class="flex flex-col p-2 bg-warning rounded-box text-warning-content">
+	<div class="flex flex-col items-center w-24 bg-warning rounded-box text-warning-content">
 		<span class="countdown font-mono text-5xl">
 			<span style="--value:{days};" />
 		</span>
 		days
 	</div>
-	<div class="flex flex-col p-2 bg-warning rounded-box text-warning-content">
+	<div class="flex flex-col items-center w-24 bg-warning rounded-box text-warning-content">
 		<span class="countdown font-mono text-5xl">
 			<span style="--value:{hours};" />
 		</span>
 		hours
 	</div>
-	<div class="flex flex-col p-2 bg-warning rounded-box text-warning-content">
+	<div class="flex flex-col items-center w-24 bg-warning rounded-box text-warning-content">
 		<span class="countdown font-mono text-5xl">
 			<span style="--value:{minutes};" />
 		</span>
 		min
 	</div>
-	<div class="flex flex-col p-2 bg-warning rounded-box text-warning-content">
+	<div class="flex flex-col items-center w-24 bg-warning rounded-box text-warning-content">
 		<span class="countdown font-mono text-5xl">
 			<span style="--value:{seconds};" />
 		</span>

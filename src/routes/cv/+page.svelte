@@ -368,7 +368,7 @@
 		{/if}
 	</div>
 	<div class="mt-8">
-		<h2 class="text-2xl font-semibold text-center">Færdig med uddannelsen om</h2>
+		<h2 class="text-2xl font-semibold text-center mb-4">Færdig med uddannelsen om</h2>
 		<Countdown />
 	</div>
 </section>
