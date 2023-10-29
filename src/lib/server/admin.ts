@@ -17,6 +17,15 @@ try {
 			clientEmail: process.env.FB_CLIENT_EMAIL
 		})
 	});
+
+	//Local
+	// pkg.initializeApp({
+	// 	credential: pkg.credential.cert({
+	// 		projectId: FB_PROJECT_ID,
+	// 		privateKey: FB_PRIVATE_KEY,
+	// 		clientEmail: FB_CLIENT_EMAIL
+	// 	})
+	// });
 } catch (error: any) {
 	if (!/already exists/u.test(error.message)) {
 		console.error('Firebase admin initialization error', error.stack);
