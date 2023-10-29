@@ -7,23 +7,15 @@ import pkg from 'firebase-admin';
 
 try {
 	// Vercel
-	// const raw = process.env.FB_PRIVATE_KEY;
-	// const key = raw?.replaceAll('[REPLACE]', '\n');
-	// console.log('key', key);
-	// pkg.initializeApp({
-	// 	credential: pkg.credential.cert({
-	// 		projectId: process.env.FB_PROJECT_ID,
-	// 		privateKey: key,
-	// 		clientEmail: process.env.FB_CLIENT_EMAIL
-	// 	})
-	// });
-
-	//Local
-	// const raw = FB_PRIVATE_KEY;
-	// const key = raw?.replaceAll('[REPLACE]', '\n');
-	const serviceAccount = JSON.parse(process.env.FB_SERVICE_ACCOUNT as string);
+	const raw = process.env.FB_PRIVATE_KEY;
+	const key = raw?.replaceAll('[REPLACE]', '\n');
+	console.warn('key', key);
 	pkg.initializeApp({
-		credential: pkg.credential.cert(serviceAccount)
+		credential: pkg.credential.cert({
+			projectId: process.env.FB_PROJECT_ID,
+			privateKey: key,
+			clientEmail: process.env.FB_CLIENT_EMAIL
+		})
 	});
 } catch (error: any) {
 	if (!/already exists/u.test(error.message)) {
