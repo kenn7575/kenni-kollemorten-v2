@@ -21,9 +21,7 @@
 </div>
 <div class="text-base">
 	<span class="footer-title text-primary opacity-100">Info</span>
-	<a target="_blank" href="https://www.laerepladsen.dk/" class="link link-hover"
-		>info@kenni-kollemorten.dk</a
-	>
+	<a target="_blank" href="kontakt@kennik.dk" class="link link-hover">info@kenni-kollemorten.dk</a>
 	<a href="tel:53805027" class="link link-hover">+45 53 80 50 27</a>
 	<p>Bor i Svendborg C</p>
 	<p>5. juni 2004</p>
@@ -38,7 +36,7 @@
 		</div>
 
 		<div class="tooltip tooltip-info" data-tip="Mail">
-			<a aria-label="Mail" target="_blank" href="mailto:info@kenni-kollemorten.dk"
+			<a aria-label="Mail" target="_blank" href="mailto:kontakt@kennik.dk"
 				><i class="fa-regular fa-envelope text-2xl" />
 			</a>
 		</div>

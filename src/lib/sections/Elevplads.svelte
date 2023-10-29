@@ -15,7 +15,7 @@
 				</p>
 				<div class="card-actions">
 					<a
-						href="mailto:info@kenni-kollemorten.dk"
+						href="mailto:kontakt@kennik.dk"
 						class="btn btn-secondary shadow text-base mt-2 hover:scale-105 hover:btn-ghost"
 						>Kontakt mig <span class="text-2xl">🤙</span></a
 					>
