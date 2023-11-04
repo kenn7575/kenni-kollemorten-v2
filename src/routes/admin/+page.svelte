@@ -1,11 +1,11 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import { firebaseAuth } from '$lib/firebase';
+	import { firebaseAuth } from '$lib/functions/firebase';
 	import { signInWithEmailAndPassword } from 'firebase/auth';
 	import { fade, fly } from 'svelte/transition';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
-	import { user } from '$lib/firebase';
+	import { user } from '$lib/functions/firebase';
 
 	let email = '';
 	let password = '';
@@ -53,6 +53,13 @@
 			error = _error.message;
 		}
 	}
+	const validateEmail = (email: string) => {
+		return String(email)
+			.toLowerCase()
+			.match(
+				/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+			);
+	};
 
 	export let data: PageData;
 </script>
@@ -100,6 +107,11 @@
 			type="email"
 			placeholder="E-Mail"
 			class="input input-bordered input-primary w-full max-w-md"
+			class:input-error={error !== ''}
+			on:focus={() => {
+				error = '';
+			}}
+			class:input-warning={!validateEmail(email)}
 		/>
 		<label for="password">Password</label>
 		<input
@@ -108,6 +120,11 @@
 			type="password"
 			placeholder="Password"
 			class="input input-bordered input-primary w-full max-w-md"
+			class:input-error={error !== ''}
+			class:input-warning={password.length < 4}
+			on:focus={() => {
+				error = '';
+			}}
 		/>
 		<div class="w full flex justify-center">
 			<button class="btn btn-outline w-min px-6 mt-4" type="submit">Login</button>

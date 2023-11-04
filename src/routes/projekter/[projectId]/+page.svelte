@@ -1,7 +1,7 @@
 <script lang="ts">
 	import LazyImg from '$lib/components/LazyImg.svelte';
 	import IntersectionObserver from 'svelte-intersection-observer';
-	import { user } from '$lib/firebase';
+	import { user } from '$lib/functions/firebase';
 
 	export let data: IProject;
 

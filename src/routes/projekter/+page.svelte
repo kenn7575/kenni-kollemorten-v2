@@ -2,7 +2,7 @@
 	import LazyImg from '$lib/components/LazyImg.svelte';
 	import { projectsStore } from '$lib/stores/projects';
 	let dataInput = $projectsStore;
-	import { user } from '$lib/firebase';
+	import { user } from '$lib/functions/firebase';
 	import IntersectionAnimation from '$lib/components/IntersectionAnimation.svelte';
 
 	//sort projects by dateCreated

@@ -27,37 +27,37 @@
 </script>
 
 <div class="flex flex-wrap gap-4 justify-center">
-	<div class="flex flex-col w-24 items-center bg-warning rounded-box text-warning-content">
+	<div class="flex flex-col w-24 items-center bg-primary rounded-box py-2 text-primary-content">
 		<span class="countdown font-mono text-5xl">
 			<span style="--value:{years};" />
 		</span>
 		years
 	</div>
-	<div class="flex flex-col items-center w-24 bg-warning rounded-box text-warning-content">
+	<div class="flex flex-col items-center w-24 bg-primary rounded-box py-2 text-primary-content">
 		<span class="countdown font-mono text-5xl">
 			<span style="--value:{months};" />
 		</span>
 		Months
 	</div>
-	<div class="flex flex-col items-center w-24 bg-warning rounded-box text-warning-content">
+	<div class="flex flex-col items-center w-24 bg-primary rounded-box py-2 text-primary-content">
 		<span class="countdown font-mono text-5xl">
 			<span style="--value:{days};" />
 		</span>
 		days
 	</div>
-	<div class="flex flex-col items-center w-24 bg-warning rounded-box text-warning-content">
+	<div class="flex flex-col items-center w-24 bg-primary rounded-box py-2 text-primary-content">
 		<span class="countdown font-mono text-5xl">
 			<span style="--value:{hours};" />
 		</span>
 		hours
 	</div>
-	<div class="flex flex-col items-center w-24 bg-warning rounded-box text-warning-content">
+	<div class="flex flex-col items-center w-24 bg-primary rounded-box py-2 text-primary-content">
 		<span class="countdown font-mono text-5xl">
 			<span style="--value:{minutes};" />
 		</span>
 		min
 	</div>
-	<div class="flex flex-col items-center w-24 bg-warning rounded-box text-warning-content">
+	<div class="flex flex-col items-center w-24 bg-primary rounded-box py-2 text-primary-content">
 		<span class="countdown font-mono text-5xl">
 			<span style="--value:{seconds};" />
 		</span>

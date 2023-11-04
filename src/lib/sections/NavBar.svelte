@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { page } from '$app/stores';
 	import { browser } from '$app/environment';
 	//set data-theme attribute on html element
 

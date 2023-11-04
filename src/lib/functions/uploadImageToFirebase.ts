@@ -1,5 +1,5 @@
 import { getDownloadURL, ref, uploadBytes } from '@firebase/storage';
-import { firebaseStorage } from '$lib/firebase';
+import { firebaseStorage } from '$lib/functions/firebase';
 import { generateRandomBase64Code } from '$lib/functions/generateRandomBase64Code';
 
 export async function uploadImageToFirebase(

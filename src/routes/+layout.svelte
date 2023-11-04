@@ -3,14 +3,13 @@
 	export let data;
 	import { projectsStore } from '$lib/stores/projects';
 	projectsStore.set(data.projects);
-	import NavBar from '$lib/components/NavBar.svelte';
+	import NavBar from '$lib/sections/NavBar.svelte';
 	import Footer from '$lib/sections/Footer.svelte';
-	import { user } from '$lib/firebase';
-	import { signOutUser } from '$lib/firebase';
-
+	import { user } from '$lib/functions/firebase';
+	import { signOutUser } from '$lib/functions/firebase';
 	import { dev } from '$app/environment';
 	import { inject } from '@vercel/analytics';
-	inject({ mode: dev ? 'development' : 'production' });
+	inject({ mode: dev ? 'development' : 'production' }); //vercel analytics initialization
 </script>
 
 <nav class="sticky top-0 z-40">
