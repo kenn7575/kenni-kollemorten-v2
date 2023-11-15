@@ -29,7 +29,15 @@
 
 <svelte:head>
 	<title>Hlælp til en aftale</title>
-	<meta name="description" content="personal portfolio website" />
+	<meta name="description" content="Help providing an apprenticeship" />
+	<meta charset="utf-8" />
+	<meta
+		name="keywords"
+		content="kenni, kollemorten, kenni kollemorten, portfolio, læreplads, elevplads, apprenticeship"
+	/>
+	<meta name="author" content="Kenni Kollemorten" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta property="og:title" content="Help providing an apprenticeship" />
 </svelte:head>
 <section class="flex px-4 lg:px-8 items-center flex-col my-16">
 	<p class="text-base-content/60 font-thin">At ansætte en elev er simpelt</p>
@@ -301,7 +309,7 @@
 	<h2 class="font-bold text-2 mt-16">
 		Hvis det lyder som noget for jer, så kantakt mig via email.
 	</h2>
-	<a href="mailto:info@kenni-kollemorten.dk" class="btn btn-primary btn-lg mt-8"
+	<a href="mailto:kontakt@kennik.dk" class="btn btn-primary btn-lg mt-8"
 		>Kontakt mig <span class="text-3xl">😃</span></a
 	>
 </section>

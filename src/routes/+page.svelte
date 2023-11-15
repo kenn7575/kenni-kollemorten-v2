@@ -12,6 +12,11 @@
 <svelte:head>
 	<title>Hjem</title>
 	<meta name="description" content="personal portfolio website" />
+	<meta charset="utf-8" />
+	<meta name="keywords" content="kenni, kollemorten, kenni kollemorten, portfolio, projekter" />
+	<meta name="author" content="Kenni Kollemorten" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta property="og:title" content="Portfolio index" />
 </svelte:head>
 
 <Header />

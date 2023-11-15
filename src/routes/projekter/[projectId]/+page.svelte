@@ -29,7 +29,15 @@
 
 <svelte:head>
 	<title>{data?.title}</title>
-	<meta name="description" content={data?.subtitle} />
+	<meta name="description" content="portfolio {data?.subtitle} " />
+	<meta charset="utf-8" />
+	<meta
+		name="keywords"
+		content="kenni, kollemorten, kenni kollemorten, portfolio, projekter, {data?.title}"
+	/>
+	<meta name="author" content="Kenni Kollemorten" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta property="og:title" content="Projekt {data?.title}" />
 </svelte:head>
 
 {#if data}
