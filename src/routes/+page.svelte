@@ -10,10 +10,16 @@
 </script>
 
 <svelte:head>
-	<title>Hjem</title>
-	<meta name="description" content="personal portfolio website" />
+	<title>Hjem - Portfolio website</title>
+	<meta
+		name="description"
+		content="Explore my diverse portfolio showcasing innovative projects and creative solutions.  Elevate your digital experience with my unique perspective and expertise."
+	/>
 	<meta charset="utf-8" />
-	<meta name="keywords" content="kenni, kollemorten, kenni kollemorten, portfolio, projekter" />
+	<meta
+		name="keywords"
+		content="projects, kenni, kollemorten, kenni kollemorten, portfolio, projekter"
+	/>
 	<meta name="author" content="Kenni Kollemorten" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta property="og:title" content="Portfolio index" />

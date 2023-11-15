@@ -27,8 +27,11 @@
 </script>
 
 <svelte:head>
-	<title>CV</title>
-	<meta name="description" content="personal CV and resume" />
+	<title>CV - Portfolio website</title>
+	<meta
+		name="description"
+		content=" Explore my CV to discover a dedicated individual driven by passion, backed by top-notch grades, and fortified with a collection of valuable certificates. "
+	/>
 
 	<meta charset="utf-8" />
 	<meta

@@ -41,7 +41,7 @@
 		class="col-start-2 row-start-1 flex items-center justify-center z-10 rotate-3 translate-y-10
 		sm:translate-y-0"
 	>
-		<img class="h-24" src={htmlLogo} alt="" />
+		<img class="h-24" src={htmlLogo} alt="Html logo" />
 	</div>
 	<!-- 2 end -->
 	<!-- 2,6 -->
@@ -92,13 +92,13 @@
 		class="col-start-1 row-start-2 row-span-2 flex items-end justify-center z-10 -rotate-3
 	lg:items-start"
 	>
-		<img class="h-24 lg:h-36" src={tailwindLogo} alt="" />
+		<img class="h-24 lg:h-36" src={tailwindLogo} alt="tailwind logo" />
 	</div>
 	<!-- 4,7 end -->
 	<!-- 5,8,11 -->
 	<div class="col-start-2 row-start-2 row-span-3 flex items-center justify-center">
 		<div class="card bg-base-100 shadow-xl">
-			<figure><img src={frontend} alt="Shoes" /></figure>
+			<figure><img src={frontend} alt="frontend" /></figure>
 			<div class="card-body bg-base-200 rounded-b-2xl">
 				<h2 class="card-title">
 					Frontend
@@ -115,7 +115,7 @@
 	<!-- 5,8,11 end -->
 	<!-- 9,12 -->
 	<div class="col-start-3 row-start-3 row-span-2 flex items-center justify-center z-10">
-		<img class="h-32 lg:h-48" src={svelteLogo} alt="" />
+		<img class="h-32 lg:h-48" src={svelteLogo} alt="svelte logo" />
 	</div>
 	<!-- 9,12 end -->
 	<!-- 13 -->
