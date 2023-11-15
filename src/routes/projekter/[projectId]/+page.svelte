@@ -28,8 +28,11 @@
 </script>
 
 <svelte:head>
-	<title>{data?.title}</title>
-	<meta name="description" content="portfolio {data?.subtitle} " />
+	<title>{data?.title} - Portfolio website</title>
+	<meta
+		name="description"
+		content="Explore my diverse portfolio showcasing innovative projects and creative solutions.  Elevate your digital experience with my unique perspective and expertise. "
+	/>
 	<meta charset="utf-8" />
 	<meta
 		name="keywords"

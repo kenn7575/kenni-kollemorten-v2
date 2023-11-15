@@ -35,8 +35,11 @@
 </script>
 
 <svelte:head>
-	<title>Projekter</title>
-	<meta name="description" content="personal portfolio website" />
+	<title>Projekter - Portfolio website</title>
+	<meta
+		name="description"
+		content="Explore my diverse portfolio showcasing innovative projects and creative solutions.  Elevate your digital experience with my unique perspective and expertise."
+	/>
 	<meta charset="utf-8" />
 	<meta name="keywords" content="kenni, kollemorten, kenni kollemorten, portfolio, projekter" />
 	<meta name="author" content="Kenni Kollemorten" />

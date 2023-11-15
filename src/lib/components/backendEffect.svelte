@@ -30,20 +30,20 @@
 	<div
 		class="col-start-3 row-start-1 flex items-center justify-center z-10 rotate-6 translate-y-10"
 	>
-		<img class="h-24 lg:h-36" src={githubLogo} alt="" />
+		<img class="h-24 lg:h-36" src={githubLogo} alt="Github" />
 	</div>
 	<!-- 3 end -->
 	<!-- 4 -->
 	<div
 		class="col-start-1 row-start-2 flex items-center justify-center z-10 rotate-6 translate-y-10"
 	>
-		<img class="h-24" src={nodejsLogo} alt="" />
+		<img class="h-24" src={nodejsLogo} alt="NodeJs" />
 	</div>
 	<!-- 4 end -->
 	<!-- 5,8,11 -->
 	<div class="col-start-2 row-start-2 row-span-3 flex items-center justify-center">
 		<div class="card bg-base-100 shadow-xl">
-			<figure><img src={backend} alt="Shoes" /></figure>
+			<figure><img src={backend} alt="Backend" /></figure>
 			<div class="card-body bg-base-200 rounded-b-2xl">
 				<h2 class="card-title">
 					Backend
@@ -61,12 +61,12 @@
 	<!-- 5,8,11 end -->
 	<!-- 12 -->
 	<div class="col-start-3 row-start-4 flex items-center justify-center z-10 -rotate-3">
-		<img class="max-h-36" src={FirebaseLogo} alt="" />
+		<img class="max-h-36" src={FirebaseLogo} alt="Firebase" />
 	</div>
 	<!-- 12 end -->
 	<!-- 10 -->
 	<div class="col-start-1 row-start-4 flex items-center justify-center z-10 -rotate-3">
-		<img class="max-h-36" src={svelteKitLogo} alt="" />
+		<img class="max-h-36" src={svelteKitLogo} alt="SvelteKit" />
 	</div>
 	<!-- 10 end -->
 	<!-- 14,15 -->

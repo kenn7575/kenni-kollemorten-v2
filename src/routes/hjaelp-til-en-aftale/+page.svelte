@@ -28,8 +28,11 @@
 </script>
 
 <svelte:head>
-	<title>Hlælp til en aftale</title>
-	<meta name="description" content="Help providing an apprenticeship" />
+	<title>Hlælp til en aftale - Portfolio website</title>
+	<meta
+		name="description"
+		content="Discover how our tailored solutions empower companies to find and nurture top talent. Transform your hiring process and build a dynamic team for the future."
+	/>
 	<meta charset="utf-8" />
 	<meta
 		name="keywords"
@@ -49,7 +52,7 @@
 				<h2 class="card-title text-3xl text-base-content/60">1</h2>
 				<p>Bliv godkendt</p>
 			</div>
-			<figure><img src={customersurvey} alt="Shoes" /></figure>
+			<figure><img src={customersurvey} alt="Bliv godgendt" /></figure>
 			<button
 				on:click={() => {
 					SmoothVerticalScrolling('bliv-godkendt', 400, 'top');
@@ -62,7 +65,7 @@
 				<h2 class="card-title text-3xl text-base-content/60">2</h2>
 				<p>Vælg uddannelsesaftale</p>
 			</div>
-			<figure><img src={coworking} alt="Shoes" /></figure>
+			<figure><img src={coworking} alt="uddannelsesaftale" /></figure>
 			<button
 				on:click={() => {
 					SmoothVerticalScrolling('Vaelg-uddannelsesaftale', 400, 'top');
@@ -76,7 +79,7 @@
 				<h2 class="card-title text-3xl text-base-content/60">3</h2>
 				<p>Underskriv</p>
 			</div>
-			<figure><img src={agreement} alt="Shoes" /></figure>
+			<figure><img src={agreement} alt="Underskriv" /></figure>
 
 			<button
 				on:click={() => {
