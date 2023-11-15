@@ -28,7 +28,16 @@
 
 <svelte:head>
 	<title>CV</title>
-	<meta name="description" content="personal portfolio website" />
+	<meta name="description" content="personal CV and resume" />
+
+	<meta charset="utf-8" />
+	<meta
+		name="keywords"
+		content="kenni, kollemorten, kenni kollemorten, portfolio, cv, expirience, skills"
+	/>
+	<meta name="author" content="Kenni Kollemorten" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta property="og:title" content="CV" />
 </svelte:head>
 <svelte:window bind:scrollY={yPos} />
 

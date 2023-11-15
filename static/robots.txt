@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /projekter/ny/
+Disallow: /projekter/*/rediger/
+Disallow: /api/*
+Disallow: /api/
+Disallow: /admin/
