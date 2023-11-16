@@ -8,5 +8,6 @@
 	<div class="text-base-content">
 		<h1 class="text-6xl font-semibold">{$page.status}</h1>
 		<p class="text-xl font-light">{$page.error?.message}</p>
+		<a href="/" class="btn my-8 btn-primary">Forside</a>
 	</div>
 </div>
