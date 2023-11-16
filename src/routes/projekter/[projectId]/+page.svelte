@@ -156,6 +156,7 @@
 				<div class="flex px-4 flex-wrap max-w-192 join mb-16">
 					{#each data.links as link, index}
 						<a
+							rel="noreferrer"
 							class="join-item btn btn-secondary btn-outline btn-sm capitalize
 							sm:btn-md sm:w-44"
 							target="_blank"

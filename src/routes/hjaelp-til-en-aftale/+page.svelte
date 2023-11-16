@@ -187,6 +187,7 @@
 				</li>
 			</ul>
 			<a
+				rel="noreferrer"
 				target="_blank"
 				href="https://itd.sde.dk/?edu=programming&s_type=EUD"
 				class="btn btn-primary mt-4">Se hovedforløb</a
@@ -204,6 +205,7 @@
 				størstedelen af uddannelsen foregar ude hos jer i virksomheden.
 			</p>
 			<a
+				rel="noreferrer"
 				target="_blank"
 				href="https://firebasestorage.googleapis.com/v0/b/kenni-kollemorten.appspot.com/o/project_images%2Fresources%2FAns%C3%A6t%20en%20l%C3%A6rling.pdf?alt=media&token=69b21e75-a404-4101-ae74-8c26ba01d04f"
 				class="btn btn-primary mt-8">Se pdf</a
@@ -217,7 +219,12 @@
 				Som virksomhed betaler I lærlingeløn efter gældende overenskomst. I modtager refusion til
 				løn og kørsel, når lærlingen er på skoleophold.
 			</p>
-			<a target="_blank" href="https://www.sde.dk/tilskud" class="btn btn-primary mt-8">Læs mere</a>
+			<a
+				target="_blank"
+				rel="noreferrer"
+				href="https://www.sde.dk/tilskud"
+				class="btn btn-primary mt-8">Læs mere</a
+			>
 		</article>
 		<div class="divider divider-horizontal hidden xl:flex" />
 		<article class="my-16 flex flex-col items-center">
@@ -227,7 +234,12 @@
 				anvende Lærepladsen.dk som værktøj til formidling af lærepladser og støtte for både elever
 				og virksomheder.
 			</p>
-			<a target="_blank" href="https://www.laerepladsen.dk/" class="btn btn-primary mt-8">Besøg</a>
+			<a
+				target="_blank"
+				rel="noreferrer"
+				href="https://www.laerepladsen.dk/"
+				class="btn btn-primary mt-8">Besøg</a
+			>
 		</article>
 	</div>
 </section>
@@ -274,6 +286,7 @@
 		gøre en forskel, og blive godkendt til at tage elever/lærlinge.
 	</p>
 	<a
+		rel="noreferrer"
 		target="_blank"
 		href="https://pms.laerepladsen.dk/laerested-ansoeg-godkendelse"
 		class="btn btn-primary mt-8">Se hvordan i bliver godkendt</a
@@ -291,12 +304,16 @@
 	</p>
 	<div class="flex gap-4 mt-8">
 		<a
+			rel="noreferrer"
 			target="_blank"
 			href="https://www.stil.dk/-/media/filer/stil/pdf22/maj/220524-indgaa-uddannelsesaftaler-digitalt-paa-laerepladsen-dk.pdf"
 			class="btn btn-secondary">Læs mere</a
 		>
-		<a target="_blank" href="https://ua.laerepladsen.dk/aftaleoversigt" class="btn btn-primary"
-			>Se uddannelsesaftaler</a
+		<a
+			target="_blank"
+			rel="noreferrer"
+			href="https://ua.laerepladsen.dk/aftaleoversigt"
+			class="btn btn-primary">Se uddannelsesaftaler</a
 		>
 	</div>
 </section>
@@ -312,7 +329,7 @@
 	<h2 class="font-bold text-2 mt-16">
 		Hvis det lyder som noget for jer, så kantakt mig via email.
 	</h2>
-	<a href="mailto:kontakt@kennik.dk" class="btn btn-primary btn-lg mt-8"
+	<a href="mailto:kontakt@kennik.dk" rel="noreferrer" class="btn btn-primary btn-lg mt-8"
 		>Kontakt mig <span class="text-3xl">😃</span></a
 	>
 </section>
@@ -324,7 +341,9 @@
 	</p>
 	<h2 class="font-bold text-2 mt-16">Kontakt Virksomhedskonsulent Per</h2>
 	<div class="flex gap-2 flex-wrap">
-		<a href="mailto:phr@sde.dk" class="btn normal-case btn-primary mt-8">phr@sde.dk</a>
-		<a href="tel:4073 6562" class="btn normal-case btn-primary mt-8">4073 6562</a>
+		<a href="mailto:phr@sde.dk" rel="noreferrer" class="btn normal-case btn-primary mt-8"
+			>phr@sde.dk</a
+		>
+		<a href="tel:4073 6562" rel="noreferrer" class="btn normal-case btn-primary mt-8">4073 6562</a>
 	</div>
 </section>

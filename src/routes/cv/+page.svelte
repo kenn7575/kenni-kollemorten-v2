@@ -183,6 +183,7 @@
 			<a
 				class="w-full lg:w-1/2 flex justify-start"
 				target="_blank"
+				rel="noreferrer"
 				href="https://www.credly.com/badges/29150412-3701-4e4c-965d-5dc73959554a/public_url"
 				aria-label="Se badge"
 			>
@@ -210,6 +211,7 @@
 			<a
 				class="w-full lg:w-1/2 flex justify-start lg:justify-end"
 				target="_blank"
+				rel="noreferrer"
 				href="https://www.credly.com/badges/ab0dc599-2084-42ef-a7c4-c20bd5911fcf/public_url"
 				aria-label="Se badge"
 			>
