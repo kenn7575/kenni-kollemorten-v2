@@ -35,7 +35,7 @@
 		"@vercel/analytics": "^1.1.1",
 		"firebase": "^10.7.0",
 		"firebase-admin": "^12.0.0",
-		"sharp": "^0.32.6"
+		"sharp": "^0.33.0"
 		
 	}
 }
