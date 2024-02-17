@@ -3,6 +3,7 @@ import { getFirestore } from 'firebase-admin/firestore';
 import { getStorage } from 'firebase-admin/storage';
 
 // import { FB_PROJECT_ID, FB_PRIVATE_KEY, FB_CLIENT_EMAIL } from '$env/static/private';
+
 import pkg from 'firebase-admin';
 
 try {
@@ -18,7 +19,7 @@ try {
 		})
 	});
 
-	//Local
+	// Local
 	// pkg.initializeApp({
 	// 	credential: pkg.credential.cert({
 	// 		projectId: FB_PROJECT_ID,
