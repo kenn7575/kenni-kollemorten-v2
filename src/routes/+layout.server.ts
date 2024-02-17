@@ -4,7 +4,6 @@ import { error } from '@sveltejs/kit';
 import type { IProject } from '$lib/types/interfaces';
 
 export const load = (async () => {
-	
 	const ref = adminDB.collection('projects');
 	const snapshot = await ref.get();
 

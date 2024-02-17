@@ -4,9 +4,11 @@
 	import TopPicks from '$lib/components/topPicks.svelte';
 
 	//sort projects by visits and only show the top 10
-	data = data.sort((a, b) => b.visits - a.visits);
-	if (data.length > 10) {
-		data = data.slice(0, 10);
+	if (data) {
+		data = data.sort((a, b) => b.visits - a.visits);
+		if (data.length > 10) {
+			data = data.slice(0, 10);
+		}
 	}
 </script>
 
