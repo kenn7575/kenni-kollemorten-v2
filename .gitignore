@@ -11,4 +11,3 @@ vite.config.ts.timestamp-*
 service-acount.json
 
 # Sentry Config File
-.sentryclirc
