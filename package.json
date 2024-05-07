@@ -34,7 +34,7 @@
 	"dependencies": {
 		"@sentry/sveltekit": "^7.110.0",
 		"@vercel/analytics": "^1.2.2",
-		"firebase": "^10.10.0",
+		"firebase": "^10.11.0",
 		"firebase-admin": "^12.0.0",
 		"sharp": "^0.33.3"
 	}
