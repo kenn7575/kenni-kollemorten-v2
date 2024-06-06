@@ -32,7 +32,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@sentry/sveltekit": "^7.114.0",
+		"@sentry/sveltekit": "^7.115.0",
 		"@vercel/analytics": "^1.2.2",
 		"firebase": "^10.12.0",
 		"firebase-admin": "^12.1.0",
