@@ -26,7 +26,7 @@
 	class:translate-x-14={direcrtion.toLowerCase() == 'left'}
 	class:down={direcrtion.toLowerCase() == 'down'}
 	class:right={direcrtion.toLowerCase() == 'right'}
-	class="intersection-animation transition-all duration-1000 ease-in-out"
+	class="intersection-animation transition-all duration-1000 ease-in-out w-full"
 >
 	<slot />
 </div>
