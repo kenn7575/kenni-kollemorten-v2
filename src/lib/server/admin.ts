@@ -27,6 +27,7 @@ try {
 	// 		clientEmail: FB_CLIENT_EMAIL
 	// 	})
 	// });
+	console.log('Firebase admin initialized');
 } catch (error: any) {
 	if (!/already exists/u.test(error.message)) {
 		console.error('Firebase admin initialization error', error.stack);

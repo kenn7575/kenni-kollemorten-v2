@@ -8,6 +8,10 @@
 	import IntersectionAnimationfrom from '$lib/components/IntersectionAnimation.svelte';
 	import StackedAnimation from '$lib/components/StackedAnimation.svelte';
 	import IntersectionAnimation from '$lib/components/IntersectionAnimation.svelte';
+
+	import GithubStat from '$lib/components/githubStat.svelte';
+	import { onMount } from 'svelte';
+	import { githubStatData } from '$lib/types/githubAPITypes';
 	export let data;
 
 	const cvData = data.cv[0] as ICV;
@@ -24,6 +28,16 @@
 		}
 		lastYPos = yPosition;
 	}
+
+	let githubData: githubStatData;
+	onMount(() => {
+		fetch('/api/githubStats')
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data);
+				githubData = data;
+			});
+	});
 </script>
 
 <svelte:head>
@@ -45,7 +59,7 @@
 <svelte:window bind:scrollY={yPos} />
 
 <!-- intro -->
-<section id="ddd" class="w-full flex flex-col items-center justify-center">
+<section id="ddd" class="w-full flex flex-col mb-16 items-center justify-center">
 	<div
 		class="bg-base-100 aspect-square p-16 rounded-full flex justify-center flex-col text-primary items-center sticky top-8"
 	>
@@ -55,9 +69,8 @@
 </section>
 
 <!-- aprentice -->
-<section class="mt-32 px-2 sm:px-6">
+<section class="my-16 px-2 sm:px-6">
 	<h2 class="text-center text-4xl font-semibold md:text-7xl text-primary mb-16">Praktikker</h2>
-	<div class="divider" />
 	<StackedAnimation>
 		<div
 			class="grid-container grid gap-4
@@ -170,10 +183,10 @@
 	</StackedAnimation>
 </section>
 
+<div class="divider" />
 <!-- Cercificates -->
-<section class="mt-32 px-2 sm:px-6">
+<section class="my-16 px-2 sm:px-6">
 	<h2 class="text-center text-4xl font-semibold md:text-7xl text-primary">Certificeringer</h2>
-	<div class="divider" />
 
 	<IntersectionAnimationfrom>
 		<div
@@ -233,12 +246,12 @@
 	</IntersectionAnimationfrom>
 </section>
 
+<div class="divider" />
 <!-- Erfaring -->
-<section class="w-full flex flex-col justify-center mt-32 px-2 sm:px-6">
+<section class="w-full flex flex-col justify-center my-16 px-2 sm:px-6">
 	<h2 class="text-center text-4xl font-semibold md:text-7xl text-primary mb-16">
 		Erhvervserfaring
 	</h2>
-	<div class="divider" />
 
 	<IntersectionAnimation direcrtion="up">
 		<div
@@ -338,13 +351,13 @@
 	</IntersectionAnimation>
 </section>
 
+<div class="divider" />
 <!-- uddannelse -->
 <section
-	class="w-full flex flex-col justify-center items-center mb-16 mt-32 px-2 sm:px-6"
+	class="w-full flex flex-col justify-center items-center my-16 px-2 sm:px-6"
 	id="advancements"
 >
 	<h2 class="text-center text-4xl font-semibold md:text-7xl text-primary mb-16">Uddannelse</h2>
-	<div class="divider" />
 	<div class="flex flex-col items-center w-full max-w-192">
 		{#if cvData.advancements}
 			{#each cvData.advancements as advancement, index}
@@ -387,6 +400,59 @@
 		<h2 class="text-2xl font-semibold text-center mb-4">Færdig med uddannelsen om</h2>
 		<Countdown />
 	</div>
+</section>
+<div class="divider" />
+
+<section
+	class="w-full flex flex-col justify-center items-center my-16 px-2 sm:px-6 overflow-hidden"
+>
+	<h2 class="text-center text-4xl font-semibold md:text-7xl text-primary mb-16">Github omdømme</h2>
+
+	<IntersectionAnimation direcrtion="up">
+		<div class=" w-full flex justify-center">
+			<GithubStat
+				data={githubData?.totalLines}
+				textContent={{
+					title: 'Lijner kode',
+					details:
+						'Dataen er hentet fra GitHub api i realtime. Tallet er beregnet ud fra summen af linjer fra alle repositories på min github profil. Note: Noget kode kan være skrevet af colaborators som har sammarbejdet med.',
+					description: 'I alt på min GitHub'
+				}}
+			/>
+		</div>
+	</IntersectionAnimation>
+
+	<IntersectionAnimation direcrtion="up">
+		<div class="mt-16 w-full flex justify-center">
+			<GithubStat
+				data={githubData?.totalPublicLines}
+				textContent={{
+					title: 'Lijner kode',
+					details:
+						'Dataen er hentet fra GitHub api i realtime. Tallet er beregnet ud fra summen af linjer fra alle mine offentlige repositories på min github profil. Note: Noget kode kan være skrevet af colaborators som har sammarbejdet med.',
+					description: 'I alt fra mine offentlige repos'
+				}}
+			/>
+		</div>
+	</IntersectionAnimation>
+
+	<IntersectionAnimation direcrtion="up">
+		<div class="mt-16 w-full flex justify-center">
+			<GithubStat
+				data={githubData?.repos.length}
+				textContent={{
+					title: 'Repos',
+					details: `Dataen er hentet fra GitHub api i realtime. Jeg har i alt ${
+						githubData?.repos.length
+					} repos på min github, hvor ${
+						githubData?.repos.filter((r) => r.public).length
+					} af dem er offentlige.`,
+					description: 'Oprettet af mig'
+				}}
+				decimals={0}
+			/>
+		</div>
+	</IntersectionAnimation>
 </section>
 
 <style>
