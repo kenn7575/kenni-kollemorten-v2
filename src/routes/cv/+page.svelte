@@ -284,7 +284,7 @@
 				class="flex flex-col gap-8
 				lg:w-1/2"
 			>
-				<p class="uppercase text-primary">Juli 2019 - Nu</p>
+				<p class="uppercase text-primary">Juli 2019 - September 2024</p>
 				<h3 class="text-4xl sm:text-6xl">Fritidsarbejde <br />på Cafebiografen</h3>
 				<p class="ml-8">
 					Jeg har arbejdet på cafebiografen siden juni 2019. I den tid har jeg lært en masse om
