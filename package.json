@@ -35,7 +35,7 @@
 		"@vercel/analytics": "^1.4.1",
 		"@sentry/sveltekit": "^8.45.0",
 		"firebase": "^10.14.0",
-		"firebase-admin": "^13.0.1",
+		"firebase-admin": "^13.0.2",
 		"sharp": "^0.33.4"
 	}
 }
