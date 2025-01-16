@@ -4,40 +4,41 @@
 	import LazyImg from '$lib/components/LazyImg.svelte';
 	import LazyImgVertical from '$lib/components/LazyImgVertical.svelte';
 	import CCNAITN from '$lib/img/CCNAITN.png';
+	import LinuxCisco from '$lib/img/linux-essentials.png';
 	import introductionToCybersecurity from '$lib/img/introduction-to-cybersecurity.png';
 	import IntersectionAnimationfrom from '$lib/components/IntersectionAnimation.svelte';
 	import StackedAnimation from '$lib/components/StackedAnimation.svelte';
 	import IntersectionAnimation from '$lib/components/IntersectionAnimation.svelte';
 
-	import GithubStat from '$lib/components/githubStat.svelte';
+	// import GithubStat from '$lib/components/githubStat.svelte';
 	import { onMount } from 'svelte';
-	import { githubStatData } from '$lib/types/githubAPITypes';
+	// import { githubStatData } from '$lib/types/githubAPITypes';
 	export let data;
 
 	const cvData = data.cv[0] as ICV;
-	let spinDeg = 0;
-	let lastYPos = 0;
-	let yPos = 0;
-	$: scrollHandler(yPos, lastYPos);
-	//increase the degree of rotation on scroll
-	function scrollHandler(yPosition: number, lastYPosition: number) {
-		if (yPosition > lastYPosition) {
-			spinDeg += 0.5;
-		} else if (yPosition < lastYPosition) {
-			spinDeg -= 0.5;
-		}
-		lastYPos = yPosition;
-	}
+	// let spinDeg = 0;s
+	// let lastYPos = 0;
+	// let yPos = 0;
+	// $: scrollHandler(yPos, lastYPos);
+	// //increase the degree of rotation on scroll
+	// function scrollHandler(yPosition: number, lastYPosition: number) {
+	// 	if (yPosition > lastYPosition) {
+	// 		spinDeg += 0.5;
+	// 	} else if (yPosition < lastYPosition) {
+	// 		spinDeg -= 0.5;
+	// 	}
+	// 	lastYPos = yPosition;
+	// }
 
-	let githubData: githubStatData;
-	onMount(() => {
-		fetch('/api/githubStats')
-			.then((res) => res.json())
-			.then((data) => {
-				console.log(data);
-				githubData = data;
-			});
-	});
+	// let githubData: githubStatData;
+	// onMount(() => {
+	// 	fetch('/api/githubStats')
+	// 		.then((res) => res.json())
+	// 		.then((data) => {
+	// 			console.log(data);
+	// 			githubData = data;
+	// 		});
+	// });
 </script>
 
 <svelte:head>
@@ -56,7 +57,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta property="og:title" content="CV" />
 </svelte:head>
-<svelte:window bind:scrollY={yPos} />
+<!-- <svelte:window bind:scrollY={yPos} /> -->
 
 <!-- intro -->
 <section id="ddd" class="w-full flex flex-col mb-16 items-center justify-center">
@@ -236,9 +237,38 @@
 				<div class="flex mt-8 gap-4">
 					<i class="fa-solid fa-user-graduate text-3xl text-primary" />
 					<p class=" text-base-content/80 max-w-128 tracking-wide">
-						Jeg har taget Cisco CCNA introduction to networks, som er et 70 timers
-						undervisningsforløb. Jeg har lært alt det grundlæggende omkring Networking, og har fået
-						en forståelse for hvordan internetet hænger sammen.
+						Jeg har taget Cisco Introduction to Cybersecurity certificeringen, og har lært om
+						sikkerhed i netværk, software, cloud og IoT. Jeg har lært om trusler, angreb og
+						sårbarheder, og med den viden kan jeg nu bedre beskytte mig selv og andre mod
+						cyberangreb.
+					</p>
+				</div>
+			</div>
+		</div>
+	</IntersectionAnimationfrom>
+	<IntersectionAnimationfrom>
+		<div
+			class="flex flex-col-reverse justify-around gap-8 mt-16 items-start lg:items-center
+		 lg:flex-row lg:mx-16"
+		>
+			<a
+				class="w-full lg:w-1/2 flex justify-start"
+				target="_blank"
+				rel="noreferrer"
+				href="https://www.credly.com/badges/1db6dc8d-1e21-4d23-97b6-b6c32258ea5b/public_url"
+				aria-label="Se badge"
+			>
+				<img class="w-96 object-contain" src={LinuxCisco} alt="Badge" />
+			</a>
+			<div class="">
+				<p class="uppercase text-primary">Cisco</p>
+				<h3 class="text-4xl mt-4 sm:text-6xl">Linux Essentials</h3>
+				<div class="flex mt-8 gap-4">
+					<i class="fa-solid fa-user-graduate text-3xl text-primary" />
+					<p class=" text-base-content/80 max-w-128 tracking-wide">
+						Jeg har taget Cisco Linux Essentials certificeringen, og har lært om Linux kernelen og
+						GNU/Linux operativ systemet. Jeg har lært om kommandoer, filsystemer, brugere,
+						rettigheder og grupper, og har fået en god forståelse for hvordan Linux fungerer.
 					</p>
 				</div>
 			</div>
@@ -401,9 +431,8 @@
 		<Countdown />
 	</div>
 </section>
-<div class="divider" />
 
-<section
+<!-- <section
 	class="w-full flex flex-col justify-center items-center my-16 px-2 sm:px-6 overflow-hidden"
 >
 	<h2 class="text-center text-4xl font-semibold md:text-7xl text-primary mb-16">Github omdømme</h2>
@@ -453,7 +482,7 @@
 			/>
 		</div>
 	</IntersectionAnimation>
-</section>
+</section> -->
 
 <style>
 	#ddd {
