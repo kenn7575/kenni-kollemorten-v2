@@ -20,7 +20,7 @@
 			</h1>
 			<div class="chat chat-start">
 				<div class="chat-bubble bg-base-300 text-base-content max-w-128">
-					Jeg er datatekniker med speciale i programmering elev på SDE og jeg mangler en elevplads.
+					Jeg laver Full-stack websites, apps og AI løsningen. Lad os sammen optimerer jeres processer!
 				</div>
 				<div class="chat-footer opacity-80">Leveret</div>
 			</div>
