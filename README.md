@@ -46,7 +46,7 @@ The backend is build with SvelteKit and Firebase.
 
 ## Getting Started
 
-Explore this project by...
+Requires Node.js 22.17 or newer.
 
 1. Clone the repo
 
@@ -60,7 +60,16 @@ git clone https://github.com/kenn7575/kenni-kollemorten-v2.git
 npm i
 ```
 
-3. Start dev server
+3. Create a `.env` file with the Firebase Admin service account credentials (see `src/env.ts`)
+
+```sh
+FB_PROJECT_ID=...
+FB_CLIENT_EMAIL=...
+FB_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+GITHUB_TOKEN=... # optional, only used by /api/githubStats
+```
+
+4. Start dev server
 
 ```sh
 npm run dev
