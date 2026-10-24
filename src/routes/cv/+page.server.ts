@@ -10,7 +10,7 @@ export const load = (async () => {
 	const snapshot = await ref.get();
 
     if (snapshot.empty) {
-		throw error(404, 'Project not found :(');
+		error(404, 'Project not found :(');
 	} else {
 		const data = snapshot.docs.map((doc) => doc.data());
 

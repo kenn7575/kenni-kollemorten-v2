@@ -7,7 +7,7 @@ import type { IProjectToUpload } from '$lib/types/interfaces';
 export const POST: RequestHandler = async ({ request, locals }) => {
 	const uid = locals.userId;
 	if (!uid) {
-		throw redirect(301, '/admin');
+		redirect(301, '/admin');
 	}
 
 	const data = (await request.json()) as IProjectToUpload; //get data

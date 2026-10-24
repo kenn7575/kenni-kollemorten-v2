@@ -19,7 +19,7 @@ export const POST: RequestHandler = async ({ cookies, request }) => {
 		cookies.set('__session', cookie, options);
 		return json({ status: 'signedIn' });
 	} else {
-		throw error(401, 'Require recent login');
+		error(401, 'Require recent login');
 	}
 };
 

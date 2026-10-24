@@ -7,7 +7,7 @@ export const load = (async ({ locals, params, url }) => {
 	const uid = locals.userId;
 	if (!uid) {
 		const fromURL = url.pathname;
-		throw redirect(302, '/admin?redirect=' + fromURL);
+		redirect(302, '/admin?redirect=' + fromURL);
 	}
 	//find projectId
 	const { projectId } = params;
