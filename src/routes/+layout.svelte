@@ -1,14 +1,12 @@
 <script lang="ts">
 	import '../app.css';
-	export let data;
-	import { projectsStore } from '$lib/stores/projects';
-	projectsStore.set(data.projects);
 	import NavBar from '$lib/sections/NavBar.svelte';
 	import Footer from '$lib/sections/Footer.svelte';
 	import { user } from '$lib/functions/firebase';
 	import { signOutUser } from '$lib/functions/firebase';
 	import { dev } from '$app/environment';
 	import { inject } from '@vercel/analytics';
+	let { data, children } = $props();
 	inject({ mode: dev ? 'development' : 'production' }); //vercel analytics initialization
 </script>
 
@@ -31,7 +29,7 @@
 			<div>
 				<button
 					class="btn btn-ghost"
-					on:click={() => {
+					onclick={() => {
 						signOutUser();
 					}}
 				>
@@ -44,7 +42,7 @@
 </nav>
 
 <main class="flex flex-col overflow-x-hidden bg-base-100 relative">
-	<slot projects={data} />
+	{@render children?.()}
 </main>
 
 <footer class="footer p-10 bg-base-300 text-base-content">

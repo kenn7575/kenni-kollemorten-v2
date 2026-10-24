@@ -19,7 +19,7 @@
 		</div>
 		<div
 			class="mask mask-hexagon-2 absolute w-full h-full bg-primary/20 scale-110 -translate-x-10 -translate-y-10 z-0"
-		/>
+		></div>
 	</div>
 	<div class="xl:w-full">
 		<IntersectionAnimation direcrtion="right">
@@ -38,7 +38,7 @@
 				</p>
 				<a href=" https://github.com/kenn7575" target="_blank" class="btn btn-outline mt-4">
 					github
-					<i class="fa-brands fa-github text-3xl" />
+					<i class="fa-brands fa-github text-3xl"></i>
 				</a>
 			</div>
 		</IntersectionAnimation>
@@ -58,7 +58,7 @@
 				</p>
 				<a href="/cv" class="btn btn-primary mt-4">
 					Gå til CV
-					<i class="fa-solid fa-arrow-right" />
+					<i class="fa-solid fa-arrow-right"></i>
 				</a>
 			</div>
 		</IntersectionAnimation>
@@ -81,7 +81,7 @@
 
 				<a href="/projekter" class="btn btn-primary mt-4">
 					Gå til projekter
-					<i class="fa-solid fa-arrow-right" />
+					<i class="fa-solid fa-arrow-right"></i>
 				</a>
 			</div>
 		</IntersectionAnimation>

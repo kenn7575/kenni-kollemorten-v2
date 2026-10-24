@@ -4,7 +4,7 @@
 	import htmlLogo from '$lib/img/HTML_Logo.svg';
 	import tailwindLogo from '$lib/img/Tailwind_Logo.svg';
 
-	let page = 6;
+	let page = $state(6);
 	function increase() {
 		if (page < 10) page++;
 	}
@@ -12,7 +12,7 @@
 		if (page > 1) page--;
 	}
 
-	let steps = 2;
+	let steps = $state(2);
 </script>
 
 <div class="grid grid-cols-3 grid-rows-5 relative">
@@ -49,7 +49,7 @@
 		<ul class="steps steps-vertical">
 			<li class:step-primary={steps > 0} class="step">
 				<button
-					on:click={() => {
+					onclick={() => {
 						steps = 1;
 					}}
 				>
@@ -58,7 +58,7 @@
 			</li>
 			<li class:step-primary={steps > 1} class="step">
 				<button
-					on:click={() => {
+					onclick={() => {
 						steps = 2;
 					}}
 				>
@@ -67,7 +67,7 @@
 			</li>
 			<li class:step-primary={steps > 2} class="step">
 				<button
-					on:click={() => {
+					onclick={() => {
 						steps = 3;
 					}}
 				>
@@ -76,7 +76,7 @@
 			</li>
 			<li class:step-primary={steps > 3} class="step">
 				<button
-					on:click={() => {
+					onclick={() => {
 						steps = 4;
 					}}
 				>
@@ -121,9 +121,9 @@
 	<!-- 13 -->
 	<div class="col-start-1 row-start-5 flex items-center justify-center z-10 rotate-12">
 		<div class="join shadow-lg">
-			<button on:click={decrease} class="join-item btn">«</button>
+			<button onclick={decrease} class="join-item btn">«</button>
 			<button class="join-item btn">Page {page}</button>
-			<button on:click={increase} class="join-item btn">»</button>
+			<button onclick={increase} class="join-item btn">»</button>
 		</div>
 	</div>
 	<!-- 13 end -->

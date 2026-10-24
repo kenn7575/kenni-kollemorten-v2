@@ -3,21 +3,24 @@
 	import IntersectionObserver from 'svelte-intersection-observer';
 	import { user } from '$lib/functions/firebase';
 
-	export let data: IProject;
-
 	import Arrow from '$lib/img/Arrow.svg';
 
 	import { getMonthName } from '$lib/functions/monthCalulator';
 	import type { IProject } from '$lib/types/interfaces';
+	interface Props {
+		data: IProject;
+	}
+
+	let { data }: Props = $props();
 
 	let date = new Date(data?.dateCreated ?? '');
 	let month = getMonthName(date.getMonth()) ?? '';
 	let year = date.getFullYear() ?? '';
 
-	let elementsStart: any[] = [];
-	let elementsEnd: any[] = [];
-	let observersStart: boolean[] = [];
-	let observersEnd: boolean[] = [];
+	let elementsStart: any[] = $state([]);
+	let elementsEnd: any[] = $state([]);
+	let observersStart: boolean[] = $state([]);
+	let observersEnd: boolean[] = $state([]);
 
 	data?.text.forEach((_, index) => {
 		elementsStart.push('ref');
@@ -52,7 +55,7 @@
 	<header class=" bg-primary px-2 sm:px-16 pt-8 sm:pt-16 text-primary-content">
 		<div class="flex mb-16 items-center gap-2 font-semibold text-sm">
 			<p class=" text-primary-content/80">{data.label}</p>
-			<div class="divider w-4 after:bg-primary-content/80 before:bg-primary-content/80" />
+			<div class="divider w-4 after:bg-primary-content/80 before:bg-primary-content/80"></div>
 			<p>{month} {year}</p>
 		</div>
 		<h1 class="text-5xl sm:text-7xl font-bold text-primary-content mb-16">{data.title}</h1>
@@ -63,7 +66,7 @@
 		<div class="flex flex-col sm:flex-row sm:items-start">
 			{#if data.links}
 				<div class=" w-fit">
-					<div class="after:bg-primary-content/80 before:bg-primary-content/80 divider m-2" />
+					<div class="after:bg-primary-content/80 before:bg-primary-content/80 divider m-2"></div>
 					<div class="flex px-4 flex-wrap max-w-192">
 						{#each data.links as link, index}
 							<a class="btn btn-ghost btn-xs sm:btn-sm capitalize" target="_blank" href={link.url}
@@ -72,7 +75,7 @@
 							{#if index !== data.links.length - 1}
 								<div
 									class="after:bg-primary-content/80 before:bg-primary-content/80 divider divider-horizontal"
-								/>
+								></div>
 							{/if}
 						{/each}
 					</div>
@@ -89,12 +92,12 @@
 				<div
 					class:rotate-0={observersStart[index]}
 					class="clip-path h-28 bg-primary w-full translate-y-2 duration-500 -rotate-3 origin-bottom-right"
-				/>
+				></div>
 				<IntersectionObserver
 					element={elementsStart[index]}
 					bind:intersecting={observersStart[index]}
 				>
-					<div bind:this={elementsStart[index]} class="observer" />
+					<div bind:this={elementsStart[index]} class="observer"></div>
 				</IntersectionObserver>
 			{/if}
 			<section
@@ -144,9 +147,9 @@
 				<div
 					class:rotate-0={observersEnd[index]}
 					class="clip-path-reverse h-28 bg-primary w-full -translate-y-2 origin-top-left duration-500 -rotate-3"
-				/>
+				></div>
 				<IntersectionObserver element={elementsEnd[index]} bind:intersecting={observersEnd[index]}>
-					<div bind:this={elementsEnd[index]} class="observer" />
+					<div bind:this={elementsEnd[index]} class="observer"></div>
 				</IntersectionObserver>
 			{/if}
 		{/each}

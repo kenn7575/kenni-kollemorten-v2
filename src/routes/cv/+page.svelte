@@ -12,8 +12,13 @@
 
 	// import GithubStat from '$lib/components/githubStat.svelte';
 	import { onMount } from 'svelte';
-	// import { githubStatData } from '$lib/types/githubAPITypes';
-	export let data;
+
+	interface Props {
+		// import { githubStatData } from '$lib/types/githubAPITypes';
+		data: any;
+	}
+
+	let { data }: Props = $props();
 
 	const cvData = data.cv[0] as ICV;
 	// let spinDeg = 0;s
@@ -184,7 +189,7 @@
 	</StackedAnimation>
 </section>
 
-<div class="divider" />
+<div class="divider"></div>
 <!-- Cercificates -->
 <section class="my-16 px-2 sm:px-6">
 	<h2 class="text-center text-4xl font-semibold md:text-7xl text-primary">Certificeringer</h2>
@@ -207,7 +212,7 @@
 				<p class="uppercase text-primary">Cisco</p>
 				<h3 class="text-4xl mt-4 sm:text-6xl">Certified Network Associate</h3>
 				<div class="flex mt-8 gap-4">
-					<i class="fa-solid fa-user-graduate text-3xl text-primary" />
+					<i class="fa-solid fa-user-graduate text-3xl text-primary"></i>
 					<p class=" text-base-content/80 max-w-128 tracking-wide">
 						Jeg har taget Cisco CCNA introduction to networks, som er et 70 timers
 						undervisningsforløb. Jeg har lært alt det grundlæggende omkring Networking, og har fået
@@ -235,7 +240,7 @@
 				<p class="uppercase text-primary">Cisco</p>
 				<h3 class="text-4xl mt-4 sm:text-6xl">Certified Cybersecurity Associate</h3>
 				<div class="flex mt-8 gap-4">
-					<i class="fa-solid fa-user-graduate text-3xl text-primary" />
+					<i class="fa-solid fa-user-graduate text-3xl text-primary"></i>
 					<p class=" text-base-content/80 max-w-128 tracking-wide">
 						Jeg har taget Cisco Introduction to Cybersecurity certificeringen, og har lært om
 						sikkerhed i netværk, software, cloud og IoT. Jeg har lært om trusler, angreb og
@@ -264,7 +269,7 @@
 				<p class="uppercase text-primary">Cisco</p>
 				<h3 class="text-4xl mt-4 sm:text-6xl">Linux Essentials</h3>
 				<div class="flex mt-8 gap-4">
-					<i class="fa-solid fa-user-graduate text-3xl text-primary" />
+					<i class="fa-solid fa-user-graduate text-3xl text-primary"></i>
 					<p class=" text-base-content/80 max-w-128 tracking-wide">
 						Jeg har taget Cisco Linux Essentials certificeringen, og har lært om Linux kernelen og
 						GNU/Linux operativ systemet. Jeg har lært om kommandoer, filsystemer, brugere,
@@ -276,7 +281,7 @@
 	</IntersectionAnimationfrom>
 </section>
 
-<div class="divider" />
+<div class="divider"></div>
 <!-- Erfaring -->
 <section class="w-full flex flex-col justify-center my-16 px-2 sm:px-6">
 	<h2 class="text-center text-4xl font-semibold md:text-7xl text-primary mb-16">
@@ -326,7 +331,7 @@
 						<div class="timeline-infouppercase whitespace-nowrap">
 							<span class="text-primary">Juli 2019</span>
 						</div>
-						<div class="timeline-marker absolute top-0 bottom-0 left-0 w-4" />
+						<div class="timeline-marker absolute top-0 bottom-0 left-0 w-4"></div>
 						<div class="timeline-content pb-10">
 							<h3 class="mt-2 text-lg font-bold">Opvasker - ungarbejder</h3>
 							<p class="mt-1">
@@ -338,7 +343,7 @@
 						<div class="timeline-info uppercase whitespace-nowrap">
 							<span class="text-primary">Juni 2022</span>
 						</div>
-						<div class="timeline-marker absolute top-0 bottom-0 left-0 w-4" />
+						<div class="timeline-marker absolute top-0 bottom-0 left-0 w-4"></div>
 						<div class="timeline-content">
 							<h3 class="mt-2 text-lg font-bold">Tjener - afrydder</h3>
 							<p class="mt-1">Da jeg blev 18 år, blev jeg tjener og afrydder.</p>
@@ -381,7 +386,7 @@
 	</IntersectionAnimation>
 </section>
 
-<div class="divider" />
+<div class="divider"></div>
 <!-- uddannelse -->
 <section
 	class="w-full flex flex-col justify-center items-center my-16 px-2 sm:px-6"
@@ -404,20 +409,20 @@
 								<div class="flex mt-4 flex-wrap">
 									<p class="font-bold text-primary">{text.subject}</p>
 									{#if text.view}
-										<div class="divider divider-horizontal" />
+										<div class="divider divider-horizontal"></div>
 										<p class="text-base-content/80">Standpunkt: {text.view}</p>
 									{/if}
 									{#if text.grade}
-										<div class="divider divider-horizontal" />
+										<div class="divider divider-horizontal"></div>
 										<p class="text-base-content/80">Karakter: {text.grade}</p>
 									{/if}
 									{#if text.other}
-										<div class="divider divider-horizontal" />
+										<div class="divider divider-horizontal"></div>
 										<p class="text-base-content/80">{text.other}</p>
 									{/if}
 								</div>
 								{#if index != advancement.content?.length - 1 && advancement.content?.length > 1}
-									<div class="divider m-2 before:h-0.32 after:h-0.32" />
+									<div class="divider m-2 before:h-0.32 after:h-0.32"></div>
 								{/if}
 							{/each}
 						</div>
@@ -489,7 +494,8 @@
 		height: calc(100vh - 4rem);
 		background-color: #e5e5f7;
 		opacity: 0.8;
-		background-image: radial-gradient(circle at center center, var(--primary), #e5e5f7),
+		background-image:
+			radial-gradient(circle at center center, var(--primary), #e5e5f7),
 			repeating-radial-gradient(
 				circle at center center,
 				var(--primary),
@@ -544,7 +550,9 @@
 		top: 4px;
 		left: 0;
 		width: 15px;
-		transition: background 0.3s ease-in-out, border 0.3s ease-in-out;
+		transition:
+			background 0.3s ease-in-out,
+			border 0.3s ease-in-out;
 	}
 	.timeline-marker:after {
 		content: '';

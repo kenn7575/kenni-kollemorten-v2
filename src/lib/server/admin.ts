@@ -1,37 +1,19 @@
+import { cert, getApps, initializeApp } from 'firebase-admin/app';
 import { getAuth } from 'firebase-admin/auth';
 import { getFirestore } from 'firebase-admin/firestore';
 import { getStorage } from 'firebase-admin/storage';
+import { env } from '$env/dynamic/private';
 
-// import { FB_PROJECT_ID, FB_PRIVATE_KEY, FB_CLIENT_EMAIL } from '$env/static/private';
-
-import pkg from 'firebase-admin';
-
-try {
-	// Vercel;
-	const raw = process.env.FB_PRIVATE_KEY;
-	const key = raw?.replaceAll('[REPLACE]', '\n');
-	console.warn('key', key);
-	pkg.initializeApp({
-		credential: pkg.credential.cert({
-			projectId: process.env.FB_PROJECT_ID,
-			privateKey: key,
-			clientEmail: process.env.FB_CLIENT_EMAIL
+if (!getApps().length) {
+	// Newlines in the private key are stored as [REPLACE] (Vercel) or \n (local .env)
+	const privateKey = env.FB_PRIVATE_KEY?.replaceAll('[REPLACE]', '\n').replaceAll('\\n', '\n');
+	initializeApp({
+		credential: cert({
+			projectId: env.FB_PROJECT_ID,
+			privateKey,
+			clientEmail: env.FB_CLIENT_EMAIL
 		})
 	});
-
-	// Local
-	// pkg.initializeApp({
-	// 	credential: pkg.credential.cert({
-	// 		projectId: FB_PROJECT_ID,
-	// 		privateKey: FB_PRIVATE_KEY,
-	// 		clientEmail: FB_CLIENT_EMAIL
-	// 	})
-	// });
-	console.log('Firebase admin initialized');
-} catch (error: any) {
-	if (!/already exists/u.test(error.message)) {
-		console.error('Firebase admin initialization error', error.stack);
-	}
 }
 
 export const adminDB = getFirestore();

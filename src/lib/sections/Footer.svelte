@@ -31,18 +31,18 @@
 	<div class="grid grid-flow-col gap-4">
 		<div class="tooltip tooltip-info" data-tip="LinkedIn">
 			<a aria-label="LinkedIn" target="_blank" href="https://www.linkedin.com/in/kenni-kollemorten/"
-				><i class="fa-brands fa-linkedin-in text-2xl" />
+				><i class="fa-brands fa-linkedin-in text-2xl"></i>
 			</a>
 		</div>
 
 		<div class="tooltip tooltip-info" data-tip="Github">
 			<a aria-label="GitHub" target="_blank" href="https://github.com/kenn7575">
-				<i class="fa-brands fa-github text-2xl" />
+				<i class="fa-brands fa-github text-2xl"></i>
 			</a>
 		</div>
 		<div class="tooltip tooltip-info" data-tip="Behance">
 			<a aria-label="Behance" target="_blank" href="https://www.behance.net/kennikollemo/">
-				<i class="fa-brands fa-behance text-2xl text-base-content" />
+				<i class="fa-brands fa-behance text-2xl text-base-content"></i>
 			</a>
 		</div>
 		<div class="tooltip tooltip-info" data-tip="Youtube">
@@ -52,7 +52,7 @@
 				href="https://www.youtube.com/channel/UC0JJWQth3i4VM2MUSESbh9Q"
 				class=""
 			>
-				<i class="fa-brands fa-youtube text-2xl flex text-base-content" />
+				<i class="fa-brands fa-youtube text-2xl flex text-base-content"></i>
 			</a>
 		</div>
 	</div>

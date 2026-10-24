@@ -8,7 +8,11 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: Figtree, Noto Sans JP, Noto Sans, sans-serif;
+	font-family:
+		Figtree,
+		Noto Sans JP,
+		Noto Sans,
+		sans-serif;
 }
 [data-theme='night'] > * {
 	--primary: #3abff8;
@@ -24,7 +28,6 @@ h6 {
 }
 
 .scroll-animation {
-	
 	transform: translateY(0px) !important;
 	opacity: 1 !important;
 }
@@ -35,13 +38,11 @@ h6 {
 	opacity: 0;
 	transition: all 0.5s ease-out;
 }
-.scroll-stacked-animation ul >*,
-.scroll-stacked-animation div >* {
+.scroll-stacked-animation ul > *,
+.scroll-stacked-animation div > * {
 	transform: translateX(0);
 	opacity: 1;
 }
-
-
 
 .intersection-stacked-animation ul :nth-child(2) {
 	transition-delay: 200ms;
@@ -72,12 +73,12 @@ h6 {
 }
 @keyframes your-animation {
 	0% {
-	opacity: 0;
-	transform: translateX(-50px); /* You can adjust the initial state as needed */
+		opacity: 0;
+		transform: translateX(-50px); /* You can adjust the initial state as needed */
 	}
 	100% {
-	opacity: 1;
-	transform: translateX(0); /* You can adjust the final state as needed */
+		opacity: 1;
+		transform: translateX(0); /* You can adjust the final state as needed */
 	}
 }
 @keyframes fade-up {

@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 
 	let isLoaded = false;
-	let now = new Date().getTime();
+	let now = $state(new Date().getTime());
 
 	onMount(() => {
 		isLoaded = true;
@@ -17,49 +17,53 @@
 
 	const targetDate = new Date('2027-01-24 12:00').getTime();
 
-	$: distance = targetDate - now;
-	$: years = Math.floor(distance / (1000 * 60 * 60 * 24 * 365));
-	$: months = Math.floor((distance % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30.44));
-	$: days = Math.floor((distance % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24));
-	$: hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-	$: minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-	$: seconds = Math.floor((distance % (1000 * 60)) / 1000);
+	let distance = $derived(targetDate - now);
+	let years = $derived(Math.floor(distance / (1000 * 60 * 60 * 24 * 365)));
+	let months = $derived(
+		Math.floor((distance % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30.44))
+	);
+	let days = $derived(
+		Math.floor((distance % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24))
+	);
+	let hours = $derived(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+	let minutes = $derived(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
+	let seconds = $derived(Math.floor((distance % (1000 * 60)) / 1000));
 </script>
 
 <div class="flex flex-wrap gap-4 justify-center">
 	<div class="flex flex-col w-24 items-center bg-primary rounded-box py-2 text-primary-content">
 		<span class="countdown font-mono text-5xl">
-			<span style="--value:{years};" />
+			<span style="--value:{years};"></span>
 		</span>
 		years
 	</div>
 	<div class="flex flex-col items-center w-24 bg-primary rounded-box py-2 text-primary-content">
 		<span class="countdown font-mono text-5xl">
-			<span style="--value:{months};" />
+			<span style="--value:{months};"></span>
 		</span>
 		Months
 	</div>
 	<div class="flex flex-col items-center w-24 bg-primary rounded-box py-2 text-primary-content">
 		<span class="countdown font-mono text-5xl">
-			<span style="--value:{days};" />
+			<span style="--value:{days};"></span>
 		</span>
 		days
 	</div>
 	<div class="flex flex-col items-center w-24 bg-primary rounded-box py-2 text-primary-content">
 		<span class="countdown font-mono text-5xl">
-			<span style="--value:{hours};" />
+			<span style="--value:{hours};"></span>
 		</span>
 		hours
 	</div>
 	<div class="flex flex-col items-center w-24 bg-primary rounded-box py-2 text-primary-content">
 		<span class="countdown font-mono text-5xl">
-			<span style="--value:{minutes};" />
+			<span style="--value:{minutes};"></span>
 		</span>
 		min
 	</div>
 	<div class="flex flex-col items-center w-24 bg-primary rounded-box py-2 text-primary-content">
 		<span class="countdown font-mono text-5xl">
-			<span style="--value:{seconds};" />
+			<span style="--value:{seconds};"></span>
 		</span>
 		sec
 	</div>

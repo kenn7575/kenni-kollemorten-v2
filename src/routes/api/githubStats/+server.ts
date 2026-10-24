@@ -1,4 +1,5 @@
 import { json, type RequestHandler } from '@sveltejs/kit';
+import { env } from '$env/dynamic/private';
 
 const fetchGithubData = async (token: string) => {
 	const query = `
@@ -39,6 +40,9 @@ const fetchGithubData = async (token: string) => {
 
 	const result = await response.json();
 
+	if (!response.ok) {
+		throw new Error(`GitHub API responded ${response.status}: ${result.message}`);
+	}
 	if (result.errors) {
 		throw new Error(result.errors.map((err: any) => err.message).join(', '));
 	}
@@ -47,8 +51,7 @@ const fetchGithubData = async (token: string) => {
 };
 
 export const GET: RequestHandler = async () => {
-	console.time('Time v2');
-	const token = process.env.GITHUB_TOKEN;
+	const token = env.GITHUB_TOKEN;
 	if (!token) throw Error('No github token found!');
 	const userName = 'kenn7575';
 
@@ -87,8 +90,6 @@ export const GET: RequestHandler = async () => {
 		const sortedLanguages = Object.entries(languageLines)
 			.sort((a, b) => b[1] - a[1])
 			.map(([name, lines]) => ({ name, lines }));
-
-		console.timeEnd('Time v2');
 
 		return json({
 			totalLines,

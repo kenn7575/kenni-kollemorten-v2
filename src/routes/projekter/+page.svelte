@@ -1,32 +1,38 @@
 <script lang="ts">
 	import LazyImg from '$lib/components/LazyImg.svelte';
-	import { projectsStore } from '$lib/stores/projects';
-	let dataInput = $projectsStore;
 	import { user } from '$lib/functions/firebase';
 	import IntersectionAnimation from '$lib/components/IntersectionAnimation.svelte';
 
-	//sort projects by dateCreated
-	dataInput = dataInput.sort((a, b) => {
-		const dateA = new Date(a.dateCreated);
-		const dateB = new Date(b.dateCreated);
-		return dateB.getTime() - dateA.getTime();
-	});
+	let { data: pageData } = $props();
 
-	let search = '';
-	let data = dataInput;
-	let loading = false;
-	function setSearch() {
-		loading = true;
-		data = dataInput.filter((project) => {
+	//sort projects by dateCreated
+	const dataInput = $derived(
+		[...pageData.projects].sort((a, b) => {
+			const dateA = new Date(a.dateCreated);
+			const dateB = new Date(b.dateCreated);
+			return dateB.getTime() - dateA.getTime();
+		})
+	);
+
+	let search = $state('');
+	let appliedSearch = $state('');
+	let loading = $state(false);
+	const data = $derived(
+		dataInput.filter((project) => {
+			const query = appliedSearch.toLowerCase();
 			return (
-				project.title.toLowerCase().includes(search.toLowerCase()) ||
-				project.label.toLowerCase().includes(search.toLowerCase()) ||
-				project.description.toLowerCase().includes(search.toLowerCase()) ||
+				project.title.toLowerCase().includes(query) ||
+				project.label.toLowerCase().includes(query) ||
+				project.description.toLowerCase().includes(query) ||
 				project.clips.some((clip) => {
-					return clip.toLowerCase().includes(search.toLowerCase());
+					return clip.toLowerCase().includes(query);
 				})
 			);
-		});
+		})
+	);
+	function setSearch() {
+		loading = true;
+		appliedSearch = search;
 
 		setTimeout(() => {
 			loading = false;
@@ -52,17 +58,18 @@
 			id="search-bar"
 			bind:value={search}
 			type="text"
-			on:input={() => {
+			oninput={() => {
 				setSearch();
 			}}
-			on:submit={() => {
+			onsubmit={() => {
 				setSearch();
 			}}
 			placeholder="Leder du efter noget?"
 			class="input input-bordered w-full"
 		/>
 		{#if loading}
-			<span class="loading loading-spinner loading-md absolute right-3 top-1/2 -translate-y-1/2" />
+			<span class="loading loading-spinner loading-md absolute right-3 top-1/2 -translate-y-1/2"
+			></span>
 		{/if}
 	</div>
 </div>

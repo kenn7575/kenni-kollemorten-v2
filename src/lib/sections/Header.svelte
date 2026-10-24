@@ -2,7 +2,7 @@
 	import FrontendEffect from '$lib/components/frontendEffect.svelte';
 	import BackendEffect from '$lib/components/backendEffect.svelte';
 	import { fly } from 'svelte/transition';
-	let FrontendMode = true;
+	let FrontendMode = $state(true);
 </script>
 
 <header class="flex flex-col lg:grid lg:grid-cols-3 xl:grid-cols-7 p-2">
@@ -33,13 +33,13 @@
 		xl:col-start-7 xl:col-span-1 xl:row-start-1"
 	>
 		<!-- <div class="divider hidden lg:flex xl:hidden" /> -->
-		<div class="divider lg:hidden" />
+		<div class="divider lg:hidden"></div>
 
 		<div
 			class="w-full flex justify-center items-center
         "
 		>
-			<div class="divider divider-horizontal h-96 hidden xl:flex" />
+			<div class="divider divider-horizontal h-96 hidden xl:flex"></div>
 
 			<div class="join xl:join-vertical">
 				<button
@@ -49,7 +49,7 @@
 					class:bg-primary={FrontendMode}
 					class:text-primary-content={FrontendMode}
 					class:hover:bg-primary={FrontendMode}
-					on:click={() => {
+					onclick={() => {
 						FrontendMode = true;
 					}}
 				>
@@ -63,7 +63,7 @@
 					class:bg-primary={!FrontendMode}
 					class:text-white={!FrontendMode}
 					class:hover:bg-primary={!FrontendMode}
-					on:click={() => {
+					onclick={() => {
 						FrontendMode = false;
 					}}>Backend</button
 				>

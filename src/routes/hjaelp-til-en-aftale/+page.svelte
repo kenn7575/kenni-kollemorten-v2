@@ -5,7 +5,11 @@
 	import coding from '$lib/img/coding.svg';
 	import type { PageData } from './$types';
 
-	export let data: PageData;
+	interface Props {
+		data: PageData;
+	}
+
+	let { data }: Props = $props();
 
 	function SmoothVerticalScrolling(e: any, time: number, where: string) {
 		var element = document.getElementById(e);
@@ -54,7 +58,7 @@
 			</div>
 			<figure><img src={customersurvey} alt="Bliv godgendt" /></figure>
 			<button
-				on:click={() => {
+				onclick={() => {
 					SmoothVerticalScrolling('bliv-godkendt', 400, 'top');
 				}}
 				class="btn btn-ghost btn-sm text-base-content/60 font-medium normal-case">Læs mere</button
@@ -67,7 +71,7 @@
 			</div>
 			<figure><img src={coworking} alt="uddannelsesaftale" /></figure>
 			<button
-				on:click={() => {
+				onclick={() => {
 					SmoothVerticalScrolling('Vaelg-uddannelsesaftale', 400, 'top');
 				}}
 				class="btn btn-ghost btn-sm text-base-content/60 font-medium normal-case">Læs mere</button
@@ -82,7 +86,7 @@
 			<figure><img src={agreement} alt="Underskriv" /></figure>
 
 			<button
-				on:click={() => {
+				onclick={() => {
 					SmoothVerticalScrolling('underskriv', 400, 'top');
 				}}
 				class="btn btn-ghost btn-sm text-base-content/60 font-medium normal-case">Læs mere</button
@@ -90,12 +94,12 @@
 		</div>
 	</div>
 </section>
-<div class="divider" />
+<div class="divider"></div>
 <section class="my-16 px-8 flex items-center flex-col">
 	<h1 class="font-bold text-4xl">Men først</h1>
 	<p class="text-base-content font-thin my-2">Lidt infomation om uddandelsesforløbet</p>
 	<button
-		on:click={() => {
+		onclick={() => {
 			SmoothVerticalScrolling('bliv-godkendt', 400, 'top');
 		}}
 		class="btn btn-ghost btn-sm text-base-content/60 font-medium normal-case">Spring over</button
@@ -211,7 +215,7 @@
 				class="btn btn-primary mt-8">Se pdf</a
 			>
 		</article>
-		<div class="divider divider-horizontal hidden xl:flex" />
+		<div class="divider divider-horizontal hidden xl:flex"></div>
 
 		<article class="my-16 flex flex-col items-center">
 			<h1 class="font-normal mt-16 text-3xl text-center">Løn og økonomi</h1>
@@ -226,7 +230,7 @@
 				class="btn btn-primary mt-8">Læs mere</a
 			>
 		</article>
-		<div class="divider divider-horizontal hidden xl:flex" />
+		<div class="divider divider-horizontal hidden xl:flex"></div>
 		<article class="my-16 flex flex-col items-center">
 			<h1 class="font-normal mt-16 text-3xl text-center">Lærepladsen.dk</h1>
 			<p class="mt-8 max-w-128 text-center">
@@ -243,7 +247,7 @@
 		</article>
 	</div>
 </section>
-<div class="divider" />
+<div class="divider"></div>
 
 <section class="flex px-4 lg:px-8 items-center flex-col my-16" id="bliv-godkendt">
 	<h1 class="font-bold text-4xl mt-2">
@@ -253,7 +257,7 @@
 	<div class="stats stats-vertical lg:stats-horizontal shadow mt-16">
 		<div class="stat">
 			<div class="stat-figure text-secondary">
-				<i class="fa-solid fa-circle-check text-3xl" />
+				<i class="fa-solid fa-circle-check text-3xl"></i>
 			</div>
 			<div class="stat-title text-base-content text-md xl:text-2xl">Godkendte læresteder</div>
 			<div class="stat-value text-secondary text-4xl xl:text-5xl xl:my-2">56,000+</div>
@@ -261,7 +265,7 @@
 		</div>
 		<div class="stat border">
 			<div class="stat-figure text-primary">
-				<i class="fa-solid fa-bolt text-3xl" />
+				<i class="fa-solid fa-bolt text-3xl"></i>
 			</div>
 			<div class="stat-title text-base-content text-md xl:text-2xl">Ledige lærepladser</div>
 			<div class="stat-value text-primary text-4xl xl:text-5xl xl:my-2">2,800+</div>
@@ -271,7 +275,7 @@
 		</div>
 		<div class="stat border">
 			<div class="stat-figure text-error">
-				<i class="fa-solid fa-triangle-exclamation text-3xl" />
+				<i class="fa-solid fa-triangle-exclamation text-3xl"></i>
 			</div>
 			<div class="stat-title text-base-content text-md xl:text-2xl">Ledige lærepladser</div>
 			<div class="stat-value text-error text-4xl xl:text-5xl xl:my-2">1 {'<'}</div>
