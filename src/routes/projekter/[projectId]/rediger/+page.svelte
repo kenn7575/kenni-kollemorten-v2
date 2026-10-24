@@ -366,10 +366,10 @@
 </div>
 
 <header class=" bg-primary px-2 sm:px-16 pt-8 sm:pt-16 text-primary-content">
-	<div class="join mb-16 join-vertical sm:join-horizontal !rounded-none">
-		<div class="form-control">
+	<div class="join mb-16 join-vertical sm:join-horizontal rounded-none!">
+		<div class="fieldset">
 			<label class="label" for="Label">
-				<span class="label-text text-primary-content/60">Label</span>
+				<span class="text-primary-content/60">Label</span>
 			</label>
 			<input
 				bind:value={project.label}
@@ -379,14 +379,14 @@
 			/>
 		</div>
 
-		<div class="form-control">
+		<div class="fieldset">
 			<label class="label" for="dateCreated">
-				<span class="label-text text-primary-content/60">Date Created (yyyy-mm-dd)</span>
+				<span class="text-primary-content/60">Date Created (yyyy-mm-dd)</span>
 			</label>
 			<input
 				name="dateCreated"
 				bind:value={project.dateCreated}
-				class="input input-bordered join-item placeholder:text-primary-content/60 bg-transparent border-base-100"
+				class="input join-item placeholder:text-primary-content/60 bg-transparent border-base-100"
 				placeholder="Date Created"
 			/>
 		</div>
@@ -396,23 +396,23 @@
 
 	<div class="flex flex-wrap max-w-192 gap-x-6 gap-y-2">
 		{#each project.clips as clip, index}
-			<div class="form-control">
+			<div class="fieldset">
 				<label class="label" for="link-url">
-					<span class="label-text text-primary-content/60">Clip {index + 1}</span>
+					<span class="text-primary-content/60">Clip {index + 1}</span>
 				</label>
 
 				<div class="flex items-center relative">
 					<input
 						name="link-url"
 						bind:value={project.clips[index]}
-						class="input input-bordered join-item placeholder:text-primary-content/60 bg-transparent border-base-100"
+						class="input join-item placeholder:text-primary-content/60 bg-transparent border-base-100"
 						placeholder="Clip"
 					/>
 					<button
 						onclick={() => {
 							removeClip(index);
 						}}
-						class="btn btn-circle btn-error btn-sm absolute -right-4 outline outline-base-100"
+						class="btn btn-circle btn-error btn-sm absolute -right-4 outline-solid outline-base-100"
 						><i class="fa-solid fa-trash"></i></button
 					>
 				</div>
@@ -426,38 +426,38 @@
 		class="btn btn-circle btn-base btn-sm my-4"><i class="fa-solid fa-plus"></i></button
 	>
 
-	<div class="form-control">
+	<div class="fieldset">
 		<label class="label" for="title">
-			<span class="label-text text-primary-content/60">Title</span>
+			<span class="text-primary-content/60">Title</span>
 		</label>
 		<input
 			name="title"
 			bind:value={project.title}
 			type="text"
 			placeholder="Title"
-			class="input input-bordered w-full max-w-md border-base-100 bg-transparent placeholder:text-primary-content/60"
+			class="input w-full max-w-md border-base-100 bg-transparent placeholder:text-primary-content/60"
 		/>
 	</div>
-	<div class="form-control">
+	<div class="fieldset">
 		<label class="label" for="subtitle">
-			<span class="label-text text-primary-content/60">Subtitle</span>
+			<span class="text-primary-content/60">Subtitle</span>
 		</label>
 		<input
 			bind:value={project.subtitle}
 			type="text"
 			name="subtitle"
 			placeholder="Subtitle"
-			class="input input-bordered border-base-100 bg-transparent w-full max-w-md placeholder:text-primary-content/60"
+			class="input border-base-100 bg-transparent w-full max-w-md placeholder:text-primary-content/60"
 		/>
 	</div>
-	<div class="form-control">
+	<div class="fieldset">
 		<label class="label" for="description">
-			<span class="label-text text-primary-content/60">Description</span>
+			<span class="text-primary-content/60">Description</span>
 		</label>
 		<textarea
 			name="description"
 			bind:value={project.description}
-			class="textarea textarea-bordered w-full h-fit text-primary-content bg-transparent border-base-100 xl:max-w-192 text-base placeholder:text-primary-content/60"
+			class="textarea w-full h-fit text-primary-content bg-transparent border-base-100 xl:max-w-192 text-base placeholder:text-primary-content/60"
 			placeholder="Description"></textarea>
 	</div>
 	<div class="flex flex-col sm:flex-row sm:items-start mt-16">
@@ -468,27 +468,27 @@
 					{#each project.links as link, index}
 						<div class="border border-base-100 rounded-lg px-6 p-4 relative flex items-center">
 							<div class="gap-2 mb-4 flex-col sm:flex-row flex items-center">
-								<div class="form-control">
+								<div class="fieldset">
 									<label class="label pt-0" for="link-name">
-										<span class="label-text text-primary-content/60">Name</span>
+										<span class="text-primary-content/60">Name</span>
 									</label>
 									<input
 										bind:value={project.links[index].name}
 										name="link-name"
-										class="input join-item placeholder:text-primary-content/60 bg-transparent border-base-100 !rounded-lg"
+										class="input join-item placeholder:text-primary-content/60 bg-transparent border-base-100 rounded-lg!"
 										placeholder="name"
 									/>
 								</div>
 
-								<div class="form-control">
+								<div class="fieldset">
 									<label class="label pt-0" for="link-url">
-										<span class="label-text text-primary-content/60">URL</span>
+										<span class="text-primary-content/60">URL</span>
 									</label>
 
 									<input
 										name="link-url"
 										bind:value={project.links[index].url}
-										class="input input-bordered join-item placeholder:text-primary-content/60 bg-transparent border-base-100 !rounded-lg"
+										class="input join-item placeholder:text-primary-content/60 bg-transparent border-base-100 rounded-lg!"
 										placeholder="URL"
 									/>
 								</div>
@@ -497,7 +497,7 @@
 								onclick={() => {
 									removeLink(index);
 								}}
-								class="btn btn-circle btn-error btn-sm absolute -right-4 outline outline-base-100"
+								class="btn btn-circle btn-error btn-sm absolute -right-4 outline-solid outline-base-100"
 								><i class="fa-solid fa-trash"></i></button
 							>
 						</div>
@@ -522,9 +522,9 @@
 				'https://placehold.co/45x30/555/aaa'}
 			alt={project.title}
 		/>
-		<div class="form-control w-full max-w-xs absolute p-8 bg-base-100/50 rounded-2xl backdrop-blur">
+		<div class="fieldset w-full max-w-xs absolute p-8 bg-base-100/50 rounded-2xl backdrop-blur-sm">
 			<label class="label" for="main-image">
-				<span class="label-text font-semibold">Pick the main image</span>
+				<span class="font-semibold">Pick the main image</span>
 			</label>
 			<input
 				onchange={async (e) => {
@@ -537,7 +537,7 @@
 				bind:value={project.imageFile}
 				type="file"
 				aria-label="main-image"
-				class="file-input file-input-bordered w-full max-w-xs"
+				class="file-input w-full max-w-xs"
 			/>
 		</div>
 	</div>
@@ -564,51 +564,51 @@
 					{sectionIndex < 10 ? '0' + (sectionIndex + 1) : sectionIndex + 1}
 				</p>
 
-				<div class="form-control">
+				<div class="fieldset">
 					{#if sectionIndex % 2 == 0}
 						<label class="label" for="section-title-{sectionIndex}">
-							<span class="label-text text-base-content/60">Title</span>
+							<span class="text-base-content/60">Title</span>
 						</label>
 						<input
 							name="section-title-{sectionIndex}"
 							bind:value={project.text[sectionIndex].title}
 							type="text"
 							placeholder="Title"
-							class="input input-bordered w-full max-w-md"
+							class="input w-full max-w-md"
 						/>
 					{:else}
 						<label class="label" for="section-title-{sectionIndex}">
-							<span class="label-text text-primary-content/60">Title</span>
+							<span class="text-primary-content/60">Title</span>
 						</label>
 						<input
 							name="section-title-{sectionIndex}"
 							bind:value={project.text[sectionIndex].title}
 							type="text"
 							placeholder="Title"
-							class="input input-bordered w-full max-w-md border-base-100 bg-transparent placeholder:text-primary-content/60"
+							class="input w-full max-w-md border-base-100 bg-transparent placeholder:text-primary-content/60"
 						/>
 					{/if}
 				</div>
 				<div class="ml-8 max-w-full">
-					<div class="form-control">
+					<div class="fieldset">
 						{#if sectionIndex % 2 == 0}
 							<label class="label" for="section-description-{sectionIndex}">
-								<span class="label-text text-base-content/60">Description</span>
+								<span class="text-base-content/60">Description</span>
 							</label>
 							<textarea
 								name="section-description-{sectionIndex}"
 								bind:value={project.text[sectionIndex].description}
 								placeholder="Description"
-								class="input input-bordered w-full max-w-md"></textarea>
+								class="input w-full max-w-md"></textarea>
 						{:else}
 							<label class="label" for="section-description-{sectionIndex}">
-								<span class="label-text text-primary-content/60">Description</span>
+								<span class="text-primary-content/60">Description</span>
 							</label>
 							<textarea
 								name="section-description-{sectionIndex}"
 								bind:value={project.text[sectionIndex].description}
 								placeholder="Description"
-								class="input input-bordered w-full max-w-md border-base-100 bg-transparent placeholder:text-primary-content/60"
+								class="input w-full max-w-md border-base-100 bg-transparent placeholder:text-primary-content/60"
 							></textarea>
 						{/if}
 					</div>
@@ -617,10 +617,10 @@
 
 					<div class="flex flex-wrap max-w-192 gap-x-6 gap-y-2">
 						{#each project.text[sectionIndex].code as code, codeIndex}
-							<div class="form-control">
+							<div class="fieldset">
 								{#if sectionIndex % 2 == 0}
 									<label class="label" for="section-{sectionIndex}-code-{codeIndex}">
-										<span class="label-text text-base-content/60">line {codeIndex + 1}</span>
+										<span class="text-base-content/60">line {codeIndex + 1}</span>
 									</label>
 
 									<div class="flex items-center relative">
@@ -629,19 +629,19 @@
 											bind:value={project.text[sectionIndex].code[codeIndex]}
 											type="text"
 											placeholder="Line"
-											class="input input-bordered w-full max-w-md"
+											class="input w-full max-w-md"
 										/>
 										<button
 											onclick={() => {
 												removeCode(sectionIndex, codeIndex);
 											}}
-											class="btn btn-circle btn-error btn-sm absolute -right-4 outline outline-base-100"
+											class="btn btn-circle btn-error btn-sm absolute -right-4 outline-solid outline-base-100"
 											><i class="fa-solid fa-trash"></i></button
 										>
 									</div>
 								{:else}
 									<label class="label" for="section-{sectionIndex}-code-{codeIndex}">
-										<span class="label-text text-primary-content/60">line {codeIndex + 1}</span>
+										<span class="text-primary-content/60">line {codeIndex + 1}</span>
 									</label>
 
 									<div class="flex items-center relative">
@@ -650,13 +650,13 @@
 											bind:value={project.text[sectionIndex].code[codeIndex]}
 											type="text"
 											placeholder="Line"
-											class="input input-bordered w-full max-w-md border-base-100 bg-transparent placeholder:text-primary-content/60"
+											class="input w-full max-w-md border-base-100 bg-transparent placeholder:text-primary-content/60"
 										/>
 										<button
 											onclick={() => {
 												removeCode(sectionIndex, codeIndex);
 											}}
-											class="btn btn-circle btn-error btn-sm absolute -right-4 outline outline-base-100"
+											class="btn btn-circle btn-error btn-sm absolute -right-4 outline-solid outline-base-100"
 											><i class="fa-solid fa-trash"></i></button
 										>
 									</div>
@@ -685,10 +685,10 @@
 				/>
 
 				<div
-					class="form-control w-full max-w-xs absolute p-8 bg-base-100/50 rounded-2xl backdrop-blur"
+					class="fieldset w-full max-w-xs absolute p-8 bg-base-100/50 rounded-2xl backdrop-blur-sm"
 				>
 					<label class="label" for="main-image">
-						<span class="label-text font-semibold">Pick the main image</span>
+						<span class="font-semibold">Pick the main image</span>
 					</label>
 					<input
 						onchange={async (e) => {
@@ -701,7 +701,7 @@
 						bind:value={project.text[sectionIndex].imageFile}
 						type="file"
 						aria-label="main-image"
-						class="file-input file-input-bordered w-full max-w-xs"
+						class="file-input w-full max-w-xs"
 					/>
 				</div>
 			</div>

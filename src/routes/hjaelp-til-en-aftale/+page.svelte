@@ -254,7 +254,7 @@
 		<span class="text-primary">#1</span>
 		Bliv godkendt
 	</h1>
-	<div class="stats stats-vertical lg:stats-horizontal shadow mt-16">
+	<div class="stats stats-vertical lg:stats-horizontal bg-base-100 shadow-sm mt-16">
 		<div class="stat">
 			<div class="stat-figure text-secondary">
 				<i class="fa-solid fa-circle-check text-3xl"></i>

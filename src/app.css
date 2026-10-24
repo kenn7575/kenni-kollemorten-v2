@@ -1,6 +1,82 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@plugin 'daisyui' {
+	themes:
+		night --default,
+		light;
+}
+/* Keep the daisyUI 3 brand colors for the light theme (also used in --primary below) */
+@plugin 'daisyui/theme' {
+	name: 'light';
+	--color-primary: #570df8;
+	--color-primary-content: #e0d2fe;
+	--color-secondary: #f000b8;
+	--color-secondary-content: #ffd1f4;
+}
+
+@theme {
+	--height-192: 48rem;
+	--height-0_32: 0.08rem;
+
+	--animate-rise: riseup 500ms ease-in-out;
+
+	--max-height-192: 48rem;
+
+	--container-128: 32rem;
+	--container-192: 48rem;
+	--container-250: 62.5rem;
+	--container-300: 75rem;
+
+	--min-width-128: 32rem;
+	--min-width-192: 48rem;
+
+	--aspect-4\/3: 4 / 3;
+	--aspect-3\/4: 3 / 4;
+
+	--background-size-50\%: 50%;
+
+	--scale-125: 1.25;
+
+	@keyframes riseup {
+		0% {
+			transform: translateY(20px);
+			opacity: 0;
+		}
+		20% {
+			transform: translateY(20px);
+			opacity: 0;
+		}
+		100% {
+			transform: translateY(0px);
+			opacity: 100;
+		}
+	}
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+/* daisyUI 3 rendered buttons uppercase by default; keep that look */
+@layer components {
+	.btn {
+		text-transform: uppercase;
+	}
+}
+
+@layer base {
+	*,
+	::after,
+	::before,
+	::backdrop,
+	::file-selector-button {
+		border-color: var(--color-gray-200, currentcolor);
+	}
+}
+
 p,
 h1,
 h2,

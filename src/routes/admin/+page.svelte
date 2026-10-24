@@ -111,7 +111,7 @@
 			bind:value={email}
 			type="email"
 			placeholder="E-Mail"
-			class="input input-bordered input-primary w-full max-w-md"
+			class="input input-primary w-full max-w-md"
 			class:input-error={error !== ''}
 			onfocus={() => {
 				error = '';
@@ -124,7 +124,7 @@
 			bind:value={password}
 			type="password"
 			placeholder="Password"
-			class="input input-bordered input-primary w-full max-w-md"
+			class="input input-primary w-full max-w-md"
 			class:input-error={error !== ''}
 			class:input-warning={password.length < 4}
 			onfocus={() => {

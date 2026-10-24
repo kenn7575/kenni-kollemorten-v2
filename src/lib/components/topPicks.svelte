@@ -28,7 +28,7 @@
 							/>
 
 							<span
-								class="backdrop-blur-sm w-fit p-1 rounded-xl absolute top-1 right-1 no-underline text-white text-right font-bold"
+								class="backdrop-blur-xs w-fit p-1 rounded-xl absolute top-1 right-1 no-underline text-white text-right font-bold"
 								>{project.title}</span
 							>
 							<div

@@ -2,10 +2,12 @@ import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { sentrySvelteKit } from '@sentry/sveltekit/vite';
 import { sveltekit } from '@sveltejs/kit/vite';
+import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
 	plugins: [
+		tailwindcss(),
 		sentrySvelteKit({ org: 'kennikdk', project: 'javascript-sveltekit' }),
 		sveltekit({
 			// Consult https://kit.svelte.dev/docs/integrations#preprocessors

@@ -18,7 +18,7 @@
 <div class="grid grid-cols-3 grid-rows-5 relative">
 	<!-- 1 -->
 	<div class="col-start-1 row-start-1 flex items-center justify-center z-10 -rotate-3">
-		<div class="rating gap-1 bg-base-200 px-8 py-4 rounded shadow-lg">
+		<div class="rating gap-1 bg-base-200 px-8 py-4 rounded-sm shadow-lg">
 			<label for="rate-1" class="hidden">rate 1</label>
 			<input type="radio" id="rate-1" name="rating-3" class="mask mask-heart bg-red-400 border" />
 			<label for="rate-2" class="hidden">rate 2</label>

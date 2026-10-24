@@ -45,7 +45,7 @@
 	{@render children?.()}
 </main>
 
-<footer class="footer p-10 bg-base-300 text-base-content">
+<footer class="footer md:footer-horizontal p-10 bg-base-300 text-base-content">
 	<Footer />
 </footer>
 <p class="text-base-content/60 font-light text-center text-sm mb-8">

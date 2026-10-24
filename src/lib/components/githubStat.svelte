@@ -91,7 +91,7 @@
 </script>
 
 <div
-	class="card bg-base-200 text-base-content w-full max-w-192 min-h-[18rem] relative"
+	class="card bg-base-200 text-base-content w-full max-w-192 min-h-72 relative"
 	id="intersection"
 >
 	<button

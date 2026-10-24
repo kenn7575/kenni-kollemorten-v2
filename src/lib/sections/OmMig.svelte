@@ -43,7 +43,7 @@
 			</div>
 		</IntersectionAnimation>
 		<IntersectionAnimation direcrtion="right">
-			<div class="mt-8 max-w-128 mx-auto xl:!delay-150 mb-16">
+			<div class="mt-8 max-w-128 mx-auto xl:delay-150! mb-16">
 				<h3 class="text-3xl font-bold mb-4">Uddannelse 📚</h3>
 
 				<p class="text-base-content/70 text-lg">
@@ -63,7 +63,7 @@
 			</div>
 		</IntersectionAnimation>
 		<IntersectionAnimation direcrtion="right">
-			<div class=" max-w-128 ml-auto xl:!delay-300">
+			<div class=" max-w-128 ml-auto xl:delay-300!">
 				<h3 class="text-3xl font-bold mt-8 mb-4">Programmering 👾</h3>
 
 				<p class="text-base-content/70 text-lg">

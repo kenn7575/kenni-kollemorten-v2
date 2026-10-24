@@ -326,9 +326,9 @@
 					kundeservice, og jeg har lært at arbejde i et team. Jeg har fået en masse gode kollegaer,
 					og vi har et rigtig godt sammenhold.
 				</p>
-				<ul class="timeline ml-16">
+				<ul class="cv-timeline ml-16">
 					<li class="timeline-item pl-10 relative">
-						<div class="timeline-infouppercase whitespace-nowrap">
+						<div class="timeline-info uppercase whitespace-nowrap">
 							<span class="text-primary">Juli 2019</span>
 						</div>
 						<div class="timeline-marker absolute top-0 bottom-0 left-0 w-4"></div>
@@ -535,7 +535,7 @@
 		transition-delay: 900ms;
 	}
 
-	.timeline h3 {
+	.cv-timeline h3 {
 		line-height: inherit;
 	}
 

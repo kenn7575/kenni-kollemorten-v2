@@ -65,7 +65,7 @@
 				setSearch();
 			}}
 			placeholder="Leder du efter noget?"
-			class="input input-bordered w-full"
+			class="input w-full"
 		/>
 		{#if loading}
 			<span class="loading loading-spinner loading-md absolute right-3 top-1/2 -translate-y-1/2"
@@ -94,7 +94,7 @@
 							class="flex flex-col-reverse mt-16 gap-y-16 gap-x-8
 				lg:flex-row"
 						>
-							<div class="flex flex-col flex-grow">
+							<div class="flex flex-col grow">
 								<h2 class="text-3xl font-medium">{project.subtitle}</h2>
 								<p class="max-w-128 mt-8 leading-loose text-base-content/80 font-light">
 									{project.description}

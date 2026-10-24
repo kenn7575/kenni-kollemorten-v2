@@ -69,8 +69,10 @@
 					<div class="after:bg-primary-content/80 before:bg-primary-content/80 divider m-2"></div>
 					<div class="flex px-4 flex-wrap max-w-192">
 						{#each data.links as link, index}
-							<a class="btn btn-ghost btn-xs sm:btn-sm capitalize" target="_blank" href={link.url}
-								>{link.name}</a
+							<a
+								class="btn btn-ghost btn-xs sm:btn-sm capitalize text-primary-content"
+								target="_blank"
+								href={link.url}>{link.name}</a
 							>
 							{#if index !== data.links.length - 1}
 								<div
