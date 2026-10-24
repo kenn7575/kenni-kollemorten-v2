@@ -1,5 +1,5 @@
 import type { PageServerLoad } from './$types';
-import { adminDB } from '$lib/server/admin';
+import { adminDB } from '#lib/server/admin.js';
 import { error } from '@sveltejs/kit';
 
 export const load = (async () => {

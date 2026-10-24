@@ -1,8 +1,8 @@
 <script lang="ts">
-	import agreement from '$lib/img/Agreement.svg';
-	import coworking from '$lib/img/Co-working.svg';
-	import customersurvey from '$lib/img/Customer-survey.svg';
-	import coding from '$lib/img/coding.svg';
+	import agreement from '#lib/img/Agreement.svg';
+	import coworking from '#lib/img/Co-working.svg';
+	import customersurvey from '#lib/img/Customer-survey.svg';
+	import coding from '#lib/img/coding.svg';
 	import type { PageData } from './$types';
 
 	interface Props {

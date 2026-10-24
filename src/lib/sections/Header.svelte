@@ -1,6 +1,6 @@
 <script>
-	import FrontendEffect from '$lib/components/frontendEffect.svelte';
-	import BackendEffect from '$lib/components/backendEffect.svelte';
+	import FrontendEffect from '#lib/components/frontendEffect.svelte';
+	import BackendEffect from '#lib/components/backendEffect.svelte';
 	import { fly } from 'svelte/transition';
 	let FrontendMode = $state(true);
 </script>

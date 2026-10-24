@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { IProject } from '$lib/types/interfaces';
-	import TopPicks from '$lib/components/topPicks.svelte';
+	import type { IProject } from '#lib/types/interfaces.js';
+	import TopPicks from '#lib/components/topPicks.svelte';
 	interface Props {
 		data: IProject[];
 	}

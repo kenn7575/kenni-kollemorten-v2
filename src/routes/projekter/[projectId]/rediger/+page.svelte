@@ -1,14 +1,14 @@
 <script lang="ts">
-	import type { IProjectToUpload } from '$lib/types/interfaces';
+	import type { IProjectToUpload } from '#lib/types/interfaces.js';
 	import type { PageData } from './$types';
-	import { compressImage } from '$lib/functions/compressImage';
-	import { loadImage } from '$lib/functions/loadImage';
-	import { convertToWebp } from '$lib/functions/convertToWebp';
+	import { compressImage } from '#lib/functions/compressImage.js';
+	import { loadImage } from '#lib/functions/loadImage.js';
+	import { convertToWebp } from '#lib/functions/convertToWebp.js';
 	import { fade, fly } from 'svelte/transition';
-	import LazyImg from '$lib/components/LazyImg.svelte';
-	import { uploadImageToFirebase } from '$lib/functions/uploadImageToFirebase';
+	import LazyImg from '#lib/components/LazyImg.svelte';
+	import { uploadImageToFirebase } from '#lib/functions/uploadImageToFirebase.js';
 	import { goto } from '$app/navigation';
-	import { deleteImageFromFirebase } from '$lib/functions/deleteImageFromFirebase';
+	import { deleteImageFromFirebase } from '#lib/functions/deleteImageFromFirebase.js';
 
 	interface Props {
 		data: PageData;

@@ -1,8 +1,8 @@
 <script>
-	import frontend from '$lib/img/Design-process.svg';
-	import svelteLogo from '$lib/img/Svelte_Logo.svg';
-	import htmlLogo from '$lib/img/HTML_Logo.svg';
-	import tailwindLogo from '$lib/img/Tailwind_Logo.svg';
+	import frontend from '#lib/img/Design-process.svg';
+	import svelteLogo from '#lib/img/Svelte_Logo.svg';
+	import htmlLogo from '#lib/img/HTML_Logo.svg';
+	import tailwindLogo from '#lib/img/Tailwind_Logo.svg';
 
 	let page = $state(6);
 	function increase() {

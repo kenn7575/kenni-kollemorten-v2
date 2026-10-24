@@ -1,12 +1,12 @@
 <script lang="ts">
-	import LazyImg from '$lib/components/LazyImg.svelte';
+	import LazyImg from '#lib/components/LazyImg.svelte';
 	import IntersectionObserver from 'svelte-intersection-observer';
-	import { user } from '$lib/functions/firebase';
+	import { user } from '#lib/functions/firebase.js';
 
-	import Arrow from '$lib/img/Arrow.svg';
+	import Arrow from '#lib/img/Arrow.svg';
 
-	import { getMonthName } from '$lib/functions/monthCalulator';
-	import type { IProject } from '$lib/types/interfaces';
+	import { getMonthName } from '#lib/functions/monthCalulator.js';
+	import type { IProject } from '#lib/types/interfaces.js';
 	interface Props {
 		data: IProject;
 	}

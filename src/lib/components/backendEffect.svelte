@@ -1,9 +1,9 @@
 <script>
-	import backend from '$lib/img/Software-code-testing.svg';
-	import githubLogo from '$lib/img/Github_Logo.avif';
-	import FirebaseLogo from '$lib/img/Firebase_Logo.svg';
-	import nodejsLogo from '$lib/img/Nodejs_Logo.svg';
-	import svelteKitLogo from '$lib/img/Sveltekit_Logo.webp';
+	import backend from '#lib/img/Software-code-testing.svg';
+	import githubLogo from '#lib/img/Github_Logo.avif';
+	import FirebaseLogo from '#lib/img/Firebase_Logo.svg';
+	import nodejsLogo from '#lib/img/Nodejs_Logo.svg';
+	import svelteKitLogo from '#lib/img/Sveltekit_Logo.webp';
 
 	let page = 6;
 	function increase() {

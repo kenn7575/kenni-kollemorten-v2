@@ -1,7 +1,7 @@
 import type { LayoutServerLoad } from './$types';
-import { adminDB } from '$lib/server/admin';
+import { adminDB } from '#lib/server/admin.js';
 import { error } from '@sveltejs/kit';
-import type { IProject } from '$lib/types/interfaces';
+import type { IProject } from '#lib/types/interfaces.js';
 
 export const load = (async () => {
 	const ref = adminDB.collection('projects');

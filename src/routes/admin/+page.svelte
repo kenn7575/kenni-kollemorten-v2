@@ -1,11 +1,11 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import { firebaseAuth } from '$lib/functions/firebase';
+	import { firebaseAuth } from '#lib/functions/firebase.js';
 	import { signInWithEmailAndPassword } from 'firebase/auth';
 	import { fade, fly } from 'svelte/transition';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
-	import { user } from '$lib/functions/firebase';
+	import { user } from '#lib/functions/firebase.js';
 
 	let email = $state('');
 	let password = $state('');

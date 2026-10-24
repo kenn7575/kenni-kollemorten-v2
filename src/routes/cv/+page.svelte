@@ -1,20 +1,20 @@
 <script lang="ts">
-	import Countdown from '$lib/components/countdown.svelte';
+	import Countdown from '#lib/components/countdown.svelte';
 	import type { ICV } from '../../lib/types/interfaces';
-	import LazyImg from '$lib/components/LazyImg.svelte';
-	import LazyImgVertical from '$lib/components/LazyImgVertical.svelte';
-	import CCNAITN from '$lib/img/CCNAITN.png';
-	import LinuxCisco from '$lib/img/linux-essentials.png';
-	import introductionToCybersecurity from '$lib/img/introduction-to-cybersecurity.png';
-	import IntersectionAnimationfrom from '$lib/components/IntersectionAnimation.svelte';
-	import StackedAnimation from '$lib/components/StackedAnimation.svelte';
-	import IntersectionAnimation from '$lib/components/IntersectionAnimation.svelte';
+	import LazyImg from '#lib/components/LazyImg.svelte';
+	import LazyImgVertical from '#lib/components/LazyImgVertical.svelte';
+	import CCNAITN from '#lib/img/CCNAITN.png';
+	import LinuxCisco from '#lib/img/linux-essentials.png';
+	import introductionToCybersecurity from '#lib/img/introduction-to-cybersecurity.png';
+	import IntersectionAnimationfrom from '#lib/components/IntersectionAnimation.svelte';
+	import StackedAnimation from '#lib/components/StackedAnimation.svelte';
+	import IntersectionAnimation from '#lib/components/IntersectionAnimation.svelte';
 
-	// import GithubStat from '$lib/components/githubStat.svelte';
+	// import GithubStat from '#lib/components/githubStat.svelte';
 	import { onMount } from 'svelte';
 
 	interface Props {
-		// import { githubStatData } from '$lib/types/githubAPITypes';
+		// import { githubStatData } from '#lib/types/githubAPITypes.js';
 		data: any;
 	}
 

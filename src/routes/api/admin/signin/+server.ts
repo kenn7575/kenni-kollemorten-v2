@@ -1,6 +1,6 @@
 import type { RequestHandler } from './$types';
-import { json, error } from '@sveltejs/kit';
-import { adminAuth } from '$lib/server/admin';
+import { error } from '@sveltejs/kit';
+import { adminAuth } from '#lib/server/admin.js';
 
 export const POST: RequestHandler = async ({ cookies, request }) => {
 	const { idToken } = await request.json();
@@ -17,7 +17,7 @@ export const POST: RequestHandler = async ({ cookies, request }) => {
 		};
 
 		cookies.set('__session', cookie, options);
-		return json({ status: 'signedIn' });
+		return Response.json({ status: 'signedIn' });
 	} else {
 		error(401, 'Require recent login');
 	}
@@ -25,5 +25,5 @@ export const POST: RequestHandler = async ({ cookies, request }) => {
 
 export const DELETE: RequestHandler = async ({ cookies }) => {
 	cookies.delete('__session', { path: '/' });
-	return json({ status: 'signedOut' });
+	return Response.json({ status: 'signedOut' });
 };

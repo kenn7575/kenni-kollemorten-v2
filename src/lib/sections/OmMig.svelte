@@ -1,10 +1,10 @@
 <script lang="ts">
-	import Me from '$lib/img/Me.webp';
-	import MeSmall from '$lib/img/MeSmall.jpeg';
-	import getYear from '$lib/functions/hovedforløbUdregner';
-	import calcAge from '$lib/functions/aldersUdregner';
-	import LazyImg from '$lib/components/LazyImg.svelte';
-	import IntersectionAnimation from '$lib/components/IntersectionAnimation.svelte';
+	import Me from '#lib/img/Me.webp';
+	import MeSmall from '#lib/img/MeSmall.jpeg';
+	import getYear from '#lib/functions/hovedforløbUdregner.js';
+	import calcAge from '#lib/functions/aldersUdregner.js';
+	import LazyImg from '#lib/components/LazyImg.svelte';
+	import IntersectionAnimation from '#lib/components/IntersectionAnimation.svelte';
 	let year = getYear(new Date());
 	let age = calcAge(new Date('2004-06-05'));
 </script>

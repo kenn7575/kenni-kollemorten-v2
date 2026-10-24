@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { IProject } from '$lib/types/interfaces';
-	import LazyImg from '$lib/components/LazyImg.svelte';
+	import type { IProject } from '#lib/types/interfaces.js';
+	import LazyImg from '#lib/components/LazyImg.svelte';
 	import Typewriter from './typewriter.svelte';
 	import StackedAnimation from './StackedAnimation.svelte';
 	interface Props {

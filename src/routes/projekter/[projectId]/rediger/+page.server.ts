@@ -1,7 +1,7 @@
 import { redirect } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
-import { adminDB } from '$lib/server/admin';
-import type { IProject } from '$lib/types/interfaces';
+import { adminDB } from '#lib/server/admin.js';
+import type { IProject } from '#lib/types/interfaces.js';
 
 export const load = (async ({ locals, params, url }) => {
 	const uid = locals.userId;

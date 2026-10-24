@@ -1,8 +1,8 @@
 import { redirect } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
-import { adminDB } from '$lib/server/admin';
-import { adminStorage } from '$lib/server/admin';
-import type { IProjectToUpload } from '$lib/types/interfaces';
+import { adminDB } from '#lib/server/admin.js';
+import { adminStorage } from '#lib/server/admin.js';
+import type { IProjectToUpload } from '#lib/types/interfaces.js';
 
 export const POST: RequestHandler = async ({ request, locals }) => {
 	const uid = locals.userId;

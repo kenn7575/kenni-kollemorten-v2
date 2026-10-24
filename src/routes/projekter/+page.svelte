@@ -1,7 +1,7 @@
 <script lang="ts">
-	import LazyImg from '$lib/components/LazyImg.svelte';
-	import { user } from '$lib/functions/firebase';
-	import IntersectionAnimation from '$lib/components/IntersectionAnimation.svelte';
+	import LazyImg from '#lib/components/LazyImg.svelte';
+	import { user } from '#lib/functions/firebase.js';
+	import IntersectionAnimation from '#lib/components/IntersectionAnimation.svelte';
 
 	let { data: pageData } = $props();
 

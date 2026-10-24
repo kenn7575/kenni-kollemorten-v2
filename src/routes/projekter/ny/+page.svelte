@@ -1,11 +1,11 @@
 <script lang="ts">
-	import LazyImg from '$lib/components/LazyImg.svelte';
-	import type { IProjectToUpload } from '$lib/types/interfaces';
-	import { compressImage } from '$lib/functions/compressImage';
-	import { convertToWebp } from '$lib/functions/convertToWebp';
-	import { loadImage } from '$lib/functions/loadImage';
+	import LazyImg from '#lib/components/LazyImg.svelte';
+	import type { IProjectToUpload } from '#lib/types/interfaces.js';
+	import { compressImage } from '#lib/functions/compressImage.js';
+	import { convertToWebp } from '#lib/functions/convertToWebp.js';
+	import { loadImage } from '#lib/functions/loadImage.js';
 	import { goto } from '$app/navigation';
-	import { uploadImageToFirebase } from '$lib/functions/uploadImageToFirebase';
+	import { uploadImageToFirebase } from '#lib/functions/uploadImageToFirebase.js';
 	import { fade, fly } from 'svelte/transition';
 
 	let messages: { message: string; type: string }[] = $state([]);

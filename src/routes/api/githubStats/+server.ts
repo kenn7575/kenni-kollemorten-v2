@@ -1,5 +1,5 @@
-import { json, type RequestHandler } from '@sveltejs/kit';
-import { env } from '$env/dynamic/private';
+import type { RequestHandler } from '@sveltejs/kit';
+import { GITHUB_TOKEN } from '$app/env/private';
 
 const fetchGithubData = async (token: string) => {
 	const query = `
@@ -51,7 +51,7 @@ const fetchGithubData = async (token: string) => {
 };
 
 export const GET: RequestHandler = async () => {
-	const token = env.GITHUB_TOKEN;
+	const token = GITHUB_TOKEN;
 	if (!token) throw Error('No github token found!');
 	const userName = 'kenn7575';
 
@@ -91,13 +91,13 @@ export const GET: RequestHandler = async () => {
 			.sort((a, b) => b[1] - a[1])
 			.map(([name, lines]) => ({ name, lines }));
 
-		return json({
+		return Response.json({
 			totalLines,
 			totalPublicLines,
 			sortedLanguages,
 			repos: totalRepos
 		});
 	} catch (err: any) {
-		return json({ error: err?.message }, { status: 500 });
+		return Response.json({ error: err?.message }, { status: 500 });
 	}
 };

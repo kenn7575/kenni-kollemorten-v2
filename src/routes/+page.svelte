@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Header from '../lib/sections/Header.svelte';
-	import Elevplads from '$lib/sections/Elevplads.svelte';
-	import OmMig from '$lib/sections/OmMig.svelte';
-	import ProjectsPreview from '$lib/sections/ProjectsPreview.svelte';
+	import Elevplads from '#lib/sections/Elevplads.svelte';
+	import OmMig from '#lib/sections/OmMig.svelte';
+	import ProjectsPreview from '#lib/sections/ProjectsPreview.svelte';
 
 	let { data } = $props();
 </script>

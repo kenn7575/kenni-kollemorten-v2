@@ -1,10 +1,10 @@
 <script lang="ts">
 	import '../app.css';
-	import NavBar from '$lib/sections/NavBar.svelte';
-	import Footer from '$lib/sections/Footer.svelte';
-	import { user } from '$lib/functions/firebase';
-	import { signOutUser } from '$lib/functions/firebase';
-	import { dev } from '$app/environment';
+	import NavBar from '#lib/sections/NavBar.svelte';
+	import Footer from '#lib/sections/Footer.svelte';
+	import { user } from '#lib/functions/firebase.js';
+	import { signOutUser } from '#lib/functions/firebase.js';
+	import { dev } from '$app/env';
 	import { inject } from '@vercel/analytics';
 	let { data, children } = $props();
 	inject({ mode: dev ? 'development' : 'production' }); //vercel analytics initialization
@@ -23,8 +23,8 @@
 					stroke-linejoin="round"
 					stroke-width="2"
 					d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-				/></svg
-			>
+				></path>
+			</svg>
 			<span>Logget ind som admin: {$user.email}</span>
 			<div>
 				<button
