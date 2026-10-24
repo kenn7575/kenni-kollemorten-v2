@@ -10,19 +10,19 @@ const config = {
 			},
 			keyframes: {
 				riseup: {
-				  '0%': { 
-							transform: 'translateY(20px)',
-							opacity: '0' 
-						},
-						'20%': {
-							transform: 'translateY(20px)',
-							opacity: '0' 
-						},
-				  '100%': { transform: 'translateY(0px)', opacity: '100' },
+					'0%': {
+						transform: 'translateY(20px)',
+						opacity: '0'
+					},
+					'20%': {
+						transform: 'translateY(20px)',
+						opacity: '0'
+					},
+					'100%': { transform: 'translateY(0px)', opacity: '100' }
 				}
 			},
 			animation: {
-				'rise': 'riseup 500ms ease-in-out',
+				rise: 'riseup 500ms ease-in-out'
 			},
 			maxHeight: {
 				192: '48rem'
@@ -47,7 +47,6 @@ const config = {
 			scale: {
 				125: '1.25'
 			}
-			
 		}
 	},
 
