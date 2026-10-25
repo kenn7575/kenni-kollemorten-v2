@@ -49,6 +49,9 @@
 		"@vercel/analytics": {
 			"@sveltejs/kit": "$@sveltejs/kit"
 		},
-		"@grpc/grpc-js": "^1.14.6"
+		"@grpc/grpc-js": "^1.14.6",
+		"jwks-rsa": {
+			"jose": "^5.10.0"
+		}
 	}
 }
