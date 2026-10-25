@@ -55,16 +55,17 @@
 		box-sizing: border-box;
 		font-family: 'Roboto', sans-serif;
 	}
-	:root {
-		--size: max(50vmin, 18rem);
-		--height: var(--size);
-		--width: calc(3 * var(--size) / 4);
-		--font-size: calc(0.74 * var(--size));
-		--gap: calc(0.22 * var(--size));
+	/* Scoped + prefixed: daisyUI 5 reads --font-size/--size, so these must not live on :root */
+	.top-picks {
+		--tp-size: max(50vmin, 18rem);
+		--tp-height: var(--tp-size);
+		--tp-width: calc(3 * var(--tp-size) / 4);
+		--tp-font-size: calc(0.74 * var(--tp-size));
+		--tp-gap: calc(0.22 * var(--tp-size));
 	}
 
 	.top-picks__track {
-		height: var(--height);
+		height: var(--tp-height);
 		margin: 0;
 		padding: 0;
 		display: flex;
@@ -78,16 +79,16 @@
 	}
 	.top-picks__item {
 		overflow: hidden;
-		width: calc(var(--width) + var(--gap));
-		flex: 0 0 calc(var(--width) + var(--gap));
+		width: calc(var(--tp-width) + var(--tp-gap));
+		flex: 0 0 calc(var(--tp-width) + var(--tp-gap));
 		position: relative;
 		list-style: none;
 		counter-increment: index;
-		padding-left: var(--gap);
+		padding-left: var(--tp-gap);
 		scroll-snap-align: center;
 	}
 	.top-picks__item .item__card {
-		width: var(--width);
+		width: var(--tp-width);
 		position: absolute;
 		right: 0;
 		top: 0;
@@ -102,7 +103,7 @@
 		content: counter(index);
 		position: absolute;
 		color: var(--base-100);
-		font-size: var(--font-size);
+		font-size: var(--tp-font-size);
 		line-height: 0.7;
 		bottom: 1rem;
 		font-weight: bold;
