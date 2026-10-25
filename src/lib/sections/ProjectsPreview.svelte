@@ -1,7 +1,11 @@
 <script lang="ts">
-	import type { IProject } from '$lib/types/interfaces';
-	export let data: IProject[];
-	import TopPicks from '$lib/components/topPicks.svelte';
+	import type { IProject } from '#lib/types/interfaces.js';
+	import TopPicks from '#lib/components/topPicks.svelte';
+	interface Props {
+		data: IProject[];
+	}
+
+	let { data = $bindable() }: Props = $props();
 
 	//sort projects by visits and only show the top 10
 	if (data) {

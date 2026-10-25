@@ -1,14 +1,14 @@
 import type { LayoutServerLoad } from './$types';
-import { adminDB } from '$lib/server/admin';
+import { adminDB } from '#lib/server/admin.js';
 import { error } from '@sveltejs/kit';
-import type { IProject } from '$lib/types/interfaces';
+import type { IProject } from '#lib/types/interfaces.js';
 
 export const load = (async () => {
 	const ref = adminDB.collection('projects');
 	const snapshot = await ref.get();
 
 	if (snapshot.empty) {
-		throw error(404, 'Project not found :(');
+		error(404, 'Project not found :(');
 	} else {
 		const data = snapshot.docs.map((doc) => doc.data());
 		const ids = snapshot.docs.map((doc) => doc.id);

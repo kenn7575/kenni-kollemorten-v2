@@ -1,6 +1,11 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	export let threshold = 1.0;
+	interface Props {
+		threshold?: number;
+		children?: import('svelte').Snippet;
+	}
+
+	let { threshold = 1.0, children }: Props = $props();
 	let options = {
 		threshold: threshold,
 		once: true
@@ -28,7 +33,7 @@
 </script>
 
 <div class="intersection-stacked-animation w-full">
-	<slot />
+	{@render children?.()}
 </div>
 
 <style>

@@ -1,22 +1,18 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import { firebaseAuth } from '$lib/functions/firebase';
+	import { firebaseAuth } from '#lib/functions/firebase.js';
 	import { signInWithEmailAndPassword } from 'firebase/auth';
 	import { fade, fly } from 'svelte/transition';
 	import { goto } from '$app/navigation';
-	import { page } from '$app/stores';
-	import { user } from '$lib/functions/firebase';
+	import { page } from '$app/state';
+	import { user } from '#lib/functions/firebase.js';
 
-	let email = '';
-	let password = '';
-	let error = '';
-
-	$: if ($user) {
-		redirect();
-	}
+	let email = $state('');
+	let password = $state('');
+	let error = $state('');
 
 	function redirect() {
-		const redirectTo = $page.url.searchParams.get('redirect');
+		const redirectTo = page.url.searchParams.get('redirect');
 		if (redirectTo) {
 			console.log('redirecting to', '/' + redirectTo.slice(1));
 			goto('/' + redirectTo.slice(1));
@@ -61,7 +57,16 @@
 			);
 	};
 
-	export let data: PageData;
+	interface Props {
+		data: PageData;
+	}
+
+	let { data }: Props = $props();
+	$effect(() => {
+		if ($user) {
+			redirect();
+		}
+	});
 </script>
 
 <svelte:head>
@@ -91,7 +96,7 @@
 			<span>{error}</span>
 			<div>
 				<button
-					on:click={() => {
+					onclick={() => {
 						error = '';
 					}}
 					class="btn btn-sm">Close</button
@@ -99,16 +104,16 @@
 			</div>
 		</div>
 	{/if}
-	<form class="flex flex-col gap-4 mt-8" on:submit={signIn}>
+	<form class="flex flex-col gap-4 mt-8" onsubmit={signIn}>
 		<label for="email">E-Mail</label>
 		<input
 			autocomplete="on"
 			bind:value={email}
 			type="email"
 			placeholder="E-Mail"
-			class="input input-bordered input-primary w-full max-w-md"
+			class="input input-primary w-full max-w-md"
 			class:input-error={error !== ''}
-			on:focus={() => {
+			onfocus={() => {
 				error = '';
 			}}
 			class:input-warning={!validateEmail(email)}
@@ -119,10 +124,10 @@
 			bind:value={password}
 			type="password"
 			placeholder="Password"
-			class="input input-bordered input-primary w-full max-w-md"
+			class="input input-primary w-full max-w-md"
 			class:input-error={error !== ''}
 			class:input-warning={password.length < 4}
-			on:focus={() => {
+			onfocus={() => {
 				error = '';
 			}}
 		/>

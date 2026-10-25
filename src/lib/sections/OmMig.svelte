@@ -1,11 +1,9 @@
 <script lang="ts">
-	import Me from '$lib/img/Me.webp';
-	import MeSmall from '$lib/img/MeSmall.jpeg';
-	import getYear from '$lib/functions/hovedforløbUdregner';
-	import calcAge from '$lib/functions/aldersUdregner';
-	import LazyImg from '$lib/components/LazyImg.svelte';
-	import IntersectionAnimation from '$lib/components/IntersectionAnimation.svelte';
-	let year = getYear(new Date());
+	import Me from '#lib/img/Me.webp';
+	import MeSmall from '#lib/img/MeSmall.jpeg';
+	import calcAge from '#lib/functions/aldersUdregner.js';
+	import LazyImg from '#lib/components/LazyImg.svelte';
+	import IntersectionAnimation from '#lib/components/IntersectionAnimation.svelte';
 	let age = calcAge(new Date('2004-06-05'));
 </script>
 
@@ -19,7 +17,7 @@
 		</div>
 		<div
 			class="mask mask-hexagon-2 absolute w-full h-full bg-primary/20 scale-110 -translate-x-10 -translate-y-10 z-0"
-		/>
+		></div>
 	</div>
 	<div class="xl:w-full">
 		<IntersectionAnimation direcrtion="right">
@@ -32,38 +30,37 @@
 					<span class="badge badge-outline badge-secondary">programmering</span>
 					og design af
 					<span class="badge badge-outline badge-secondary">UI/UX</span> Jeg har lavet den her
-					hjemmeside, fordi jeg mangler en
-					<span class="rotate-3 underline text-base-content">elevplads</span>
-					i forbindelse med min uddandelse.
+					hjemmeside, fordi jeg søger
+					<span class="rotate-3 underline text-base-content">job</span>
+					som udvikler.
 				</p>
 				<a href=" https://github.com/kenn7575" target="_blank" class="btn btn-outline mt-4">
 					github
-					<i class="fa-brands fa-github text-3xl" />
+					<i class="fa-brands fa-github text-3xl"></i>
 				</a>
 			</div>
 		</IntersectionAnimation>
 		<IntersectionAnimation direcrtion="right">
-			<div class="mt-8 max-w-128 mx-auto xl:!delay-150 mb-16">
+			<div class="mt-8 max-w-128 mx-auto xl:delay-150! mb-16">
 				<h3 class="text-3xl font-bold mb-4">Uddannelse 📚</h3>
 
 				<p class="text-base-content/70 text-lg">
-					Jeg studere data og kommunikation, som datatekniker med speciale i programmering på
-					Syddansk Erhvervsskole og er lige nu på
-					<span class="badge badge-outline badge-secondary">{year}. år</span>
-					Som datatekniker lære jeg at udvilke store og små software systemer, og hvordan man laver code
-					som er
+					Jeg er uddannet
+					<span class="badge badge-outline badge-secondary">datatekniker</span>
+					med speciale i programmering fra Syddansk Erhvervsskole. Som datatekniker har jeg lært at udvikle
+					store og små software systemer, og hvordan man laver kode som er
 					<span class="badge badge-outline badge-secondary">DRY</span>
 					<span class="badge badge-outline badge-secondary">SOLID</span>
 					<span class="badge badge-outline badge-secondary">læsbar</span>
 				</p>
 				<a href="/cv" class="btn btn-primary mt-4">
 					Gå til CV
-					<i class="fa-solid fa-arrow-right" />
+					<i class="fa-solid fa-arrow-right"></i>
 				</a>
 			</div>
 		</IntersectionAnimation>
 		<IntersectionAnimation direcrtion="right">
-			<div class=" max-w-128 ml-auto xl:!delay-300">
+			<div class=" max-w-128 ml-auto xl:delay-300!">
 				<h3 class="text-3xl font-bold mt-8 mb-4">Programmering 👾</h3>
 
 				<p class="text-base-content/70 text-lg">
@@ -75,13 +72,14 @@
 					Jeg arbejder meget med
 					<span class="badge badge-outline badge-secondary">Webudvikling</span>
 					både front- og backend, og med frameworks som bl.a.
+					<span class="badge badge-outline badge-secondary">React</span>
+					<span class="badge badge-outline badge-secondary">NextJS</span>
 					<span class="badge badge-outline badge-secondary">Svelte</span>
-					<span class="badge badge-outline badge-secondary">SvelteKit</span>
 				</p>
 
 				<a href="/projekter" class="btn btn-primary mt-4">
 					Gå til projekter
-					<i class="fa-solid fa-arrow-right" />
+					<i class="fa-solid fa-arrow-right"></i>
 				</a>
 			</div>
 		</IntersectionAnimation>

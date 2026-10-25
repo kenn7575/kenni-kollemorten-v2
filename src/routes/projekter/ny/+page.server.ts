@@ -6,7 +6,7 @@ export const load = (async ({ locals, url }) => {
 	if (!uid) {
 		const fromURL = url.pathname;
 
-		throw redirect(302, '/admin?redirect=' + fromURL);
+		redirect(302, '/admin?redirect=' + fromURL);
 	}
 	return {};
 }) satisfies PageServerLoad;

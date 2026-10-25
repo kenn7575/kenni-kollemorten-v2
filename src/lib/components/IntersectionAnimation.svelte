@@ -1,6 +1,11 @@
 <script lang="ts">
-	export let direcrtion: string = '';
 	import { onMount } from 'svelte';
+	interface Props {
+		direcrtion?: string;
+		children?: import('svelte').Snippet;
+	}
+
+	let { direcrtion = '', children }: Props = $props();
 	onMount(() => {
 		const elements = document.querySelectorAll('.intersection-animation');
 		if (!elements) return;
@@ -28,7 +33,7 @@
 	class:right={direcrtion.toLowerCase() == 'right'}
 	class="intersection-animation transition-all duration-1000 ease-in-out w-full"
 >
-	<slot />
+	{@render children?.()}
 </div>
 
 <style>
