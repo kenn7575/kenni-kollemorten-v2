@@ -1,14 +1,12 @@
 <script lang="ts">
 	import '../app.css';
-	export let data;
-	import { projectsStore } from '$lib/stores/projects';
-	projectsStore.set(data.projects);
-	import NavBar from '$lib/sections/NavBar.svelte';
-	import Footer from '$lib/sections/Footer.svelte';
-	import { user } from '$lib/functions/firebase';
-	import { signOutUser } from '$lib/functions/firebase';
-	import { dev } from '$app/environment';
+	import NavBar from '#lib/sections/NavBar.svelte';
+	import Footer from '#lib/sections/Footer.svelte';
+	import { user } from '#lib/functions/firebase.js';
+	import { signOutUser } from '#lib/functions/firebase.js';
+	import { dev } from '$app/env';
 	import { inject } from '@vercel/analytics';
+	let { data, children } = $props();
 	inject({ mode: dev ? 'development' : 'production' }); //vercel analytics initialization
 </script>
 
@@ -25,13 +23,13 @@
 					stroke-linejoin="round"
 					stroke-width="2"
 					d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-				/></svg
-			>
+				></path>
+			</svg>
 			<span>Logget ind som admin: {$user.email}</span>
 			<div>
 				<button
 					class="btn btn-ghost"
-					on:click={() => {
+					onclick={() => {
 						signOutUser();
 					}}
 				>
@@ -44,10 +42,10 @@
 </nav>
 
 <main class="flex flex-col overflow-x-hidden bg-base-100 relative">
-	<slot projects={data} />
+	{@render children?.()}
 </main>
 
-<footer class="footer p-10 bg-base-300 text-base-content">
+<footer class="footer md:footer-horizontal p-10 bg-base-300 text-base-content">
 	<Footer />
 </footer>
 <p class="text-base-content/60 font-light text-center text-sm mb-8">

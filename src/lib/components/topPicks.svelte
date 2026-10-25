@@ -1,9 +1,13 @@
 <script lang="ts">
-	import type { IProject } from '$lib/types/interfaces';
-	export let projects: IProject[];
-	import LazyImg from '$lib/components/LazyImg.svelte';
+	import type { IProject } from '#lib/types/interfaces.js';
+	import LazyImg from '#lib/components/LazyImg.svelte';
 	import Typewriter from './typewriter.svelte';
 	import StackedAnimation from './StackedAnimation.svelte';
+	interface Props {
+		projects: IProject[];
+	}
+
+	let { projects }: Props = $props();
 </script>
 
 {#if projects}
@@ -15,7 +19,7 @@
 						<a class="item__card group" href="/projekter/{project.id}">
 							<div
 								class="z-10 absolute top-0 left-0 w-full h-full bg-base-100/50 opacity-0 backdrop-blur-lg group-hover:opacity-100 transition-all duration-300"
-							/>
+							></div>
 							<LazyImg
 								alt={project.title}
 								image={project.image}
@@ -24,7 +28,7 @@
 							/>
 
 							<span
-								class="backdrop-blur-sm w-fit p-1 rounded-xl absolute top-1 right-1 no-underline text-white text-right font-bold"
+								class="backdrop-blur-xs w-fit p-1 rounded-xl absolute top-1 right-1 no-underline text-white text-right font-bold"
 								>{project.title}</span
 							>
 							<div

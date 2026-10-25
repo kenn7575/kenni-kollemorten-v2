@@ -1,40 +1,26 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { browser } from '$app/environment';
-	//set data-theme attribute on html element
 
-	let isDoneLoading = false;
-	let darkmode = true;
-	let html: any;
+	let isDoneLoading = $state(false);
+	let darkmode = $state(true);
 
-	let drawIsOpen = false;
+	let drawIsOpen = $state(false);
 	function closeDraw() {
 		drawIsOpen = false;
 	}
 
 	onMount(() => {
-		html = document.querySelector('html');
-		if (browser) {
-			window.localStorage.getItem('theme') == 'light' ? (darkmode = false) : (darkmode = true);
-		}
+		darkmode = window.localStorage.getItem('theme') !== 'light';
 		isDoneLoading = true;
 	});
 
-	$: {
-		if (isDoneLoading) {
-			if (darkmode) {
-				html.setAttribute('data-theme', 'night');
-				if (browser) {
-					window.localStorage.setItem('theme', 'night');
-				}
-			} else {
-				html.setAttribute('data-theme', 'light');
-				if (browser) {
-					window.localStorage.setItem('theme', 'light');
-				}
-			}
-		}
-	}
+	//set data-theme attribute on html element
+	$effect(() => {
+		if (!isDoneLoading) return;
+		const theme = darkmode ? 'night' : 'light';
+		document.documentElement.setAttribute('data-theme', theme);
+		window.localStorage.setItem('theme', theme);
+	});
 </script>
 
 <div class="drawer drawer-end">
@@ -106,14 +92,14 @@
 		<!-- Page content here -->
 	</div>
 	<div class="drawer-side">
-		<label for="draw" class="drawer-overlay" />
+		<label for="draw" class="drawer-overlay"></label>
 		<ul class="menu p-4 w-80 h-full bg-base-200">
 			<!-- Sidebar content here -->
 			<li>
-				<a href="/" on:click={closeDraw}>Hjem</a>
+				<a href="/" onclick={closeDraw}>Hjem</a>
 			</li>
-			<li><a href="/projekter" on:click={closeDraw}>Projekter</a></li>
-			<li><a href="/cv" on:click={closeDraw}>CV</a></li>
+			<li><a href="/projekter" onclick={closeDraw}>Projekter</a></li>
+			<li><a href="/cv" onclick={closeDraw}>CV</a></li>
 		</ul>
 	</div>
 </div>

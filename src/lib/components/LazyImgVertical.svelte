@@ -1,10 +1,14 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
-	export let image: string;
-	export let imageSmall: string = image; // fallback
-	export let alt: string;
-	export let aspectRatio: string = 'aspect-square';
+	interface Props {
+		image: string;
+		imageSmall?: string; // fallback
+		alt: string;
+		aspectRatio?: string;
+	}
+
+	let { image, imageSmall = image, alt, aspectRatio = 'aspect-square' }: Props = $props();
 
 	onMount(() => {
 		const divs = document.querySelectorAll('.blur-img')!;

@@ -1,8 +1,8 @@
 <script>
-	import FrontendEffect from '$lib/components/frontendEffect.svelte';
-	import BackendEffect from '$lib/components/backendEffect.svelte';
+	import FrontendEffect from '#lib/components/frontendEffect.svelte';
+	import BackendEffect from '#lib/components/backendEffect.svelte';
 	import { fly } from 'svelte/transition';
-	let FrontendMode = true;
+	let FrontendMode = $state(true);
 </script>
 
 <header class="flex flex-col lg:grid lg:grid-cols-3 xl:grid-cols-7 p-2">
@@ -13,14 +13,15 @@
 		<div class="w-full flex flex-col justify-center items-start px-8">
 			<p class="text-base-content font-bold">Hej, mit navn er</p>
 			<h1
-				class=" text-5xl font-bold bg-gradient-to-r from-primary to-secondary my-8 leading-10
+				class=" text-5xl font-bold bg-linear-to-r from-primary to-secondary my-8 leading-10 sm:leading-none
 			sm:text-6xl lg:text-7xl"
 			>
 				Kenni <br /> Kollemorten
 			</h1>
 			<div class="chat chat-start">
 				<div class="chat-bubble bg-base-300 text-base-content max-w-128">
-					Jeg er datatekniker med speciale i programmering elev på SDE og jeg mangler en elevplads.
+					Jeg er uddannet datatekniker med speciale i programmering fra SDE, og jeg søger job som
+					udvikler.
 				</div>
 				<div class="chat-footer opacity-80">Leveret</div>
 			</div>
@@ -33,13 +34,13 @@
 		xl:col-start-7 xl:col-span-1 xl:row-start-1"
 	>
 		<!-- <div class="divider hidden lg:flex xl:hidden" /> -->
-		<div class="divider lg:hidden" />
+		<div class="divider lg:hidden"></div>
 
 		<div
 			class="w-full flex justify-center items-center
         "
 		>
-			<div class="divider divider-horizontal h-96 hidden xl:flex" />
+			<div class="divider divider-horizontal h-96 hidden xl:flex"></div>
 
 			<div class="join xl:join-vertical">
 				<button
@@ -49,7 +50,7 @@
 					class:bg-primary={FrontendMode}
 					class:text-primary-content={FrontendMode}
 					class:hover:bg-primary={FrontendMode}
-					on:click={() => {
+					onclick={() => {
 						FrontendMode = true;
 					}}
 				>
@@ -63,7 +64,7 @@
 					class:bg-primary={!FrontendMode}
 					class:text-white={!FrontendMode}
 					class:hover:bg-primary={!FrontendMode}
-					on:click={() => {
+					onclick={() => {
 						FrontendMode = false;
 					}}>Backend</button
 				>

@@ -1,19 +1,23 @@
 <script lang="ts">
-	import Countdown from '$lib/components/countdown.svelte';
 	import type { ICV } from '../../lib/types/interfaces';
-	import LazyImg from '$lib/components/LazyImg.svelte';
-	import LazyImgVertical from '$lib/components/LazyImgVertical.svelte';
-	import CCNAITN from '$lib/img/CCNAITN.png';
-	import LinuxCisco from '$lib/img/linux-essentials.png';
-	import introductionToCybersecurity from '$lib/img/introduction-to-cybersecurity.png';
-	import IntersectionAnimationfrom from '$lib/components/IntersectionAnimation.svelte';
-	import StackedAnimation from '$lib/components/StackedAnimation.svelte';
-	import IntersectionAnimation from '$lib/components/IntersectionAnimation.svelte';
+	import LazyImg from '#lib/components/LazyImg.svelte';
+	import LazyImgVertical from '#lib/components/LazyImgVertical.svelte';
+	import CCNAITN from '#lib/img/CCNAITN.png';
+	import LinuxCisco from '#lib/img/linux-essentials.png';
+	import introductionToCybersecurity from '#lib/img/introduction-to-cybersecurity.png';
+	import IntersectionAnimationfrom from '#lib/components/IntersectionAnimation.svelte';
+	import StackedAnimation from '#lib/components/StackedAnimation.svelte';
+	import IntersectionAnimation from '#lib/components/IntersectionAnimation.svelte';
 
-	// import GithubStat from '$lib/components/githubStat.svelte';
+	// import GithubStat from '#lib/components/githubStat.svelte';
 	import { onMount } from 'svelte';
-	// import { githubStatData } from '$lib/types/githubAPITypes';
-	export let data;
+
+	interface Props {
+		// import { githubStatData } from '#lib/types/githubAPITypes.js';
+		data: any;
+	}
+
+	let { data }: Props = $props();
 
 	const cvData = data.cv[0] as ICV;
 	// let spinDeg = 0;s
@@ -68,6 +72,314 @@
 		<h1 class="text-8xl font-bold">CV</h1>
 	</div>
 </section>
+
+<!-- Erfaring -->
+<section class="w-full flex flex-col justify-center my-16 px-2 sm:px-6">
+	<h2 class="text-center text-4xl font-semibold md:text-7xl text-primary mb-16">
+		Erhvervserfaring
+	</h2>
+
+	<IntersectionAnimation direcrtion="up">
+		<div
+			class="flex flex-col-reverse gap-8 w-full
+		lg:flex-row"
+		>
+			<div
+				class=" flex flex-col gap-4
+			lg:w-1/2"
+			>
+				<LazyImg
+					alt="Mig og brygmesteren fra Svendborgsund Bryghus med lagersystemet og to af deres øl"
+					aspectRatio="aspect-4/3"
+					image="/launch.webp"
+				/>
+			</div>
+			<div
+				class="flex flex-col gap-8
+			lg:w-1/2"
+			>
+				<p class="uppercase text-primary">Januar 2026 - Nu</p>
+				<h3 class="text-4xl sm:text-6xl">Full stack-udvikler og systemdesigner, freelance</h3>
+				<p class="ml-8">
+					Jeg designer og udvikler full stack-løsninger med Next.js på Vercel, med fokus på
+					performance og avanceret caching. Projekterne tæller bl.a. et lager- og afgiftssystem til
+					Svendborgsund Bryghus og en landingsside-løsning til Hyper Svendborg.
+				</p>
+			</div>
+		</div>
+	</IntersectionAnimation>
+	<IntersectionAnimation direcrtion="up">
+		<div
+			class="flex flex-col-reverse gap-8 mt-16
+		lg:flex-row-reverse"
+		>
+			<div
+				class=" flex flex-col gap-4
+			lg:w-1/2"
+			>
+				<LazyImg
+					alt="DanPilot lodsbåd i fart på havet"
+					aspectRatio="aspect-4/3"
+					image="/danpilot-baad.avif"
+				/>
+			</div>
+			<div
+				class="flex flex-col gap-8
+			lg:w-1/2"
+			>
+				<p class="uppercase text-primary">September 2024 - Nu</p>
+				<h3 class="text-4xl sm:text-6xl">Datatekniker hos DanPilot</h3>
+				<p class="ml-8">
+					Fuldtidsstilling (hybrid) i Svendborg hos DanPilot, som jeg startede som elev. Jeg
+					udvikler software og interne systemer med teknologier som .NET, MS SQL, Postgres, Flutter,
+					React, Next.js og agentic engineering.
+				</p>
+			</div>
+		</div>
+	</IntersectionAnimation>
+	<IntersectionAnimation direcrtion="up">
+		<div
+			class="flex flex-col-reverse gap-8 mt-16
+		lg:flex-row"
+		>
+			<div
+				class=" flex flex-col gap-4
+			lg:w-1/2"
+			>
+				<LazyImg
+					alt="SeeMatch – appen vi udviklede hos InstaMatch"
+					aspectRatio="aspect-video"
+					image="/SeeMatch.webp"
+				/>
+			</div>
+			<div
+				class="flex flex-col gap-8
+			lg:w-1/2"
+			>
+				<p class="uppercase text-primary">Oktober 2023 - April 2025</p>
+				<h3 class="text-4xl sm:text-6xl">Medstifter af InstaMatch I/S</h3>
+				<p class="ml-8">
+					Jeg var medstifter af firmaet sammen med tre klassekammerater, og vi specialiserede os i
+					app- og softwareudvikling. Som produktdesigner og content marketing manager var mine
+					primære roller UI/UX-design, administration, webudvikling og marketing.
+				</p>
+			</div>
+		</div>
+	</IntersectionAnimation>
+	<IntersectionAnimation direcrtion="up">
+		<div
+			class="flex flex-col-reverse gap-8 mt-16 w-full
+		lg:flex-row-reverse"
+		>
+			<div
+				class=" flex flex-col gap-4
+			lg:w-1/2"
+			>
+				<div class="mr-auto w-4/5">
+					<LazyImg
+						alt="Cafebiografen undenfor"
+						aspectRatio="aspect-video"
+						imageSmall="https://firebasestorage.googleapis.com/v0/b/kenni-kollemorten.appspot.com/o/cv_images%2Fcafe_out_small.webp?alt=media&token=8aee5769-8e84-45c1-a822-1e663d11eb2d&_gl=1*jzd7vh*_ga*MTcwMDQ2NTI2OC4xNjk4Mzg0NzE4*_ga_CW55HF8NVT*MTY5ODQ4Njc5My4yLjEuMTY5ODQ4NjkzNC42MC4wLjA."
+						image="https://firebasestorage.googleapis.com/v0/b/kenni-kollemorten.appspot.com/o/cv_images%2Fcafe_out.webp?alt=media&token=d848fbd8-1b15-4ff9-b8ed-ff3c08ae72f0&_gl=1*hxv3gl*_ga*MTcwMDQ2NTI2OC4xNjk4Mzg0NzE4*_ga_CW55HF8NVT*MTY5ODQ4Njc5My4yLjEuMTY5ODQ4Njg3OS40MS4wLjA."
+					/>
+				</div>
+				<div class="ml-auto w-4/5">
+					<LazyImg
+						alt="Cafebiografen undenfor"
+						aspectRatio="aspect-video"
+						imageSmall="https://firebasestorage.googleapis.com/v0/b/kenni-kollemorten.appspot.com/o/cv_images%2Fcafe_in_small.webp?alt=media&token=621d64ba-43ab-4dda-b56f-c442db4037e2&_gl=1*1sgl2sw*_ga*MTcwMDQ2NTI2OC4xNjk4Mzg0NzE4*_ga_CW55HF8NVT*MTY5ODQ4Njc5My4yLjEuMTY5ODQ4NzQ3NS40NS4wLjA."
+						image="https://firebasestorage.googleapis.com/v0/b/kenni-kollemorten.appspot.com/o/cv_images%2Fcafe_in.webp?alt=media&token=3872868c-8ee9-4186-bc3f-61b11603805b&_gl=1*bxylb9*_ga*MTcwMDQ2NTI2OC4xNjk4Mzg0NzE4*_ga_CW55HF8NVT*MTY5ODQ4Njc5My4yLjEuMTY5ODQ4NzQ2MC42MC4wLjA."
+					/>
+				</div>
+			</div>
+
+			<div
+				class="flex flex-col gap-8
+				lg:w-1/2"
+			>
+				<p class="uppercase text-primary">Juli 2019 - September 2024</p>
+				<h3 class="text-4xl sm:text-6xl">Fritidsarbejde <br />på Cafebiografen</h3>
+				<p class="ml-8">
+					Jeg har arbejdet på cafebiografen siden juni 2019. I den tid har jeg lært en masse om
+					kundeservice, og jeg har lært at arbejde i et team. Jeg har fået en masse gode kollegaer,
+					og vi har et rigtig godt sammenhold.
+				</p>
+				<ul class="cv-timeline ml-16">
+					<li class="timeline-item pl-10 relative">
+						<div class="timeline-info uppercase whitespace-nowrap">
+							<span class="text-primary">Juli 2019</span>
+						</div>
+						<div class="timeline-marker absolute top-0 bottom-0 left-0 w-4"></div>
+						<div class="timeline-content pb-10">
+							<h3 class="mt-2 text-lg font-bold">Opvasker - ungarbejder</h3>
+							<p class="mt-1">
+								Jeg var en uge i praktik, og blev ansat som opvasker 6 måneder senere.
+							</p>
+						</div>
+					</li>
+					<li class="timeline-item pl-10 relative">
+						<div class="timeline-info uppercase whitespace-nowrap">
+							<span class="text-primary">Juni 2022</span>
+						</div>
+						<div class="timeline-marker absolute top-0 bottom-0 left-0 w-4"></div>
+						<div class="timeline-content">
+							<h3 class="mt-2 text-lg font-bold">Tjener - afrydder</h3>
+							<p class="mt-1">Da jeg blev 18 år, blev jeg tjener og afrydder.</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</IntersectionAnimation>
+</section>
+<div class="divider"></div>
+
+<!-- uddannelse -->
+<section
+	class="w-full flex flex-col justify-center items-center my-16 px-2 sm:px-6"
+	id="advancements"
+>
+	<h2 class="text-center text-4xl font-semibold md:text-7xl text-primary mb-16">Uddannelse</h2>
+	<div class="flex flex-col items-center w-full max-w-192">
+		{#if cvData.advancements}
+			{#each [...cvData.advancements].reverse() as advancement, index}
+				<div class="my-2 w-full sm:my-4">
+					<div class="collapse collapse-arrow bg-base-200 border-2 border-primary">
+						<input type="radio" name="my-accordion-2" checked={index == 0 ? true : false} />
+						<div class="collapse-title text-xl font-medium">
+							<p class="font-thin text-base-content/60 text-sm">{advancement.time}</p>
+							<h3 class="text-2xl font-bold">{advancement.title}</h3>
+							<p class="font-thin text-base">{advancement.place}</p>
+						</div>
+						<div class="collapse-content">
+							{#each advancement?.content ?? [{ subject: 'Ingen karaktere i perioden' }] as text, index}
+								<div class="flex mt-4 flex-wrap">
+									<p class="font-bold text-primary">{text.subject}</p>
+									{#if text.view}
+										<div class="divider divider-horizontal"></div>
+										<p class="text-base-content/80">Standpunkt: {text.view}</p>
+									{/if}
+									{#if text.grade}
+										<div class="divider divider-horizontal"></div>
+										<p class="text-base-content/80">Karakter: {text.grade}</p>
+									{/if}
+									{#if text.other}
+										<div class="divider divider-horizontal"></div>
+										<p class="text-base-content/80">{text.other}</p>
+									{/if}
+								</div>
+								{#if index != advancement.content?.length - 1 && advancement.content?.length > 1}
+									<div class="divider m-2 before:h-0.32 after:h-0.32"></div>
+								{/if}
+							{/each}
+						</div>
+					</div>
+				</div>
+			{/each}
+		{/if}
+	</div>
+	<div class="mt-8 flex flex-col items-center text-center">
+		<i class="fa-solid fa-user-graduate text-5xl text-primary mb-4"></i>
+		<h2 class="text-2xl font-semibold mb-2">Færdiguddannet datatekniker</h2>
+		<p class="text-base-content/80 max-w-128">
+			Jeg har afsluttet min uddannelse med speciale i programmering og søger nu job som udvikler.
+		</p>
+		<a href="mailto:kenn7575@gmail.com" class="btn btn-primary mt-4">Kontakt mig</a>
+	</div>
+</section>
+<div class="divider"></div>
+
+<!-- Cercificates -->
+<section class="my-16 px-2 sm:px-6">
+	<h2 class="text-center text-4xl font-semibold md:text-7xl text-primary">Certificeringer</h2>
+
+	<IntersectionAnimationfrom>
+		<div
+			class="flex flex-col-reverse justify-around gap-8 mt-16 items-start lg:items-center
+		 lg:flex-row lg:mx-16"
+		>
+			<a
+				class="w-full lg:w-1/2 flex justify-start"
+				target="_blank"
+				rel="noreferrer"
+				href="https://www.credly.com/badges/29150412-3701-4e4c-965d-5dc73959554a/public_url"
+				aria-label="Se badge"
+			>
+				<img class="w-96 object-contain" src={CCNAITN} alt="Badge" />
+			</a>
+			<div class="">
+				<p class="uppercase text-primary">Cisco</p>
+				<h3 class="text-4xl mt-4 sm:text-6xl">Certified Network Associate</h3>
+				<div class="flex mt-8 gap-4">
+					<i class="fa-solid fa-user-graduate text-3xl text-primary"></i>
+					<p class=" text-base-content/80 max-w-128 tracking-wide">
+						Jeg har taget Cisco CCNA introduction to networks, som er et 70 timers
+						undervisningsforløb. Jeg har lært alt det grundlæggende omkring Networking, og har fået
+						en forståelse for hvordan internetet hænger sammen.
+					</p>
+				</div>
+			</div>
+		</div>
+	</IntersectionAnimationfrom>
+	<IntersectionAnimationfrom>
+		<div
+			class="flex flex-col-reverse justify-around gap-8 mt-16 mb-16 items-start lg:items-center
+		 lg:flex-row-reverse lg:mx-16"
+		>
+			<a
+				class="w-full lg:w-1/2 flex justify-start lg:justify-end"
+				target="_blank"
+				rel="noreferrer"
+				href="https://www.credly.com/badges/ab0dc599-2084-42ef-a7c4-c20bd5911fcf/public_url"
+				aria-label="Se badge"
+			>
+				<img class="w-96 object-contain" src={introductionToCybersecurity} alt="Badge" />
+			</a>
+			<div class="">
+				<p class="uppercase text-primary">Cisco</p>
+				<h3 class="text-4xl mt-4 sm:text-6xl">Certified Cybersecurity Associate</h3>
+				<div class="flex mt-8 gap-4">
+					<i class="fa-solid fa-user-graduate text-3xl text-primary"></i>
+					<p class=" text-base-content/80 max-w-128 tracking-wide">
+						Jeg har taget Cisco Introduction to Cybersecurity certificeringen, og har lært om
+						sikkerhed i netværk, software, cloud og IoT. Jeg har lært om trusler, angreb og
+						sårbarheder, og med den viden kan jeg nu bedre beskytte mig selv og andre mod
+						cyberangreb.
+					</p>
+				</div>
+			</div>
+		</div>
+	</IntersectionAnimationfrom>
+	<IntersectionAnimationfrom>
+		<div
+			class="flex flex-col-reverse justify-around gap-8 mt-16 items-start lg:items-center
+		 lg:flex-row lg:mx-16"
+		>
+			<a
+				class="w-full lg:w-1/2 flex justify-start"
+				target="_blank"
+				rel="noreferrer"
+				href="https://www.credly.com/badges/1db6dc8d-1e21-4d23-97b6-b6c32258ea5b/public_url"
+				aria-label="Se badge"
+			>
+				<img class="w-96 object-contain" src={LinuxCisco} alt="Badge" />
+			</a>
+			<div class="">
+				<p class="uppercase text-primary">Cisco</p>
+				<h3 class="text-4xl mt-4 sm:text-6xl">Linux Essentials</h3>
+				<div class="flex mt-8 gap-4">
+					<i class="fa-solid fa-user-graduate text-3xl text-primary"></i>
+					<p class=" text-base-content/80 max-w-128 tracking-wide">
+						Jeg har taget Cisco Linux Essentials certificeringen, og har lært om Linux kernelen og
+						GNU/Linux operativ systemet. Jeg har lært om kommandoer, filsystemer, brugere,
+						rettigheder og grupper, og har fået en god forståelse for hvordan Linux fungerer.
+					</p>
+				</div>
+			</div>
+		</div>
+	</IntersectionAnimationfrom>
+</section>
+<div class="divider"></div>
 
 <!-- aprentice -->
 <section class="my-16 px-2 sm:px-6">
@@ -184,254 +496,6 @@
 	</StackedAnimation>
 </section>
 
-<div class="divider" />
-<!-- Cercificates -->
-<section class="my-16 px-2 sm:px-6">
-	<h2 class="text-center text-4xl font-semibold md:text-7xl text-primary">Certificeringer</h2>
-
-	<IntersectionAnimationfrom>
-		<div
-			class="flex flex-col-reverse justify-around gap-8 mt-16 items-start lg:items-center
-		 lg:flex-row lg:mx-16"
-		>
-			<a
-				class="w-full lg:w-1/2 flex justify-start"
-				target="_blank"
-				rel="noreferrer"
-				href="https://www.credly.com/badges/29150412-3701-4e4c-965d-5dc73959554a/public_url"
-				aria-label="Se badge"
-			>
-				<img class="w-96 object-contain" src={CCNAITN} alt="Badge" />
-			</a>
-			<div class="">
-				<p class="uppercase text-primary">Cisco</p>
-				<h3 class="text-4xl mt-4 sm:text-6xl">Certified Network Associate</h3>
-				<div class="flex mt-8 gap-4">
-					<i class="fa-solid fa-user-graduate text-3xl text-primary" />
-					<p class=" text-base-content/80 max-w-128 tracking-wide">
-						Jeg har taget Cisco CCNA introduction to networks, som er et 70 timers
-						undervisningsforløb. Jeg har lært alt det grundlæggende omkring Networking, og har fået
-						en forståelse for hvordan internetet hænger sammen.
-					</p>
-				</div>
-			</div>
-		</div>
-	</IntersectionAnimationfrom>
-	<IntersectionAnimationfrom>
-		<div
-			class="flex flex-col-reverse justify-around gap-8 mt-16 mb-16 items-start lg:items-center
-		 lg:flex-row-reverse lg:mx-16"
-		>
-			<a
-				class="w-full lg:w-1/2 flex justify-start lg:justify-end"
-				target="_blank"
-				rel="noreferrer"
-				href="https://www.credly.com/badges/ab0dc599-2084-42ef-a7c4-c20bd5911fcf/public_url"
-				aria-label="Se badge"
-			>
-				<img class="w-96 object-contain" src={introductionToCybersecurity} alt="Badge" />
-			</a>
-			<div class="">
-				<p class="uppercase text-primary">Cisco</p>
-				<h3 class="text-4xl mt-4 sm:text-6xl">Certified Cybersecurity Associate</h3>
-				<div class="flex mt-8 gap-4">
-					<i class="fa-solid fa-user-graduate text-3xl text-primary" />
-					<p class=" text-base-content/80 max-w-128 tracking-wide">
-						Jeg har taget Cisco Introduction to Cybersecurity certificeringen, og har lært om
-						sikkerhed i netværk, software, cloud og IoT. Jeg har lært om trusler, angreb og
-						sårbarheder, og med den viden kan jeg nu bedre beskytte mig selv og andre mod
-						cyberangreb.
-					</p>
-				</div>
-			</div>
-		</div>
-	</IntersectionAnimationfrom>
-	<IntersectionAnimationfrom>
-		<div
-			class="flex flex-col-reverse justify-around gap-8 mt-16 items-start lg:items-center
-		 lg:flex-row lg:mx-16"
-		>
-			<a
-				class="w-full lg:w-1/2 flex justify-start"
-				target="_blank"
-				rel="noreferrer"
-				href="https://www.credly.com/badges/1db6dc8d-1e21-4d23-97b6-b6c32258ea5b/public_url"
-				aria-label="Se badge"
-			>
-				<img class="w-96 object-contain" src={LinuxCisco} alt="Badge" />
-			</a>
-			<div class="">
-				<p class="uppercase text-primary">Cisco</p>
-				<h3 class="text-4xl mt-4 sm:text-6xl">Linux Essentials</h3>
-				<div class="flex mt-8 gap-4">
-					<i class="fa-solid fa-user-graduate text-3xl text-primary" />
-					<p class=" text-base-content/80 max-w-128 tracking-wide">
-						Jeg har taget Cisco Linux Essentials certificeringen, og har lært om Linux kernelen og
-						GNU/Linux operativ systemet. Jeg har lært om kommandoer, filsystemer, brugere,
-						rettigheder og grupper, og har fået en god forståelse for hvordan Linux fungerer.
-					</p>
-				</div>
-			</div>
-		</div>
-	</IntersectionAnimationfrom>
-</section>
-
-<div class="divider" />
-<!-- Erfaring -->
-<section class="w-full flex flex-col justify-center my-16 px-2 sm:px-6">
-	<h2 class="text-center text-4xl font-semibold md:text-7xl text-primary mb-16">
-		Erhvervserfaring
-	</h2>
-
-	<IntersectionAnimation direcrtion="up">
-		<div
-			class="flex flex-col-reverse gap-8 w-full
-		lg:flex-row"
-		>
-			<div
-				class=" flex flex-col gap-4
-			lg:w-1/2"
-			>
-				<div class="mr-auto w-4/5">
-					<LazyImg
-						alt="Cafebiografen undenfor"
-						aspectRatio="aspect-video"
-						imageSmall="https://firebasestorage.googleapis.com/v0/b/kenni-kollemorten.appspot.com/o/cv_images%2Fcafe_out_small.webp?alt=media&token=8aee5769-8e84-45c1-a822-1e663d11eb2d&_gl=1*jzd7vh*_ga*MTcwMDQ2NTI2OC4xNjk4Mzg0NzE4*_ga_CW55HF8NVT*MTY5ODQ4Njc5My4yLjEuMTY5ODQ4NjkzNC42MC4wLjA."
-						image="https://firebasestorage.googleapis.com/v0/b/kenni-kollemorten.appspot.com/o/cv_images%2Fcafe_out.webp?alt=media&token=d848fbd8-1b15-4ff9-b8ed-ff3c08ae72f0&_gl=1*hxv3gl*_ga*MTcwMDQ2NTI2OC4xNjk4Mzg0NzE4*_ga_CW55HF8NVT*MTY5ODQ4Njc5My4yLjEuMTY5ODQ4Njg3OS40MS4wLjA."
-					/>
-				</div>
-				<div class="ml-auto w-4/5">
-					<LazyImg
-						alt="Cafebiografen undenfor"
-						aspectRatio="aspect-video"
-						imageSmall="https://firebasestorage.googleapis.com/v0/b/kenni-kollemorten.appspot.com/o/cv_images%2Fcafe_in_small.webp?alt=media&token=621d64ba-43ab-4dda-b56f-c442db4037e2&_gl=1*1sgl2sw*_ga*MTcwMDQ2NTI2OC4xNjk4Mzg0NzE4*_ga_CW55HF8NVT*MTY5ODQ4Njc5My4yLjEuMTY5ODQ4NzQ3NS40NS4wLjA."
-						image="https://firebasestorage.googleapis.com/v0/b/kenni-kollemorten.appspot.com/o/cv_images%2Fcafe_in.webp?alt=media&token=3872868c-8ee9-4186-bc3f-61b11603805b&_gl=1*bxylb9*_ga*MTcwMDQ2NTI2OC4xNjk4Mzg0NzE4*_ga_CW55HF8NVT*MTY5ODQ4Njc5My4yLjEuMTY5ODQ4NzQ2MC42MC4wLjA."
-					/>
-				</div>
-			</div>
-
-			<div
-				class="flex flex-col gap-8
-				lg:w-1/2"
-			>
-				<p class="uppercase text-primary">Juli 2019 - September 2024</p>
-				<h3 class="text-4xl sm:text-6xl">Fritidsarbejde <br />på Cafebiografen</h3>
-				<p class="ml-8">
-					Jeg har arbejdet på cafebiografen siden juni 2019. I den tid har jeg lært en masse om
-					kundeservice, og jeg har lært at arbejde i et team. Jeg har fået en masse gode kollegaer,
-					og vi har et rigtig godt sammenhold.
-				</p>
-				<ul class="timeline ml-16">
-					<li class="timeline-item pl-10 relative">
-						<div class="timeline-infouppercase whitespace-nowrap">
-							<span class="text-primary">Juli 2019</span>
-						</div>
-						<div class="timeline-marker absolute top-0 bottom-0 left-0 w-4" />
-						<div class="timeline-content pb-10">
-							<h3 class="mt-2 text-lg font-bold">Opvasker - ungarbejder</h3>
-							<p class="mt-1">
-								Jeg var en uge i praktik, og blev ansat som opvasker 6 måneder senere.
-							</p>
-						</div>
-					</li>
-					<li class="timeline-item pl-10 relative">
-						<div class="timeline-info uppercase whitespace-nowrap">
-							<span class="text-primary">Juni 2022</span>
-						</div>
-						<div class="timeline-marker absolute top-0 bottom-0 left-0 w-4" />
-						<div class="timeline-content">
-							<h3 class="mt-2 text-lg font-bold">Tjener - afrydder</h3>
-							<p class="mt-1">Da jeg blev 18 år, blev jeg tjener og afrydder.</p>
-						</div>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</IntersectionAnimation>
-	<IntersectionAnimation direcrtion="up">
-		<div
-			class="flex flex-col-reverse gap-8 mt-16
-		lg:flex-row-reverse"
-		>
-			<div
-				class=" flex flex-col gap-4
-			lg:w-1/2"
-			>
-				<LazyImg
-					alt="Cafebiografen undenfor"
-					aspectRatio="aspect-video"
-					imageSmall="https://firebasestorage.googleapis.com/v0/b/kenni-kollemorten.appspot.com/o/cv_images%2Fcover_Mob_dev_53x30.webp?alt=media&token=2403bf90-999d-4215-a2d5-a5ae9978ea23&_gl=1*1lkrrjf*_ga*MTcwMDQ2NTI2OC4xNjk4Mzg0NzE4*_ga_CW55HF8NVT*MTY5ODQ5MjQ3NC4zLjEuMTY5ODQ5MjYwNS4yLjAuMA.."
-					image="https://firebasestorage.googleapis.com/v0/b/kenni-kollemorten.appspot.com/o/cv_images%2Fcover_Mob_dev.webp?alt=media&token=e3b432b7-0173-449c-b4ac-fe9d43abe52c&_gl=1*fi3itn*_ga*MTcwMDQ2NTI2OC4xNjk4Mzg0NzE4*_ga_CW55HF8NVT*MTY5ODQ5MjQ3NC4zLjEuMTY5ODQ5MjU5Mi4xNS4wLjA."
-				/>
-			</div>
-			<div
-				class="flex flex-col gap-8
-			lg:w-1/2"
-			>
-				<p class="uppercase text-primary">Oktober 2023 - Nu</p>
-				<h3 class="text-4xl sm:text-6xl">Stifter og interessent af InstaMatch I/S</h3>
-				<p class="ml-8">
-					Jeg og 3 af mine venner har startet et firma, hvor vi udvikler apps og hjemmesider. Det
-					startede med en ide til en app, og vi er nu i gang med at udvikle den. Jeg lære en masse
-					ogkring udvikling af apps, hjemmesider og markedsføring, og jeg har fået en masse erfaring
-					inde for erhvervsøkonomi.
-				</p>
-			</div>
-		</div>
-	</IntersectionAnimation>
-</section>
-
-<div class="divider" />
-<!-- uddannelse -->
-<section
-	class="w-full flex flex-col justify-center items-center my-16 px-2 sm:px-6"
-	id="advancements"
->
-	<h2 class="text-center text-4xl font-semibold md:text-7xl text-primary mb-16">Uddannelse</h2>
-	<div class="flex flex-col items-center w-full max-w-192">
-		{#if cvData.advancements}
-			{#each cvData.advancements as advancement, index}
-				<div class="my-2 w-full sm:my-4">
-					<div class="collapse collapse-arrow bg-base-200 border-2 border-primary">
-						<input type="radio" name="my-accordion-2" checked={index == 0 ? true : false} />
-						<div class="collapse-title text-xl font-medium">
-							<p class="font-thin text-base-content/60 text-sm">{advancement.time}</p>
-							<h3 class="text-2xl font-bold">{advancement.title}</h3>
-							<p class="font-thin text-base">{advancement.place}</p>
-						</div>
-						<div class="collapse-content">
-							{#each advancement?.content ?? [{ subject: 'Ingen karaktere i perioden' }] as text, index}
-								<div class="flex mt-4 flex-wrap">
-									<p class="font-bold text-primary">{text.subject}</p>
-									{#if text.view}
-										<div class="divider divider-horizontal" />
-										<p class="text-base-content/80">Standpunkt: {text.view}</p>
-									{/if}
-									{#if text.grade}
-										<div class="divider divider-horizontal" />
-										<p class="text-base-content/80">Karakter: {text.grade}</p>
-									{/if}
-									{#if text.other}
-										<div class="divider divider-horizontal" />
-										<p class="text-base-content/80">{text.other}</p>
-									{/if}
-								</div>
-								{#if index != advancement.content?.length - 1 && advancement.content?.length > 1}
-									<div class="divider m-2 before:h-0.32 after:h-0.32" />
-								{/if}
-							{/each}
-						</div>
-					</div>
-				</div>
-			{/each}
-		{/if}
-	</div>
-	<div class="mt-8">
-		<h2 class="text-2xl font-semibold text-center mb-4">Færdig med uddannelsen om</h2>
-		<Countdown />
-	</div>
-</section>
-
 <!-- <section
 	class="w-full flex flex-col justify-center items-center my-16 px-2 sm:px-6 overflow-hidden"
 >
@@ -489,7 +553,8 @@
 		height: calc(100vh - 4rem);
 		background-color: #e5e5f7;
 		opacity: 0.8;
-		background-image: radial-gradient(circle at center center, var(--primary), #e5e5f7),
+		background-image:
+			radial-gradient(circle at center center, var(--primary), #e5e5f7),
 			repeating-radial-gradient(
 				circle at center center,
 				var(--primary),
@@ -529,7 +594,7 @@
 		transition-delay: 900ms;
 	}
 
-	.timeline h3 {
+	.cv-timeline h3 {
 		line-height: inherit;
 	}
 
@@ -544,7 +609,9 @@
 		top: 4px;
 		left: 0;
 		width: 15px;
-		transition: background 0.3s ease-in-out, border 0.3s ease-in-out;
+		transition:
+			background 0.3s ease-in-out,
+			border 0.3s ease-in-out;
 	}
 	.timeline-marker:after {
 		content: '';

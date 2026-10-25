@@ -4,28 +4,35 @@
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 
-	export let data: number;
-	export let delay: number = 0;
-	export let decimals = 2;
+	interface Props {
+		data: number;
+		delay?: number;
+		decimals?: number;
+		textContent: { title: string; description: string; details: string };
+	}
 
-	export let textContent: { title: string; description: string; details: string };
+	let { data, delay = 0, decimals = 2, textContent }: Props = $props();
 
 	const numberAnimation = tweened(0, {
 		duration: 2000,
 		easing: expoInOut
 	});
 
-	let formatter = new Intl.NumberFormat('da-DA', {
-		notation: 'compact',
-		minimumFractionDigits: decimals,
-		maximumFractionDigits: decimals
-	});
-	let formatter2 = new Intl.NumberFormat('da-DA', {
-		notation: 'compact',
-		maximumFractionDigits: decimals
-	});
+	let formatter = $derived(
+		new Intl.NumberFormat('da-DA', {
+			notation: 'compact',
+			minimumFractionDigits: decimals,
+			maximumFractionDigits: decimals
+		})
+	);
+	let formatter2 = $derived(
+		new Intl.NumberFormat('da-DA', {
+			notation: 'compact',
+			maximumFractionDigits: decimals
+		})
+	);
 
-	let showStats = true;
+	let showStats = $state(true);
 
 	function toggleContent() {
 		showStats = !showStats;
@@ -44,25 +51,6 @@
 		}, 3000 + delay);
 	}
 
-	// async function fetchStats() {
-	// 	try {
-	// 		console.log('Fetching data...');
-	// 		const res = await fetch('/api/githubStats/v2');
-	// 		const data = await res.json();
-	// 		console.log('Data fetched!', data);
-	// 		stats = data;
-	// 		loading = false;
-	// 		localStorage.setItem(
-	// 			'github_data',
-	// 			JSON.stringify({ ...stats, created_at: new Date().getTime() })
-	// 		);
-	// 	} catch (e) {
-	// 		console.error(e);
-	// 	}
-	// }
-
-	$: data && initIO();
-
 	function initIO() {
 		// Initialize intersection observer
 		const elements = document.querySelectorAll('#intersection');
@@ -80,21 +68,41 @@
 			observer.observe(div);
 		});
 	}
+	// async function fetchStats() {
+	// 	try {
+	// 		console.log('Fetching data...');
+	// 		const res = await fetch('/api/githubStats/v2');
+	// 		const data = await res.json();
+	// 		console.log('Data fetched!', data);
+	// 		stats = data;
+	// 		loading = false;
+	// 		localStorage.setItem(
+	// 			'github_data',
+	// 			JSON.stringify({ ...stats, created_at: new Date().getTime() })
+	// 		);
+	// 	} catch (e) {
+	// 		console.error(e);
+	// 	}
+	// }
+
+	$effect(() => {
+		data && initIO();
+	});
 </script>
 
 <div
-	class="card bg-base-200 text-base-content w-full max-w-192 min-h-[18rem] relative"
+	class="card bg-base-200 text-base-content w-full max-w-192 min-h-72 relative"
 	id="intersection"
 >
 	<button
 		class="toggle-button bottom-2 w-10 text-xl h-10 bg-primary text-primary-content rounded-full absolute right-2 z-10"
-		on:click={toggleContent}
+		onclick={toggleContent}
 	>
-		<i class="fa-solid fa-plus transition-transform duration-500" class:rotate-45={!showStats} />
+		<i class="fa-solid fa-plus transition-transform duration-500" class:rotate-45={!showStats}></i>
 	</button>
 
 	{#if !data}
-		<i class="fa-solid fa-spinner w-min animate-spin text-4xl m-auto" />
+		<i class="fa-solid fa-spinner w-min animate-spin text-4xl m-auto"></i>
 	{:else}
 		<div class="card-body absolute top-0 bottom-0 right-0 left-0 p-6">
 			{#if showStats}

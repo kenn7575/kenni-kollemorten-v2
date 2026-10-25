@@ -1,5 +1,5 @@
 import type { PageServerLoad } from './$types';
-import { adminDB } from '$lib/server/admin';
+import { adminDB } from '#lib/server/admin.js';
 import { error } from '@sveltejs/kit';
 
 export const load = (async ({ params }) => {
@@ -16,7 +16,7 @@ export const load = (async ({ params }) => {
 		const data = doc.data();
 
 		if (!data) {
-			throw error(404, 'Project not found :(');
+			error(404, 'Project not found :(');
 		}
 		data.id = projectId;
 		// Update the visits count
@@ -25,7 +25,7 @@ export const load = (async ({ params }) => {
 		return { ...data };
 	} catch (e: any) {
 		// Handle any errors that occur during Firestore operations
-		throw error(404, 'Project not found :(');
+		error(404, 'Project not found :(');
 	} finally {
 	}
 }) satisfies PageServerLoad;
