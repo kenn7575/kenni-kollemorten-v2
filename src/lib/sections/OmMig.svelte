@@ -1,11 +1,9 @@
 <script lang="ts">
 	import Me from '#lib/img/Me.webp';
 	import MeSmall from '#lib/img/MeSmall.jpeg';
-	import getYear from '#lib/functions/hovedforløbUdregner.js';
 	import calcAge from '#lib/functions/aldersUdregner.js';
 	import LazyImg from '#lib/components/LazyImg.svelte';
 	import IntersectionAnimation from '#lib/components/IntersectionAnimation.svelte';
-	let year = getYear(new Date());
 	let age = calcAge(new Date('2004-06-05'));
 </script>
 
@@ -32,9 +30,9 @@
 					<span class="badge badge-outline badge-secondary">programmering</span>
 					og design af
 					<span class="badge badge-outline badge-secondary">UI/UX</span> Jeg har lavet den her
-					hjemmeside, fordi jeg mangler en
-					<span class="rotate-3 underline text-base-content">elevplads</span>
-					i forbindelse med min uddandelse.
+					hjemmeside, fordi jeg søger
+					<span class="rotate-3 underline text-base-content">job</span>
+					som udvikler.
 				</p>
 				<a href=" https://github.com/kenn7575" target="_blank" class="btn btn-outline mt-4">
 					github
@@ -47,11 +45,10 @@
 				<h3 class="text-3xl font-bold mb-4">Uddannelse 📚</h3>
 
 				<p class="text-base-content/70 text-lg">
-					Jeg studere data og kommunikation, som datatekniker med speciale i programmering på
-					Syddansk Erhvervsskole og er lige nu på
-					<span class="badge badge-outline badge-secondary">{year}. år</span>
-					Som datatekniker lære jeg at udvilke store og små software systemer, og hvordan man laver code
-					som er
+					Jeg er uddannet
+					<span class="badge badge-outline badge-secondary">datatekniker</span>
+					med speciale i programmering fra Syddansk Erhvervsskole. Som datatekniker har jeg lært at udvikle
+					store og små software systemer, og hvordan man laver kode som er
 					<span class="badge badge-outline badge-secondary">DRY</span>
 					<span class="badge badge-outline badge-secondary">SOLID</span>
 					<span class="badge badge-outline badge-secondary">læsbar</span>
@@ -75,8 +72,9 @@
 					Jeg arbejder meget med
 					<span class="badge badge-outline badge-secondary">Webudvikling</span>
 					både front- og backend, og med frameworks som bl.a.
+					<span class="badge badge-outline badge-secondary">React</span>
+					<span class="badge badge-outline badge-secondary">NextJS</span>
 					<span class="badge badge-outline badge-secondary">Svelte</span>
-					<span class="badge badge-outline badge-secondary">SvelteKit</span>
 				</p>
 
 				<a href="/projekter" class="btn btn-primary mt-4">

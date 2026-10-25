@@ -9,13 +9,14 @@
 			class="card w-11/12 sm:w-96 glass text-base-100 shadow-xl overflow-x-hidden group-hover:scale-95 hover:scale-105! transition-transform duration-200"
 		>
 			<div class="card-body">
-				<h2 class="card-title text-2xl">Få mig som elev</h2>
+				<h2 class="card-title text-2xl">Ansæt mig</h2>
 				<p class="text-lg tracking-wider leading-snug">
-					Mangler i en engageret datatakniker elev inde for programmering?
+					Mangler I en engageret udvikler, der er uddannet datatekniker med speciale i
+					programmering?
 				</p>
 				<div class="card-actions">
 					<a
-						href="mailto:kontakt@kennik.dk"
+						href="mailto:kenn7575@gmail.com"
 						class="btn btn-secondary shadow-sm text-base mt-2 hover:scale-105 hover:btn-ghost"
 						>Kontakt mig <span class="text-2xl">🤙</span></a
 					>
@@ -26,15 +27,15 @@
 			class="card w-11/12 sm:w-96 text-base-100 glass shadow-xl overflow-x-hidden group-hover:scale-95 hover:scale-105! transition-transform duration-200"
 		>
 			<div class="card-body">
-				<h2 class="card-title text-2xl">Hjælp til en aftale</h2>
+				<h2 class="card-title text-2xl">Se mit CV</h2>
 				<p class="text-lg tracking-wider leading-snug">
-					Hvad vil det sige at have en programmør elev og hvordan fungere det?
+					Få et overblik over min uddannelse, mine certificeringer og min erfaring.
 				</p>
 				<div class="card-actions">
 					<a
-						href="/hjaelp-til-en-aftale"
+						href="/cv"
 						class="btn btn-primary border-2 shadow-sm text-base mt-2 hover:scale-105 hover:btn-ghost"
-						>Læs om det her <span class="text-2xl">📖</span></a
+						>Gå til CV <span class="text-2xl">📄</span></a
 					>
 				</div>
 			</div>

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Header from '../lib/sections/Header.svelte';
-	import Elevplads from '#lib/sections/Elevplads.svelte';
+	import Ansaet from '#lib/sections/Ansaet.svelte';
 	import OmMig from '#lib/sections/OmMig.svelte';
 	import ProjectsPreview from '#lib/sections/ProjectsPreview.svelte';
 
@@ -26,5 +26,5 @@
 <Header />
 <div class="divider"></div>
 <OmMig />
-<Elevplads />
+<Ansaet />
 <ProjectsPreview data={data.projects} />
